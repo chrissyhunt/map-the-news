@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import HeaderContainer from './containers/HeaderContainer';
+import LoadRows from './components/NewsMapDisplay/LoadRows';
+import LoadColumns from './components/NewsMapDisplay/LoadColumns';
+import ManageNewsItems from './containers/ManageNewsItems';
 
 class App extends Component {
   render() {
     return (
-      <div class="container">
-        <HeaderContainer />
-      </div>
+      <React.Fragment>
+        <div class="container">
+          <HeaderContainer />
+          <LoadRows />
+          <LoadColumns />
+        </div>
+        <ManageNewsItems />
+      </React.Fragment>
     );
   }
 }

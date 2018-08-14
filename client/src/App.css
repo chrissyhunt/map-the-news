@@ -16,6 +16,7 @@ body {
   color: #000;
   box-shadow: -1px 1px 2px #BBB;
   border-radius: 12px;
+  max-width: 400px;
 }
 
 .news-item:hover {
@@ -231,4 +232,10 @@ h3 {
 
 .secondary-search button:focus, .search .button:focus {
   outline: 0;
+}
+
+.ny-times {
+  position: absolute;
+  top: 34%;
+  left: 42%;
 }
