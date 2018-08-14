@@ -18,10 +18,14 @@ class HeaderContainer extends Component {
   render() {
     return (
       <div class="row header-row">
-        <Logo />
-        <UserMenu />
-        <SearchForm />
-        {searchCompleted()}
+        <div class="header">
+          <Logo />
+          <UserMenu />
+        </div>
+        <div class="search">
+          <SearchForm />
+          {searchCompleted()}
+        </div>
       </div>
     )
   }
