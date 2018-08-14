@@ -1,4 +1,5 @@
 import React from 'react';
+import { Component } from 'react';
 import Logo from '../components/Header/Logo';
 import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
@@ -6,12 +7,13 @@ import SecondarySearchBox from '../components/Header/SecondarySearchBox';
 
 class HeaderContainer extends Component {
   constructor() {
+    super();
     this.state = {
-      searchCompleted: false
+      searchCompleted: true
     }
   }
 
-  searchCompleted = () => {
+  searchCompleted() {
     return (this.state.searchCompleted) ? <SecondarySearchBox /> : null;
   }
 
@@ -24,7 +26,7 @@ class HeaderContainer extends Component {
         </div>
         <div class="search">
           <SearchForm />
-          {searchCompleted()}
+          {this.searchCompleted()}
         </div>
       </div>
     )

@@ -1,28 +1,234 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'PT Sans';
+  color: #f4f4f8;
+}
+
+.news-item {
+  z-index: 3;
+  background-color: #f4f4f8;
+  padding: 3px 8px;
+  color: #000;
+  box-shadow: -1px 1px 2px #BBB;
+  border-radius: 12px;
+}
+
+.news-item:hover {
+  z-index: 5;
+}
+
+.news-item h4 {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+p.more-news {
+  margin-left: 14px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  color: #BBB;
+}
+
+.columns-container {
+  position: absolute;
+  left: 5vw;
+  top: 20vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.col {
+  height: 80vh;
+  width: 19vw;
+  border-left: 1px solid #f4f4f8;
+}
+
+.col h3 {
+  color: #2E4819;
+}
+
+.container {
+  display: block;
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100vw;
+  height: 20vh;
+}
+
+h3 {
+  font-size: 0.7em;
+  font-weight: 400;
   text-align: center;
+  margin: 10px;
+  text-transform: uppercase;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.row h3 {
+  width: 2%;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.header-row {
+  background-color: #0392cf;
+  border-bottom: 2px solid #f4f4f8;
 }
 
-.App-title {
-  font-size: 1.5em;
+.green-row {
+  background-color: #7bc043;
+  color: #2E4819;
 }
 
-.App-intro {
-  font-size: large;
+.yellow-row {
+  background-color: #fdf498;
+  color: #5F5B39;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.orange-row {
+  background-color: #f37736;
+  color: #5B2D14;
+}
+
+.red-row {
+  background-color: #ee4035;
+  color: #591814;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    min-width: 180px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f4f8;
+    color: #0392cf;
+    width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    text-align: left;
+    z-index: 7;
+}
+
+.dropdown-content p {
+  margin: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.header, .search {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-content: start;
+  width: 100vw;
+}
+
+.header {
+  height: 40%;
+}
+
+.search {
+  height: 60%;
+}
+
+.header-left {
+  width: 50%;
+  padding: 10px 5px 5px 10px;
+}
+
+.header-left h1 {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.header-right {
+  width: 50%;
+  padding: 10px 10px 5px 5px;
+  text-align: right;
+}
+
+.search form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin-right: 40px;
+}
+
+.search label, .secondary-search label {
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.search input {
+  background-color: #0392cf;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 2px solid #f4f4f8;
+  color: #f4f4f8;
+  height: 1.8em;
+  font-size: 1em;
+  padding: 3px;
+  margin-top: 10px;
+  font-family: 'PT Sans';
+}
+
+.search input:focus {
+  outline: 0;
+}
+
+.search .search-box {
+  width: 300px;
+}
+
+.form-element {
+  padding-left: 10px;
+}
+
+.secondary-search {
+  padding-left: 10px;
+}
+
+.secondary-search button, .search .button {
+  background-color: #f4f4f8;
+  color: #01374E;
+  border: 0;
+  font-size: 0.9em;
+  height: 2em;
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  box-shadow: -1px 1px 2px #026E9B;
+}
+
+.secondary-search button:active, .search .button:active {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+.secondary-search button:focus, .search .button:focus {
+  outline: 0;
 }
