@@ -1,19 +1,19 @@
-require 'rest-client'
-
 class NewsRequestController < ApplicationController
 
   def create
-    @news_results = RestClient.get('https://newsapi.org/v2/everything?', {params: {
-      apiKey: my_key,
-      q: news_request_params[:q],
-      sources: sources,
-      from: set_start_date,
-      to: set_end_date,
-      sortBy: 'relevancy'
-      }})
-      if @news_results
-        render json: format_news_results(@news_results), status: 200
-      end
+    @news_results = Faraday.get 'https://newsapi.org/v2/everything?' do |req|
+      req.params['apiKey'] = my_key
+      req.params['q'] = news_request_params[:q]
+      req.params['sources'] = sources
+      req.params['from'] = set_start_date
+      req.params['to'] = set_end_date
+      req.params['sortBy'] = 'relevancy'
+    end
+
+    if @news_results
+      render json: @news_results, status: 200
+      # render json: format_news_results(@news_results), status: 200
+    end
   end
 
   private
