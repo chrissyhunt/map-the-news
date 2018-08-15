@@ -5,29 +5,29 @@ class NewsRequestController < ApplicationController
   def create
     @news_results = RestClient.get('https://newsapi.org/v2/everything?', {params: {
       apiKey: my_key,
-      q: news_request_params.query,
+      q: news_request_params[:q],
       sources: sources,
       from: set_start_date,
       to: set_end_date,
-      sortBy: relevancy
+      sortBy: 'relevancy'
       }})
       if @news_results
-        render json: format_news_results(@news_results)
+        render json: format_news_results(@news_results), status: 200
       end
   end
 
   private
 
   def set_start_date
-    news_request_params.start_date ? news_request_params.start_date : DateTime.now.strftime('%F')
+    news_request_params[:start_date] ? news_request_params[:start_date] : DateTime.now.strftime('%F')
   end
 
   def set_end_date
-    news_request_params.end_date ? news_request_params.end_date : DateTime.now.strftime('%F')
+    news_request_params[:end_date] ? news_request_params[:end_date] : DateTime.now.strftime('%F')
   end
 
   def news_request_params
-    params.require(:news_request).permit(:query, :start_date, :end_date)
+    params.permit(:q, :start_date, :end_date)
   end
 
   def my_key
