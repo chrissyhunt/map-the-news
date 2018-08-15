@@ -46,6 +46,10 @@ GEM
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     ffi (1.9.25)
     foreman (0.82.0)
@@ -147,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
+  dotenv-rails
   foreman (~> 0.82.0)
   knock
   listen (>= 3.0.5, < 3.2)
