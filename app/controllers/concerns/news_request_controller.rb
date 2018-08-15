@@ -4,14 +4,14 @@ class NewsRequestController < ApplicationController
     @news_results = Faraday.get 'https://newsapi.org/v2/everything?' do |req|
       req.params['apiKey'] = my_key
       req.params['q'] = news_request_params[:q]
-      req.params['sources'] = sources
+      req.params['sources'] = set_sources
       req.params['from'] = set_start_date
       req.params['to'] = set_end_date
       req.params['sortBy'] = 'relevancy'
     end
 
     if @news_results
-      render json: @news_results, status: 200
+      render json: @news_results.body, status: 200
       # render json: format_news_results(@news_results), status: 200
     end
   end
@@ -34,7 +34,7 @@ class NewsRequestController < ApplicationController
     ENV["NEWS_API_KEY"]
   end
 
-  def sources
+  def set_sources
     'axios,bloomberg,breitbart-news,buzzfeed,cnn,fox-news,msnbc,national-review,reuters,the-american-conservative,the-huffington-post,the-new-york-times,the-wall-street-journal,the-washington-post,usa-today,the-hill,politico,the-economist,the-washington-times,time'
   end
 
