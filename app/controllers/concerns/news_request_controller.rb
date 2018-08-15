@@ -9,11 +9,8 @@ class NewsRequestController < ApplicationController
       req.params['to'] = set_end_date
       req.params['sortBy'] = 'relevancy'
     end
-
-    if @news_results
-      render json: @news_results.body, status: 200
-      # render json: format_news_results(@news_results), status: 200
-    end
+    
+    render json: @news_results.body, status: 200
   end
 
   private
