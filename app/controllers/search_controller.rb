@@ -18,4 +18,10 @@ class SearchController < ApplicationController
     render body: nil, status: :no_content
   end
 
+  private
+
+  def search_params
+    params.require(:search).permit(:query, :start_date, :end_date)
+  end
+
 end
