@@ -8,8 +8,9 @@ class NewsRequestController < ApplicationController
       req.params['from'] = set_start_date
       req.params['to'] = set_end_date
       req.params['sortBy'] = 'relevancy'
+      req.params['pageSize'] = '100'
     end
-    
+
     render json: @news_results.body, status: 200
   end
 

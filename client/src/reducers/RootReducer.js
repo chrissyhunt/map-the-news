@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import newsItemsReducer from './NewsItemsReducer';
+// import searchReducer from './SearchReducer';
 
 const rootReducer = combineReducers({
-  // insert stuff here
+  newsItems: newsItemsReducer,
+  // searchInfo: searchReducer
 })
 
 export default rootReducer;

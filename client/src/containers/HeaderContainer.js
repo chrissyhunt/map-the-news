@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import { connect } from 'react-redux';
 import Logo from '../components/Header/Logo';
 import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
@@ -59,7 +60,8 @@ class HeaderContainer extends Component {
       body: JSON.stringify(searchTerms)
     })
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(json => this.props.importNewsItems(json))
+    .then(this.setState({searchCompleted: true}))
   }
 
   searchCompleted = () => {
@@ -82,4 +84,10 @@ class HeaderContainer extends Component {
   }
 }
 
-export default HeaderContainer;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    importNewsItems: (response) => dispatch({ type: "IMPORT_NEWS_ITEMS", payload: response })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(HeaderContainer);
