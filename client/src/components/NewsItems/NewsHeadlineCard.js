@@ -2,10 +2,10 @@ import React from 'react';
 
 const NewsHeadlineCard = (props) => {
   console.log("inside NewsHeadlineCard, props: ", props)
-  const fullClass = `news-item ${props.newsInfo.pubCode}`
+  const fullClass = `news-item ${props.newsInfo.source.id}`
   return (
     <div className={fullClass}>
-      <h4>⦿ "{props.newsInfo.headline}"</h4>
+      <h4>⦿ {props.newsInfo.title}</h4>
       <p class="more-news">+ 2 more</p>
     </div>
   )

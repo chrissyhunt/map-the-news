@@ -1,9 +1,28 @@
 import { combineReducers } from 'redux';
 
-function newsItemsReducer(state = [], action) {
+function newsItemsReducer(state = {}, action) {
   switch (action.type) {
     case "IMPORT_NEWS_ITEMS":
-      return action.payload;
+      const allNews = {
+        "breitbart-news": action.payload.articles.filter(item => item.source.id === "breitbart-news"),
+        "buzzfeed": action.payload.articles.filter(item => item.source.id === "buzzfeed"),
+        "cnn": action.payload.articles.filter(item => item.source.id === "cnn"),
+        "fox-news": action.payload.articles.filter(item => item.source.id === "fox-news"),
+        "msnbc": action.payload.articles.filter(item => item.source.id === "msnbc"),
+        "national-review": action.payload.articles.filter(item => item.source.id === "national-review"),
+        "reuters": action.payload.articles.filter(item => item.source.id === "reuters"),
+        "the-american-conservative": action.payload.articles.filter(item => item.source.id === "the-american-conservative"),
+        "the-huffington-post": action.payload.articles.filter(item => item.source.id === "the-huffington-post"),
+        "the-new-york-times": action.payload.articles.filter(item => item.source.id === "the-new-york-times"),
+        "the-wall-street-journal": action.payload.articles.filter(item => item.source.id === "the-wall-street-journal"),
+        "the-washington-post": action.payload.articles.filter(item => item.source.id === "the-washington-post"),
+        "usa-today": action.payload.articles.filter(item => item.source.id === "usa-today"),
+        "the-hill": action.payload.articles.filter(item => item.source.id === "the-hill"),
+        "politico": action.payload.articles.filter(item => item.source.id === "politico"),
+        "the-economist": action.payload.articles.filter(item => item.source.id === "the-economist"),
+        "the-washington-times": action.payload.articles.filter(item => item.source.id === "the-washington-times")
+      }
+      return allNews;
 
     default:
       return state;

@@ -1,29 +1,29 @@
 import React from 'react';
 import { Component } from 'react';
+import { connect } from 'react-redux';
 import NewsHeadlineCard from '../components/NewsItems/NewsHeadlineCard';
 
 class ManageNewsItems extends Component {
-  constructor() {
-    super();
-    this.state = {
-      news: [{
-        headline: "Welcome to the Resistance, Omarosa",
-        author: "Michelle Goldberg",
-        publication: "The New York Times",
-        url: "https://www.nytimes.com/2018/08/13/opinion/columnists/omarosa-unhinged-book-trump-cult.html",
-        pubCode: "ny-times"
-      }]
-    }
-  }
 
   render() {
-    console.log("inside ManageNewsItems")
+    console.log(this.props.newsItems)
     return (
       <div>
-        <NewsHeadlineCard newsInfo={this.state.news[0]} />
+        {this.props.newsSourceList.map(source => {
+          if (this.props.newsItems[source] && this.props.newsItems[source].length > 0) {
+            return <NewsHeadlineCard newsInfo={this.props.newsItems[source][0]} />
+          }
+        })}
       </div>
     )
   }
 }
 
-export default ManageNewsItems;
+const mapStateToProps = (state) => {
+  return {
+    newsItems: state.newsItems,
+    newsSourceList: state.newsSourceList
+  }
+}
+
+export default connect(mapStateToProps)(ManageNewsItems);
