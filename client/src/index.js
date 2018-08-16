@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './App.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -29,11 +29,13 @@ const User = () => {
 
 ReactDOM.render((
   <Router>
-    <React.Fragment>
-      <Route exact path="/" render={Welcome} />
-      <Route exact path="/news" component={App} />
-      <Route exact path="/account" render={User} />
-    </React.Fragment>
+    <Provider store={store}>
+      <React.Fragment>
+        <Route exact path="/" render={Welcome} />
+        <Route exact path="/news" component={App} />
+        <Route exact path="/account" render={User} />
+      </React.Fragment>
+    </Provider>
   </Router>),
   document.getElementById('root')
 );

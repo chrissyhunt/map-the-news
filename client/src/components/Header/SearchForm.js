@@ -2,18 +2,18 @@ import React from 'react';
 
 const SearchForm = (props) => {
   return (
-    <form>
+    <form onSubmit={e => props.handleSearchSubmit(e)} >
       <div class="form-element">
         <label for="startDate">Start Date:</label><br />
-        <input type="date" name="startDate" />
+        <input type="date" name="startDate" value={props.searchTerms.startDate} onChange={e => props.handleStartDateChange(e)} />
       </div>
       <div class="form-element">
         <label for="endDate">End Date:</label><br />
-        <input type="date" name="endDate" />
+        <input type="date" name="endDate" value={props.searchTerms.endDate} onChange={e => props.handleEndDateChange(e)} />
       </div>
       <div class="form-element">
         <label for="searchTerms">Topic or Phrase:</label><br />
-        <input type="text" name="searchTerms" value="" class="search-box" />
+        <input type="text" name="searchTerms" class="search-box" value={props.searchTerms.q} onChange={e => props.handleSearchQueryChange(e)} />
       </div>
       <div class="form-element">
         <br />
