@@ -14,8 +14,9 @@ class App extends Component {
           <HeaderContainer />
           <LoadRows />
           <LoadColumns />
+          <ManageNewsItems />
         </div>
-        <ManageNewsItems />
+
       </React.Fragment>
     );
   }

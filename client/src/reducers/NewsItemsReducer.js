@@ -4,6 +4,8 @@ function newsItemsReducer(state = {}, action) {
   switch (action.type) {
     case "IMPORT_NEWS_ITEMS":
       const allNews = {
+        "axios": action.payload.articles.filter(item => item.source.id === "axios"),
+        "bloomberg": action.payload.articles.filter(item => item.source.id === "bloomberg"),
         "breitbart-news": action.payload.articles.filter(item => item.source.id === "breitbart-news"),
         "buzzfeed": action.payload.articles.filter(item => item.source.id === "buzzfeed"),
         "cnn": action.payload.articles.filter(item => item.source.id === "cnn"),

@@ -64,7 +64,7 @@ p.news-desc a {
 }
 
 p.more-news {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-left: 14px;
   font-size: 0.7em;
   text-transform: uppercase;
@@ -83,7 +83,7 @@ p.more-news {
 }
 
 .col {
-  height: 80vh;
+  min-height: 80vh;
   width: 19vw;
   border-left: 1px solid #f4f4f8;
 }
@@ -93,6 +93,8 @@ p.more-news {
 }
 
 .container {
+  height: 100%;
+  width: 100vw;
   display: block;
   z-index: 1;
 }

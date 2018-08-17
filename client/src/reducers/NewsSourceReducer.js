@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 
 function newsSourceReducer(state = [
+  "axios",
+  "bloomberg",
   "breitbart-news",
   "buzzfeed",
   "cnn",

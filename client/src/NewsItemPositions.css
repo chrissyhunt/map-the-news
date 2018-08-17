@@ -1,3 +1,15 @@
+.axios {
+  position: absolute;
+  top: 34%;
+  left: 32%;
+}
+
+.bloomberg {
+  position: absolute;
+  top: 34%;
+  left: 53%;
+}
+
 .breitbart-news {
   position: absolute;
   top: 90%;

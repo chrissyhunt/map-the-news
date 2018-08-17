@@ -17,15 +17,15 @@ class NewsRequestController < ApplicationController
   private
 
   def set_start_date
-    news_request_params[:start_date] ? news_request_params[:start_date] : DateTime.now.strftime('%F')
+    news_request_params[:startDate] ? news_request_params[:startDate] : DateTime.now.strftime('%F')
   end
 
   def set_end_date
-    news_request_params[:end_date] ? news_request_params[:end_date] : DateTime.now.strftime('%F')
+    news_request_params[:endDate] ? news_request_params[:endDate] : DateTime.now.strftime('%F')
   end
 
   def news_request_params
-    params.permit(:q, :start_date, :end_date)
+    params.permit(:q, :startDate, :endDate)
   end
 
   def my_key
@@ -33,7 +33,7 @@ class NewsRequestController < ApplicationController
   end
 
   def set_sources
-    'axios,bloomberg,breitbart-news,buzzfeed,cnn,fox-news,msnbc,national-review,reuters,the-american-conservative,the-huffington-post,the-new-york-times,the-wall-street-journal,the-washington-post,usa-today,the-hill,politico,the-economist,the-washington-times,time'
+    'axios,bloomberg,breitbart-news,buzzfeed,cnn,fox-news,msnbc,national-review,reuters,the-american-conservative,the-huffington-post,the-new-york-times,the-wall-street-journal,the-washington-post,usa-today,the-hill,politico,the-economist,the-washington-times'
   end
 
 end
