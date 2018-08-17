@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import Logo from '../components/Header/Logo';
@@ -13,8 +14,8 @@ class HeaderContainer extends Component {
       searchCompleted: false,
       searchTerms: {
         q: '',
-        startDate: '',
-        endDate: ''
+        startDate: moment().format("YYYY-MM-DD"),
+        endDate: moment().format("YYYY-MM-DD")
       }
     }
   }
@@ -64,8 +65,60 @@ class HeaderContainer extends Component {
     .then(this.setState({searchCompleted: true}))
   }
 
+  backOneDay = (event) => {
+    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'days').format("YYYY-MM-DD")
+    this.setState({
+      searchTerms: {
+        ...this.state.searchTerms,
+        endDate: newDate,
+        startDate: newDate
+      }
+    })
+    console.log('updated state: ', this.state)
+    this.fetchNews(this.state.searchTerms);
+  }
+
+  backOneWeek = (event) => {
+    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
+    this.setState({
+      searchTerms: {
+        ...this.state.searchTerms,
+        endDate: newDate,
+        startDate: newDate
+      }
+    })
+    console.log('updated state: ', this.state)
+    this.fetchNews(this.state.searchTerms);
+  }
+
+  forwardOneDay = (event) => {
+    const newDate = moment(this.state.searchTerms.endDate).add(1, 'days').format("YYYY-MM-DD")
+    this.setState({
+      searchTerms: {
+        ...this.state.searchTerms,
+        endDate: newDate,
+        startDate: newDate
+      }
+    })
+    console.log('updated state: ', this.state)
+    this.fetchNews(this.state.searchTerms);
+  }
+
+  forwardOneWeek = (event) => {
+    const newDate = moment(this.state.searchTerms.endDate).add(1, 'weeks').format("YYYY-MM-DD")
+    this.setState({
+      searchTerms: {
+        ...this.state.searchTerms,
+        endDate: newDate,
+        startDate: newDate
+      }
+    })
+    console.log('updated state: ', this.state)
+    this.fetchNews(this.state.searchTerms);
+  }
+
   searchCompleted = () => {
-    return (this.state.searchCompleted) ? <SecondarySearchBox /> : null;
+    return (this.state.searchCompleted) ? <SecondarySearchBox backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SearchForm = (props) => {
+  console.log('search form props: ', props)
   return (
     <form onSubmit={e => props.handleSearchSubmit(e)} >
       <div class="form-element">
