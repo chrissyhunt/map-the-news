@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import NewsHeadlineCard from '../components/NewsItems/NewsHeadlineCard';
+import NewsCard from '../containers/NewsCard';
 
 class ManageNewsItems extends Component {
 
@@ -11,7 +11,7 @@ class ManageNewsItems extends Component {
       <div>
         {this.props.newsSourceList.map(source => {
           if (this.props.newsItems[source] && this.props.newsItems[source].length > 0) {
-            return <NewsHeadlineCard newsInfo={this.props.newsItems[source][0]} />
+            return <NewsCard newsInfo={this.props.newsItems[source]} source={source} />
           }
         })}
       </div>
