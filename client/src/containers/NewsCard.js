@@ -36,7 +36,7 @@ class NewsCard extends Component {
     console.log("inside NewsCard, state: ", this.state)
     const fullClass = `news-item ${this.props.source}`
     const moreNews = this.props.newsInfo.length > 1 && !this.state.headlineActive && !this.state.moreLinkActive ? <MoreNews handleMoreClick={this.handleMoreClick} count={this.props.newsInfo.length-1} /> : null;
-    const closeMore = this.props.newsInfo.length > 1 && !this.state.headlineActive && this.state.moreLinkActive ? <p class="more-news"><a role="button" onClick={e => this.handleMoreClick(e)}>- Close</a></p> : null;
+    const closeMore = this.props.newsInfo.length > 1 && !this.state.headlineActive && this.state.moreLinkActive ? <p class="more-news"><a role="button" onClick={e => this.handleMoreClick(e)}>Close</a></p> : null;
     const headlineList = this.props.newsInfo.length > 1 && !this.state.headlineActive && this.state.moreLinkActive ? <HeadlineList newsInfo={this.props.newsInfo.slice(1)} /> : null;
     return (
       <div className={fullClass}>

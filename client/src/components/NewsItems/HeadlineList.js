@@ -4,13 +4,13 @@ const HeadlineList = (props) => {
 
   const headlines = props.newsInfo.map(item => {
     const url = item.url;
-    return <h4><a href={url}>⦿ {item.title}</a></h4>
+    return <li><a href={url}>{item.title}</a></li>
   })
 
   return (
-      <React.Fragment>
+      <ul>
         {headlines}
-      </React.Fragment>
+      </ul>
   )
 }
 
