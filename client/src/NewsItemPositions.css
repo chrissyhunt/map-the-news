@@ -1,7 +1,7 @@
 .axios {
   position: absolute;
   top: 34%;
-  left: 32%;
+  left: 35%;
 }
 
 .bloomberg {
@@ -12,13 +12,13 @@
 
 .breitbart-news {
   position: absolute;
-  top: 90%;
+  top: 85%;
   left: 85%;
 }
 
 .buzzfeed {
   position: absolute;
-  top: 65%;
+  top: 67%;
   left: 23%;
 }
 
@@ -30,7 +30,7 @@
 
 .fox-news {
   position: absolute;
-  top: 76%;
+  top: 72%;
   left: 83%;
 }
 
@@ -61,25 +61,25 @@
 .the-huffington-post {
   position: absolute;
   top: 61%;
-  left: 21%;
+  left: 19%;
 }
 
 .the-new-york-times {
   position: absolute;
   top: 31%;
-  left: 42%;
+  left: 43%;
 }
 
 .the-wall-street-journal {
   position: absolute;
   top: 36%;
-  left: 56%;
+  left: 57%;
 }
 
 .the-washington-post {
   position: absolute;
   top: 36%;
-  left: 42%;
+  left: 43%;
 }
 
 .usa-today {

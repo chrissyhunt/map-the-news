@@ -10,7 +10,7 @@ class NewsCard extends Component {
     super();
     this.state = {
       headlineActive: false,
-      moreLinkActive: false
+      indexActive: 0
     }
   }
 
@@ -23,27 +23,25 @@ class NewsCard extends Component {
     console.log(this.state)
   }
 
-  handleMoreClick = (event) => {
+  handleNextClick = (event) => {
     event.preventDefault();
-    const updated = !this.state.moreLinkActive
+    const currentIndex = this.state.indexActive
+    const nextIndex = currentIndex+1 === this.props.newsInfo.length ? 0 : currentIndex+1;
     this.setState({
-      moreLinkActive: updated
+      indexActive: nextIndex
     })
+    console.log(this.state)
   }
 
   render () {
     console.log("inside NewsCard, props: ", this.props)
     console.log("inside NewsCard, state: ", this.state)
     const fullClass = `news-item ${this.props.source}`
-    const moreNews = this.props.newsInfo.length > 1 && !this.state.headlineActive && !this.state.moreLinkActive ? <MoreNews handleMoreClick={this.handleMoreClick} count={this.props.newsInfo.length-1} /> : null;
-    const closeMore = this.props.newsInfo.length > 1 && !this.state.headlineActive && this.state.moreLinkActive ? <p class="more-news"><a role="button" onClick={e => this.handleMoreClick(e)}>&nbsp; Close</a></p> : null;
-    const headlineList = this.props.newsInfo.length > 1 && !this.state.headlineActive && this.state.moreLinkActive ? <HeadlineList newsInfo={this.props.newsInfo.slice(1)} /> : null;
+    const more = this.props.newsInfo.length > 1 ? <MoreNews handleNextClick={this.handleNextClick} itemActive={this.state.indexActive+1} totalItems={this.props.newsInfo.length} /> : null;
     return (
       <div className={fullClass}>
-        <Headline newsInfo={this.props.newsInfo[0]} handleHeadlineClick={this.handleHeadlineClick} headlineActive={this.state.headlineActive} />
-        {headlineList}
-        {moreNews}
-        {closeMore}
+        <Headline newsInfo={this.props.newsInfo[this.state.indexActive]} handleHeadlineClick={this.handleHeadlineClick} headlineActive={this.state.headlineActive} />
+        {more}
       </div>
     )
   }
