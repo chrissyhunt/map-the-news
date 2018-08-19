@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import './Welcome.css';
 
 class Welcome extends Component {
@@ -8,7 +9,8 @@ class Welcome extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      redirect: false
     }
   }
 
@@ -31,7 +33,8 @@ class Welcome extends Component {
     this.getUser(this.state);
     this.setState({
       email: '',
-      password: ''
+      password: '',
+      redirect: true
     })
   }
 
@@ -60,6 +63,12 @@ class Welcome extends Component {
     .then(json => this.props.setUser(json))
   }
 
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/news' />
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -71,6 +80,7 @@ class Welcome extends Component {
           <input type="password" value={this.state.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
           <input type="submit" value="Log In"/>
         </form>
+        {this.renderRedirect()}
       </React.Fragment>
     );
   }
