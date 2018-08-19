@@ -53,10 +53,12 @@ class HeaderContainer extends Component {
   }
 
   fetchNews = searchTerms => {
+    let token = "Bearer " + localStorage.getItem("jwt");
     fetch('http://localhost:3000/api/news_request', {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": token
       },
       body: JSON.stringify(searchTerms)
     })

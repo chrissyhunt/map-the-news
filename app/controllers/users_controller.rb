@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :authenticate_user
 
   def create
@@ -9,7 +9,7 @@ class UserController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = current_user
     render json: @user
   end
 
@@ -29,7 +29,7 @@ class UserController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+  def auth_params
+    params.require(:auth).permit(:first_name, :last_name, :email, :password)
   end
 end
