@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Welcome.css';
 
 class Welcome extends Component {
@@ -26,6 +27,20 @@ class Welcome extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     console.log("handleOnSubmit: ", this.state)
+    this.login(this.state);
+    // reset state
+  }
+
+  login = (userInfo) => {
+    fetch('http://localhost:3000/api/user_token', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+    .then(response => response.json())
+    .then(json => this.props.setUser(json))
   }
 
   render() {
@@ -44,4 +59,10 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (response) => dispatch({ type: "SET_USER", payload: response })
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Welcome);
