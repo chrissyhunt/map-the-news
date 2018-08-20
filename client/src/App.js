@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import './NewsItemPositions.css'
-import Welcome from './Welcome';
-import Login from './Login';
-import NewsMap from './NewsMap';
-import UserSettings from './UserSettings';
+import Welcome from './containers/Welcome';
+import Login from './containers/Login';
+import NewsMap from './containers/NewsMap';
+import UserSettings from './containers/UserSettings';
 import { userIsNotAuthenticated, userIsAuthenticated } from './utils/Authentication';
 
 class App extends Component {

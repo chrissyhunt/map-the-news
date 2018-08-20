@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
-import './NewsItemPositions.css'
-import HeaderContainer from './containers/HeaderContainer';
-import LoadRows from './components/NewsMapDisplay/LoadRows';
-import LoadColumns from './components/NewsMapDisplay/LoadColumns';
-import ManageNewsItems from './containers/ManageNewsItems';
+import '../App.css';
+import '../NewsItemPositions.css'
+import HeaderContainer from './HeaderContainer';
+import LoadRows from '../components/NewsMapDisplay/LoadRows';
+import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
+import ManageNewsItems from './ManageNewsItems';
 
 class NewsMap extends Component {
   render() {
