@@ -6,6 +6,7 @@ import Logo from '../components/Header/Logo';
 import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
 import SecondarySearchBox from '../components/Header/SecondarySearchBox';
+import { fetchNews } from '../actions/News';
 
 class HeaderContainer extends Component {
   constructor() {
@@ -49,22 +50,8 @@ class HeaderContainer extends Component {
 
   handleSearchSubmit = event => {
     event.preventDefault();
-    this.fetchNews(this.state.searchTerms);
-  }
-
-  fetchNews = searchTerms => {
-    let token = "Bearer " + localStorage.getItem("jwt");
-    fetch('http://localhost:3000/api/news_request', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": token
-      },
-      body: JSON.stringify(searchTerms)
-    })
-    .then(response => response.json())
-    .then(json => this.props.importNewsItems(json))
-    .then(this.setState({searchCompleted: true}))
+    this.props.fetchNews(this.state.searchTerms)
+    this.setState({searchCompleted: true})
   }
 
   backOneDay = (event) => {
@@ -77,7 +64,7 @@ class HeaderContainer extends Component {
       }
     })
     console.log('updated state: ', this.state)
-    this.fetchNews(this.state.searchTerms);
+    this.props.fetchNews(this.state.searchTerms);
   }
 
   backOneWeek = (event) => {
@@ -90,7 +77,7 @@ class HeaderContainer extends Component {
       }
     })
     console.log('updated state: ', this.state)
-    this.fetchNews(this.state.searchTerms);
+    this.props.fetchNews(this.state.searchTerms);
   }
 
   forwardOneDay = (event) => {
@@ -103,7 +90,7 @@ class HeaderContainer extends Component {
       }
     })
     console.log('updated state: ', this.state)
-    this.fetchNews(this.state.searchTerms);
+    this.props.fetchNews(this.state.searchTerms);
   }
 
   forwardOneWeek = (event) => {
@@ -116,7 +103,7 @@ class HeaderContainer extends Component {
       }
     })
     console.log('updated state: ', this.state)
-    this.fetchNews(this.state.searchTerms);
+    this.props.fetchNews(this.state.searchTerms);
   }
 
   searchCompleted = () => {
@@ -139,10 +126,4 @@ class HeaderContainer extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    importNewsItems: (response) => dispatch({ type: "IMPORT_NEWS_ITEMS", payload: response })
-  }
-}
-
-export default connect(null, mapDispatchToProps)(HeaderContainer);
+export default connect(null, { fetchNews })(HeaderContainer);

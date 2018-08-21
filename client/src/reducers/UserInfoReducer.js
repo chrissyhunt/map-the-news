@@ -2,6 +2,9 @@ import { combineReducers } from 'redux';
 
 function userInfoReducer(state = {}, action) {
   switch (action.type) {
+    case "LOADING_USER":
+      return {...state, loading: true};
+
     case "SET_USER":
       const user = {
         id: action.payload.id,
@@ -9,7 +12,7 @@ function userInfoReducer(state = {}, action) {
         lastName: action.payload.last_name,
         email: action.payload.email
       }
-      return user;
+      return {user, loading: false};
 
     default:
       return state;

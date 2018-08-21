@@ -6,12 +6,12 @@ import NewsCard from '../containers/NewsCard';
 class ManageNewsItems extends Component {
 
   render() {
-    console.log(this.props.newsItems)
+    console.log(this.props.newsItems.allNews)
     return (
       <div>
         {this.props.newsSourceList.map(source => {
-          if (this.props.newsItems[source] && this.props.newsItems[source].length > 0) {
-            return <NewsCard newsInfo={this.props.newsItems[source]} source={source} />
+          if (this.props.newsItems && this.props.newsItems.allNews[source] && this.props.newsItems.allNews[source].length > 0) {
+            return <NewsCard newsInfo={this.props.newsItems.allNews[source]} source={source} />
           }
         })}
       </div>
@@ -22,7 +22,7 @@ class ManageNewsItems extends Component {
 const mapStateToProps = (state) => {
   return {
     newsItems: state.newsItems,
-    newsSourceList: state.newsSourceList
+    newsSourceList: state.newsSourceList,
   }
 }
 
