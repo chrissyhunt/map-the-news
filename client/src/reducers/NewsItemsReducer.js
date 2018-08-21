@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
 
-function newsItemsReducer(state = {}, action) {
+function newsItemsReducer(state = {
+  allNews: {},
+  loading: false
+}, action) {
   switch (action.type) {
     case "LOADING_NEWS_ITEMS":
       return {...state, loading: true}

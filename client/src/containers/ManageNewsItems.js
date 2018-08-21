@@ -10,7 +10,7 @@ class ManageNewsItems extends Component {
     return (
       <div>
         {this.props.newsSourceList.map(source => {
-          if (this.props.newsItems && this.props.newsItems.allNews[source] && this.props.newsItems.allNews[source].length > 0) {
+          if (this.props.newsItems.allNews[source] && this.props.newsItems.allNews[source].length > 0) {
             return <NewsCard newsInfo={this.props.newsItems.allNews[source]} source={source} />
           }
         })}
