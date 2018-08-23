@@ -11,7 +11,7 @@ const UserMenu = (props) => {
         </div>
       </div>
       <div class="dropdown">
-        <span>Welcome, Chrissy! ▾</span>
+        <span>Welcome, {props.userInfo.user.firstName}! ▾</span>
         <div class="dropdown-content">
           <p>Update Settings</p>
           <p>Log Out</p>

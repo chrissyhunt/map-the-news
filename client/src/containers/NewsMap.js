@@ -5,16 +5,9 @@ import HeaderContainer from './HeaderContainer';
 import LoadRows from '../components/NewsMapDisplay/LoadRows';
 import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
-import { getUser } from '../actions/Users';
 import { connect } from 'react-redux';
 
 class NewsMap extends Component {
-
-  componentDidMount() {
-    if (!this.props.userInfo.user && !this.props.userInfo.loading) {
-      this.props.getUser()
-    }
-  }
 
   render() {
     return (
@@ -37,4 +30,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getUser })(NewsMap);
+export default connect(mapStateToProps)(NewsMap);

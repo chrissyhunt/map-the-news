@@ -7,6 +7,7 @@ import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
 import SecondarySearchBox from '../components/Header/SecondarySearchBox';
 import { fetchNews } from '../actions/News';
+import { getUser } from '../actions/Users';
 
 class HeaderContainer extends Component {
   constructor() {
@@ -18,6 +19,12 @@ class HeaderContainer extends Component {
         startDate: moment().format("YYYY-MM-DD"),
         endDate: moment().format("YYYY-MM-DD")
       }
+    }
+  }
+
+  componentDidMount() {
+    if (!this.props.userInfo.user && !this.props.userInfo.loading) {
+      this.props.getUser()
     }
   }
 
@@ -110,12 +117,16 @@ class HeaderContainer extends Component {
     return (this.state.searchCompleted) ? <SecondarySearchBox backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
   }
 
+  userLoaded = () => {
+    return (this.props.userInfo.user && !this.props.userInfo.loading) ? <UserMenu userInfo={this.props.userInfo}/> : null;
+  }
+
   render() {
     return (
       <div class="row header-row">
         <div class="header">
           <Logo />
-          <UserMenu />
+          {this.userLoaded()}
         </div>
         <div class="search">
           <SearchForm searchTerms={this.state.searchTerms} handleSearchQueryChange={this.handleSearchQueryChange} handleStartDateChange={this.handleStartDateChange} handleEndDateChange={this.handleEndDateChange} handleSearchSubmit={this.handleSearchSubmit} />
@@ -126,4 +137,10 @@ class HeaderContainer extends Component {
   }
 }
 
-export default connect(null, { fetchNews })(HeaderContainer);
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.userInfo
+  }
+}
+
+export default connect(mapStateToProps, { fetchNews, getUser })(HeaderContainer);
