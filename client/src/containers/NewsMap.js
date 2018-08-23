@@ -5,11 +5,15 @@ import HeaderContainer from './HeaderContainer';
 import LoadRows from '../components/NewsMapDisplay/LoadRows';
 import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
+import { getUser } from '../actions/Users';
+import { connect } from 'react-redux';
 
 class NewsMap extends Component {
 
   componentDidMount() {
     console.log("Component mounted")
+
+    this.props.getUser()
   }
 
   render() {
@@ -28,4 +32,10 @@ class NewsMap extends Component {
   }
 }
 
-export default NewsMap;
+const mapStateToProps = (state) => {
+  return {
+    userInfo: 
+  }
+}
+
+export default connect(null, { getUser })(NewsMap);

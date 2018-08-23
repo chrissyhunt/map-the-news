@@ -1,6 +1,6 @@
 export function getToken(userInfo) {
   return (dispatch) => {
-    dispatch({ type: "LOADING_USER" });
+    dispatch({ type: "LOADING_TOKEN" });
 
     return fetch('http://localhost:3000/api/user_token', {
       method: "POST",
@@ -16,8 +16,10 @@ export function getToken(userInfo) {
 
 export function getUser() {
   return (dispatch) => {
-    const token = "Bearer " + localStorage.getItem("jwt");
+    dispatch({ type: "LOADING_USER" });
 
+    const token = "Bearer " + localStorage.getItem("jwt");
+    console.log(token);
     return fetch('http://localhost:3000/api/user', {
       method: "GET",
       headers: {
@@ -25,7 +27,10 @@ export function getUser() {
         "Authorization": token
       }
     })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      response.json()
+    })
     .then(json => dispatch({ type: "SET_USER", payload: json }))
   }
 }

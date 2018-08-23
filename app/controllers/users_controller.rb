@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user
+  skip_before_action :authenticate_user, only: [:create]
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(auth_params)
     if @user && @user.save
-      redirect_to user_token_path
+      render json: @user
     end
   end
 
   def show
-    @user = current_user
-    render json: @user
+    render json: current_user
   end
 
   def update

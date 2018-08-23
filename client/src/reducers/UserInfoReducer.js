@@ -5,6 +5,9 @@ function userInfoReducer(state = {}, action) {
     case "LOADING_USER":
       return {...state, loading: true};
 
+    case "LOADING_TOKEN":
+      return {...state, loading: true};
+
     case "SET_USER":
       const user = {
         id: action.payload.id,
