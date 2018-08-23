@@ -7,10 +7,16 @@ import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
 
 class NewsMap extends Component {
+
+  componentDidMount() {
+    console.log("Component mounted")
+  }
+
   render() {
+    console.log("Component rendered")
     return (
       <React.Fragment>
-        <div class="container">
+        <div className="container">
           <HeaderContainer />
           <LoadRows />
           <LoadColumns />

@@ -14,7 +14,7 @@ export function getToken(userInfo) {
   }
 }
 
-export function getUser(userInfo) {
+export function getUser() {
   return (dispatch) => {
     const token = "Bearer " + localStorage.getItem("jwt");
 

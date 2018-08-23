@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import './NewsItemPositions.css'
 import Welcome from './containers/Welcome';
 import Login from './containers/Login';
 import NewsMap from './containers/NewsMap';
 import UserSettings from './containers/UserSettings';
-import { userIsNotAuthenticated, userIsAuthenticated } from './utils/Authentication';
+import Auth from './containers/Auth';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route exact path="/" component={userIsNotAuthenticated(Welcome)} />
-        <Route exact path="/login" component={userIsNotAuthenticated(Login)} />
-        <Route exact path="/news" component={userIsAuthenticated(NewsMap)} />
-        <Route exact path="/account" render={userIsAuthenticated(UserSettings)} />
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/login" component={Auth(Login)} />
+        <Route exact path="/news" component={Auth(NewsMap)} />
+        <Route exact path="/settings" render={Auth(UserSettings)} />
       </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    userInfo: state.userInfo
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));
