@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-function userInfoReducer(state = {}, action) {
+function userInfoReducer(state = {
+  user: null,
+  loading: false
+}, action) {
   switch (action.type) {
     case "LOADING_USER":
-      return {...state, loading: true};
-
-    case "LOADING_TOKEN":
       return {...state, loading: true};
 
     case "SET_USER":

@@ -6,7 +6,6 @@ import NewsCard from '../containers/NewsCard';
 class ManageNewsItems extends Component {
 
   render() {
-    console.log(this.props.newsItems.allNews)
     return (
       <div>
         {this.props.newsSourceList.map(source => {

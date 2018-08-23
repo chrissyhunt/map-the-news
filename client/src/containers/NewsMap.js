@@ -11,13 +11,12 @@ import { connect } from 'react-redux';
 class NewsMap extends Component {
 
   componentDidMount() {
-    console.log("Component mounted")
-
-    this.props.getUser()
+    if (!this.props.userInfo.user && !this.props.userInfo.loading) {
+      this.props.getUser()
+    }
   }
 
   render() {
-    console.log("Component rendered")
     return (
       <React.Fragment>
         <div className="container">
@@ -34,8 +33,8 @@ class NewsMap extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userInfo: 
+    userInfo: state.userInfo
   }
 }
 
-export default connect(null, { getUser })(NewsMap);
+export default connect(mapStateToProps, { getUser })(NewsMap);
