@@ -46,13 +46,14 @@ class Login extends Component {
       },
       redirect: true
     })
+    this.props.history.push('/news')
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/news' />
-    }
-  }
+  // renderRedirect = () => {
+  //   if (this.state.redirect && localStorage.getItem("jwt")) {
+  //     return <Redirect to='/news' />
+  //   }
+  // }
 
   render() {
     return (
@@ -66,7 +67,6 @@ class Login extends Component {
           <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
           <input type="submit" value="Log In"/>
         </form>
-        {this.renderRedirect()}
       </React.Fragment>
     );
   }

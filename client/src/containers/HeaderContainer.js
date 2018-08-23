@@ -7,7 +7,7 @@ import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
 import SecondarySearchBox from '../components/Header/SecondarySearchBox';
 import { fetchNews } from '../actions/News';
-import { getUser } from '../actions/Users';
+import { getUser, logout } from '../actions/Users';
 
 class HeaderContainer extends Component {
   constructor() {
@@ -118,7 +118,7 @@ class HeaderContainer extends Component {
   }
 
   userLoaded = () => {
-    return (this.props.userInfo.user && !this.props.userInfo.loading) ? <UserMenu userInfo={this.props.userInfo}/> : null;
+    return (this.props.userInfo.user && !this.props.userInfo.loading) ? <UserMenu userInfo={this.props.userInfo} logout={this.props.logout} /> : null;
   }
 
   render() {
@@ -143,4 +143,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, getUser })(HeaderContainer);
+export default connect(mapStateToProps, { fetchNews, getUser, logout })(HeaderContainer);

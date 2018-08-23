@@ -28,3 +28,10 @@ export function getUser() {
     .then(json => dispatch({ type: "SET_USER", payload: json }))
   }
 }
+
+export function logout() {
+  return (dispatch) => {
+    dispatch({ type: "LOGOUT_USER "});
+    localStorage.removeItem("jwt");
+  }
+}

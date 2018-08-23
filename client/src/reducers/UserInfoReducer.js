@@ -17,6 +17,12 @@ function userInfoReducer(state = {
       }
       return {user, loading: false};
 
+    case "LOGOUT_USER":
+      return {
+        user: null,
+        loading: false
+      }
+
     default:
       return state;
   }

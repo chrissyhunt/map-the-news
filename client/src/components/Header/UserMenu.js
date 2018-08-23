@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UserMenu = (props) => {
   return (
@@ -13,8 +14,8 @@ const UserMenu = (props) => {
       <div class="dropdown">
         <span>Welcome, {props.userInfo.user.firstName}! ▾</span>
         <div class="dropdown-content">
-          <p>Update Settings</p>
-          <p>Log Out</p>
+          <p><Link to={'/settings'}>Update Settings</Link></p>
+          <p><a type="button" onClick={props.logout()}>Log Out</a></p>
         </div>
       </div>
     </div>
