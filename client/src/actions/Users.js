@@ -17,7 +17,7 @@ export function getToken(userInfo, history) {
 
 export function getUser() {
   return (dispatch) => {
-    dispatch({ type: "LOADING_USER" });
+    dispatch({ type: "LOADING_USER", payload: null });
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/user', {
       method: "GET",
@@ -34,7 +34,7 @@ export function getUser() {
 export function logout() {
   console.log("LOGOUT CALLED!!!!!")
   return (dispatch) => {
-    dispatch({ type: "LOGOUT_USER "});
+    dispatch({ type: "LOGOUT_USER", payload: null });
     localStorage.removeItem("jwt");
   }
 }
