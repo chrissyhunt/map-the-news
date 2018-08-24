@@ -1,4 +1,4 @@
-export function getToken(userInfo) {
+export function getToken(userInfo, history) {
   return (dispatch) => {
     return fetch('http://localhost:3000/api/user_token', {
       method: "POST",
@@ -8,14 +8,16 @@ export function getToken(userInfo) {
       body: JSON.stringify({auth: userInfo})
     })
     .then(response => response.json())
-    .then(result => localStorage.setItem("jwt", result.jwt))
+    .then(result => {
+      localStorage.setItem("jwt", result.jwt);
+      history.push('/news');
+    })
   }
 }
 
 export function getUser() {
   return (dispatch) => {
     dispatch({ type: "LOADING_USER" });
-
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/user', {
       method: "GET",
@@ -30,6 +32,7 @@ export function getUser() {
 }
 
 export function logout() {
+  console.log("LOGOUT CALLED!!!!!")
   return (dispatch) => {
     dispatch({ type: "LOGOUT_USER "});
     localStorage.removeItem("jwt");

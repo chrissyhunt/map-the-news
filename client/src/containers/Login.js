@@ -12,8 +12,7 @@ class Login extends Component {
       userInfo: {
         email: '',
         password: '',
-      },
-      redirect: false
+      }
     }
   }
 
@@ -37,23 +36,14 @@ class Login extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log("handleOnSubmit: ", this.state)
-    this.props.getToken(this.state.userInfo);
+    this.props.getToken(this.state.userInfo, this.props.history);
     this.setState({
       userInfo: {
         email: '',
         password: '',
-      },
-      redirect: true
+      }
     })
-    this.props.history.push('/news')
   }
-
-  // renderRedirect = () => {
-  //   if (this.state.redirect && localStorage.getItem("jwt")) {
-  //     return <Redirect to='/news' />
-  //   }
-  // }
 
   render() {
     return (

@@ -15,6 +15,7 @@ function Auth(RenderedComponent, props) {
     }
 
     render() {
+      console.log("Auth check")
       return (
         this.loggedIn()
       )

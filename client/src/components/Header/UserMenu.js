@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserMenu = (props) => {
+  console.log('UserMenu props:', props)
   return (
     <div class="header-right">
       <div class="dropdown">
@@ -15,7 +16,7 @@ const UserMenu = (props) => {
         <span>Welcome, {props.userInfo.user.firstName}! ▾</span>
         <div class="dropdown-content">
           <p><Link to={'/settings'}>Update Settings</Link></p>
-          <p><a type="button" onClick={props.logout()}>Log Out</a></p>
+          <p><a href="#" onClick={props.logout}>Log Out</a></p>
         </div>
       </div>
     </div>

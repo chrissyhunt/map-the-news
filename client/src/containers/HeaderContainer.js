@@ -83,7 +83,6 @@ class HeaderContainer extends Component {
         startDate: newDate
       }
     })
-    console.log('updated state: ', this.state)
     this.props.fetchNews(this.state.searchTerms);
   }
 
@@ -96,7 +95,6 @@ class HeaderContainer extends Component {
         startDate: newDate
       }
     })
-    console.log('updated state: ', this.state)
     this.props.fetchNews(this.state.searchTerms);
   }
 
@@ -109,7 +107,6 @@ class HeaderContainer extends Component {
         startDate: newDate
       }
     })
-    console.log('updated state: ', this.state)
     this.props.fetchNews(this.state.searchTerms);
   }
 
