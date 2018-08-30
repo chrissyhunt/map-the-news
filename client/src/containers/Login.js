@@ -12,6 +12,8 @@ class Login extends Component {
       userInfo: {
         email: '',
         password: '',
+        firstName: '',
+        lastName: ''
       }
     }
   }
@@ -34,7 +36,7 @@ class Login extends Component {
     })
   }
 
-  handleOnSubmit = (event) => {
+  handleLogin = (event) => {
     event.preventDefault();
     this.props.getToken(this.state.userInfo, this.props.history);
     this.setState({
@@ -49,17 +51,27 @@ class Login extends Component {
     return (
       <React.Fragment>
         <h1>Welcome to Map the News!</h1>
-        <h2>Log In</h2>
-        <form onSubmit={e => this.handleOnSubmit(e)}>
-          <label>Email:</label>
-          <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
-          <label>Password:</label>
-          <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
-          <input type="submit" value="Log In"/>
-        </form>
+        <p><button>Log In</button> or <button>Create Account</button></p>
       </React.Fragment>
     );
   }
 }
 
 export default connect(null, { getToken })(Login);
+
+// <h2>Log In</h2>
+// <form onSubmit={e => this.handleLogin(e)}>
+//   <label>Email:</label>
+//   <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+//   <label>Password:</label>
+//   <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
+//   <input type="submit" value="Log In"/>
+// </form>
+//
+// <h2>Create Account</h2>
+// <form onSubmit={e => this.handleCreateAccount(e)}>
+//   <label>Email:</label>
+//   <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+//   <label>Password:</label>
+//
+// </form>

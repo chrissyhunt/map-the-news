@@ -2,94 +2,88 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import '../Welcome.css';
+import { getToken } from '../actions/Users';
 
 class Welcome extends Component {
   constructor() {
     super();
 
     this.state = {
-      email: '',
-      password: '',
-      redirect: false
+      loginUserInfo: {
+        email: '',
+        password: ''
+      },
+      createAccountUserInfo: {
+        email: '',
+        password: '',
+        firstName: '',
+        lastName: ''
+      }
     }
   }
 
   handleEmailOnChange = (event) => {
     this.setState({
-      email: event.target.value
+      ...this.state,
+      loginUserInfo: {
+        ...this.state.loginUserInfo,
+        email: event.target.value
+      }
     })
   }
 
   handlePasswordOnChange = (event) => {
     this.setState({
-      password: event.target.value
-    })
-  }
-
-  handleOnSubmit = (event) => {
-    event.preventDefault();
-    console.log("handleOnSubmit: ", this.state)
-    this.getToken(this.state);
-    this.getUser(this.state);
-    this.setState({
-      email: '',
-      password: '',
-      redirect: true
-    })
-  }
-
-  getToken = (userInfo) => {
-    fetch('http://localhost:3000/api/user_token', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({auth: userInfo})
-    })
-    .then(response => response.json())
-    .then(result => localStorage.setItem("jwt", result.jwt))
-  }
-
-  getUser = (userInfo) => {
-    let token = "Bearer " + localStorage.getItem("jwt");
-    fetch('http://localhost:3000/api/user', {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": token
+      ...this.state,
+      loginUserInfo: {
+        ...this.state.loginUserInfo,
+        password: event.target.value
       }
     })
-    .then(response => response.json())
-    .then(json => this.props.setUser(json))
   }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/news' />
-    }
+  handleLogin = (event) => {
+    event.preventDefault();
+    this.props.getToken(this.state.loginUserInfo, this.props.history);
+    this.setState({
+      ...this.state,
+      loginUserInfo: {
+        email: '',
+        password: '',
+      }
+    })
   }
 
   render() {
     return (
       <React.Fragment>
         <h1>Welcome to Map the News!</h1>
-        <form onSubmit={e => this.handleOnSubmit(e)}>
+        <h2>Log In</h2>
+
+        <form onSubmit={e => this.handleLogin(e)}>
           <label>Email:</label>
-          <input type="text" value={this.state.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+          <input type="text" value={this.state.loginUserInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
           <label>Password:</label>
-          <input type="password" value={this.state.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
+          <input type="password" value={this.state.loginUserInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
           <input type="submit" value="Log In"/>
         </form>
-        {this.renderRedirect()}
+
+        <h2>Create Account</h2>
+
+        <form>
+          <label>First Name:</label>
+          <input type="text" value={this.state.createAccountUserInfo.firstName} name="firstName"/><br />
+          <label>Last Name:</label>
+          <input type="text" value={this.state.createAccountUserInfo.lastName} name="lastName"/><br />
+          <label>Email:</label>
+          <input type="text" value={this.state.createAccountUserInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+          <label>Password:</label>
+          <input type="password" value={this.state.createAccountUserInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
+          <input type="submit" value="Log In"/>
+        </form>
       </React.Fragment>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUser: (response) => dispatch({ type: "SET_USER", payload: response })
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Welcome);
+export default connect(null, { getToken })(Welcome);

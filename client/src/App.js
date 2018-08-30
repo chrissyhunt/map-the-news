@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import './NewsItemPositions.css'
 import Welcome from './containers/Welcome';
-import Login from './containers/Login';
 import NewsMap from './containers/NewsMap';
 import UserSettings from './containers/UserSettings';
 import Auth from './containers/Auth';
@@ -13,8 +12,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route exact path="/" component={Welcome} />
-        <Route exact path="/login" component={Auth(Login)} />
+        <Route exact path="/" component={Auth(Welcome)} />
         <Route exact path="/news" component={Auth(NewsMap)} />
         <Route exact path="/settings" render={Auth(UserSettings)} />
       </React.Fragment>

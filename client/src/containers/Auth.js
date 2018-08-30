@@ -5,10 +5,10 @@ function Auth(RenderedComponent, props) {
   return class extends React.Component {
 
     loggedIn() {
-      if (localStorage.getItem('jwt') && this.props.location.pathname === '/login') {
+      if (localStorage.getItem('jwt') && this.props.location.pathname === '/') {
         return <Redirect to='/news' />
-      } else if (!localStorage.getItem("jwt") && this.props.location.pathname !== '/login') {
-        return <Redirect to='/login' />
+      } else if (!localStorage.getItem("jwt") && this.props.location.pathname !== '/') {
+        return <Redirect to='/' />
       } else {
         return <RenderedComponent {...this.props} {...props} />
       }
