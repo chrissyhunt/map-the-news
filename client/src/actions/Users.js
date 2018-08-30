@@ -33,7 +33,6 @@ export function getUser() {
 
 export function createUser(userInfo, history) {
   return (dispatch) => {
-    console.log("createUser fired: ", userInfo)
     dispatch({ type: "LOADING_USER", payload: null });
     return fetch('http://localhost:3000/api/users', {
       method: "POST",

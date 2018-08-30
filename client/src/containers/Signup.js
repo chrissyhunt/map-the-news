@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import '../Welcome.css';
 import { createUser } from '../actions/Users';
 
@@ -57,6 +57,9 @@ class Signup extends Component {
         <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
         <input type="submit" value="Log In"/>
       </form>
+
+      <p><Link to={'/'}>Or Log In with Existing Account</Link></p>
+
       </React.Fragment>
     );
   }
