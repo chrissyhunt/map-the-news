@@ -9,47 +9,29 @@ class Welcome extends Component {
     super();
 
     this.state = {
-      loginUserInfo: {
+      userInfo: {
         email: '',
         password: ''
-      },
-      createAccountUserInfo: {
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: ''
       }
     }
   }
 
-  handleEmailOnChange = (event) => {
+  handleChange = (event) => {
     this.setState({
-      ...this.state,
-      loginUserInfo: {
-        ...this.state.loginUserInfo,
-        email: event.target.value
-      }
-    })
-  }
-
-  handlePasswordOnChange = (event) => {
-    this.setState({
-      ...this.state,
-      loginUserInfo: {
-        ...this.state.loginUserInfo,
-        password: event.target.value
+      userInfo: {
+        ...this.state.userInfo,
+        [event.target.name]: event.target.value
       }
     })
   }
 
   handleLogin = (event) => {
     event.preventDefault();
-    this.props.getToken(this.state.loginUserInfo, this.props.history);
+    this.props.getToken(this.state.userInfo, this.props.history);
     this.setState({
-      ...this.state,
-      loginUserInfo: {
+      userInfo: {
         email: '',
-        password: '',
+        password: ''
       }
     })
   }
@@ -62,25 +44,14 @@ class Welcome extends Component {
 
         <form onSubmit={e => this.handleLogin(e)}>
           <label>Email:</label>
-          <input type="text" value={this.state.loginUserInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+          <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
           <label>Password:</label>
-          <input type="password" value={this.state.loginUserInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
+          <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
           <input type="submit" value="Log In"/>
         </form>
 
-        <h2>Create Account</h2>
+        <p>Or Sign Up</p>
 
-        <form>
-          <label>First Name:</label>
-          <input type="text" value={this.state.createAccountUserInfo.firstName} name="firstName"/><br />
-          <label>Last Name:</label>
-          <input type="text" value={this.state.createAccountUserInfo.lastName} name="lastName"/><br />
-          <label>Email:</label>
-          <input type="text" value={this.state.createAccountUserInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
-          <label>Password:</label>
-          <input type="password" value={this.state.createAccountUserInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
-          <input type="submit" value="Log In"/>
-        </form>
       </React.Fragment>
     );
   }
