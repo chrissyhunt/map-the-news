@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import '../Welcome.css';
-import { getToken } from '../actions/Users';
+import { createUser } from '../actions/Users';
 
 class Signup extends Component {
   constructor() {
@@ -12,8 +12,8 @@ class Signup extends Component {
       userInfo: {
         email: '',
         password: '',
-        firstName: '',
-        lastName: ''
+        first_name: '',
+        last_name: ''
       }
     }
   }
@@ -27,15 +27,15 @@ class Signup extends Component {
     })
   }
 
-  handleLogin = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    // this.props.getToken(this.state.userInfo, this.props.history);
+    this.props.createUser(this.state.userInfo, this.props.history)
     this.setState({
       userInfo: {
         email: '',
         password: '',
-        firstName: '',
-        lastName: ''
+        first_name: '',
+        last_name: ''
       }
     })
   }
@@ -43,13 +43,14 @@ class Signup extends Component {
   render() {
     return (
       <React.Fragment>
+      <h1>Welcome to Map the News!</h1>
       <h2>Create Account</h2>
 
-      <form>
+      <form onSubmit={e => this.handleSubmit(e)}>
         <label>First Name:</label>
-        <input type="text" value={this.state.userInfo.firstName} name="firstName" onChange={e => this.handleChange(e)}/><br />
+        <input type="text" value={this.state.userInfo.first_name} name="first_name" onChange={e => this.handleChange(e)}/><br />
         <label>Last Name:</label>
-        <input type="text" value={this.state.userInfo.lastName} name="lastName" onChange={e => this.handleChange(e)}/><br />
+        <input type="text" value={this.state.userInfo.last_name} name="last_name" onChange={e => this.handleChange(e)}/><br />
         <label>Email:</label>
         <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
         <label>Password:</label>
@@ -61,21 +62,4 @@ class Signup extends Component {
   }
 }
 
-export default connect(null, { getToken })(Signup);
-
-// <h2>Log In</h2>
-// <form onSubmit={e => this.handleLogin(e)}>
-//   <label>Email:</label>
-//   <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
-//   <label>Password:</label>
-//   <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
-//   <input type="submit" value="Log In"/>
-// </form>
-//
-// <h2>Create Account</h2>
-// <form onSubmit={e => this.handleCreateAccount(e)}>
-//   <label>Email:</label>
-//   <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
-//   <label>Password:</label>
-//
-// </form>
+export default connect(null, { createUser })(Signup);

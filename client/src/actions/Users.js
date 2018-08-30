@@ -31,6 +31,25 @@ export function getUser() {
   }
 }
 
+export function createUser(userInfo, history) {
+  return (dispatch) => {
+    console.log("createUser fired: ", userInfo)
+    dispatch({ type: "LOADING_USER", payload: null });
+    return fetch('http://localhost:3000/api/users', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({auth: userInfo})
+    })
+    .then(response => response.json())
+    .then(result => {
+      getToken(userInfo, history)
+      dispatch({ type: "SET_USER", payload: result})
+    })
+  }
+}
+
 export function logout() {
   console.log("LOGOUT CALLED!!!!!")
   return (dispatch) => {
