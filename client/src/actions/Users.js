@@ -44,7 +44,7 @@ export function createUser(userInfo, history) {
     })
     .then(response => response.json())
     .then(result => {
-      getToken(userInfo, history)
+      getToken(userInfo, history)()
       dispatch({ type: "SET_USER", payload: result})
     })
   }
