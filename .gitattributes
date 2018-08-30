@@ -1,0 +1,8 @@
+vendor/* linguist-vendored
+tmp/* linguist-vendored
+test/* linguist-vendored
+public/* linguist-vendored
+log/* linguist-vendored
+lib/* linguist-vendored
+bin/* linguist-vendored
+client/public/* linguist-vendored
