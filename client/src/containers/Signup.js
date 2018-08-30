@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import '../Welcome.css';
 import { getToken } from '../actions/Users';
 
-class Login extends Component {
+class Signup extends Component {
   constructor() {
     super();
 
@@ -18,31 +18,24 @@ class Login extends Component {
     }
   }
 
-  handleEmailOnChange = (event) => {
+  handleChange = (event) => {
     this.setState({
       userInfo: {
         ...this.state.userInfo,
-        email: event.target.value
-      }
-    })
-  }
-
-  handlePasswordOnChange = (event) => {
-    this.setState({
-      userInfo: {
-        ...this.state.userInfo,
-        password: event.target.value
+        [event.target.name]: event.target.value
       }
     })
   }
 
   handleLogin = (event) => {
     event.preventDefault();
-    this.props.getToken(this.state.userInfo, this.props.history);
+    // this.props.getToken(this.state.userInfo, this.props.history);
     this.setState({
       userInfo: {
         email: '',
         password: '',
+        firstName: '',
+        lastName: ''
       }
     })
   }
@@ -54,13 +47,13 @@ class Login extends Component {
 
       <form>
         <label>First Name:</label>
-        <input type="text" value={this.state.createAccountUserInfo.firstName} name="firstName"/><br />
+        <input type="text" value={this.state.userInfo.firstName} name="firstName" onChange={e => this.handleChange(e)}/><br />
         <label>Last Name:</label>
-        <input type="text" value={this.state.createAccountUserInfo.lastName} name="lastName"/><br />
+        <input type="text" value={this.state.userInfo.lastName} name="lastName" onChange={e => this.handleChange(e)}/><br />
         <label>Email:</label>
-        <input type="text" value={this.state.createAccountUserInfo.email} name="email" onChange={e => this.handleEmailOnChange(e)}/><br />
+        <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
         <label>Password:</label>
-        <input type="password" value={this.state.createAccountUserInfo.password} name="password" onChange={e => this.handlePasswordOnChange(e)}/><br />
+        <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
         <input type="submit" value="Log In"/>
       </form>
       </React.Fragment>
@@ -68,7 +61,7 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { getToken })(Login);
+export default connect(null, { getToken })(Signup);
 
 // <h2>Log In</h2>
 // <form onSubmit={e => this.handleLogin(e)}>

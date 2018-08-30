@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import '../Welcome.css';
 import { getToken } from '../actions/Users';
 
@@ -50,7 +50,7 @@ class Welcome extends Component {
           <input type="submit" value="Log In"/>
         </form>
 
-        <p>Or Sign Up</p>
+        <p><Link to={'/signup'}>Or Sign Up</Link></p>
 
       </React.Fragment>
     );

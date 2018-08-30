@@ -7,7 +7,7 @@ function Auth(RenderedComponent, props) {
     loggedIn() {
       if (localStorage.getItem('jwt') && this.props.location.pathname === '/') {
         return <Redirect to='/news' />
-      } else if (!localStorage.getItem("jwt") && this.props.location.pathname !== '/') {
+      } else if (!localStorage.getItem("jwt") && this.props.location.pathname !== '/' && this.props.location.pathname !== '/signup') {
         return <Redirect to='/' />
       } else {
         return <RenderedComponent {...this.props} {...props} />
