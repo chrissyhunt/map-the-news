@@ -17,6 +17,7 @@ export function fetchNews(searchTerms) {
 }
 
 export function saveSearch(searchTerms) {
+  console.log("Hit saveSearch action: ", searchTerms)
   return (dispatch) => {
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/searches', {
@@ -27,8 +28,10 @@ export function saveSearch(searchTerms) {
       },
       body: JSON.stringify(searchTerms)
     })
-    .then(response => response.json())
-    .then(data => dispatch({type: "SAVE_SEARCH", payload: data}))
+    .then(response => console.log("Search return: ", response))
+    // .then(response => response.json())
+    .then(data => console.log(data))
+    // .then(data => dispatch({type: "SAVE_SEARCH", payload: data}))
     .catch(err => console.log(err))
   }
 }

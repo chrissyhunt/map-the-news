@@ -1,9 +1,10 @@
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    if @search.save
-      render json: @search, status: 200
+    @search.user = current_user
+    if @search && @search.save
+      render json: @search
     end
   end
 
@@ -14,14 +15,14 @@ class SearchController < ApplicationController
 
   def destroy
     @search = Search.find_by(id: params[:id])
-    @search.deletes
+    @search.delete
     render body: nil, status: :no_content
   end
 
   private
 
   def search_params
-    params.require(:search).permit(:q, :start_date, :end_date)
+    params.permit(:q, :startDate, :endDate)
   end
 
 end
