@@ -13,9 +13,18 @@ function userInfoReducer(state = {
         id: action.payload.id,
         firstName: action.payload.first_name,
         lastName: action.payload.last_name,
-        email: action.payload.email
+        email: action.payload.email,
+        searches: action.payload.searches
       }
       return {user, loading: false};
+
+    case "SAVE_SEARCH":
+      const searches = [...state.userInfo.user.searches, action.payload]
+      return {...state.userInfo, user: {
+          ...state.userInfo.user,
+          searches: searches
+        }
+      }
 
     case "LOGOUT_USER":
       return {

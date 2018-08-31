@@ -8,7 +8,7 @@ const SecondarySearchBox = (props) => {
       <button onClick={e => props.backOneDay(e)}>← 1 day</button>
       <button onClick={e => props.forwardOneDay(e)}>1 day →</button>
       <button onClick={e => props.forwardOneWeek(e)}>1 week ⇥</button>
-      <button>★ Save</button>
+      <button onClick={() => props.saveSearch()}>★ Save</button>
     </div>
   )
 }

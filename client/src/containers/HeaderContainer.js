@@ -115,7 +115,7 @@ class HeaderContainer extends Component {
   }
 
   searchCompleted = () => {
-    return (this.state.searchCompleted) ? <SecondarySearchBox backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
+    return (this.state.searchCompleted) ? <SecondarySearchBox saveSearch={this.saveSearch} backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
   }
 
   userLoaded = () => {
