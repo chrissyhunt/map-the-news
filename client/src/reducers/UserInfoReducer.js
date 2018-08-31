@@ -19,10 +19,10 @@ function userInfoReducer(state = {
       return {user, loading: false};
 
     case "SAVE_SEARCH":
-      const searches = [...state.userInfo.user.searches, action.payload]
-      return {...state.userInfo, user: {
-          ...state.userInfo.user,
-          searches: searches
+      console.log("SAVE_SEARCH", action.payload)
+      return {...state, user: {
+        ...state.user,
+        searches: [...state.user.searches, action.payload]
         }
       }
 

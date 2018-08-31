@@ -28,10 +28,8 @@ export function saveSearch(searchTerms) {
       },
       body: JSON.stringify(searchTerms)
     })
-    .then(response => console.log("Search return: ", response))
-    // .then(response => response.json())
-    .then(data => console.log(data))
-    // .then(data => dispatch({type: "SAVE_SEARCH", payload: data}))
+    .then(response => response.json())
+    .then(data => dispatch({type: "SAVE_SEARCH", payload: data}))
     .catch(err => console.log(err))
   }
 }
