@@ -23,7 +23,7 @@ export function saveSearch(searchTerms) {
     return fetch('http://localhost:3000/api/searches', {
       method: "POST",
       headers: {
-        "Content-Type": "applicationjson",
+        "Content-Type": "application/json",
         "Authorization": token
       },
       body: JSON.stringify(searchTerms)

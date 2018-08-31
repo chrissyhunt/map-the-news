@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: current_user
+    # couldn't get serializers working to shorten this on 1st pass, but should revisit
+    render json: current_user.to_json(only: [:id, :first_name, :last_name, :email],
+                                      include: [:searches])
   end
 
   def update
