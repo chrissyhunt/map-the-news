@@ -21,7 +21,7 @@ class SearchController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:query, :start_date, :end_date)
+    params.require(:search).permit(:q, :start_date, :end_date)
   end
 
 end
