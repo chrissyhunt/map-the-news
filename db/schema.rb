@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815002605) do
+ActiveRecord::Schema.define(version: 20180831152116) do
 
   create_table "searches", force: :cascade do |t|
-    t.string "query"
+    t.string "q"
     t.date "start_date"
     t.date "end_date"
     t.integer "user_id"
