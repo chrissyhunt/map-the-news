@@ -6,7 +6,7 @@ import Logo from '../components/Header/Logo';
 import UserMenu from '../components/Header/UserMenu';
 import SearchForm from '../components/Header/SearchForm';
 import SecondarySearchBox from '../components/Header/SecondarySearchBox';
-import { fetchNews } from '../actions/News';
+import { fetchNews, saveSearch } from '../actions/News';
 import { getUser, logout } from '../actions/Users';
 
 class HeaderContainer extends Component {
@@ -110,6 +110,10 @@ class HeaderContainer extends Component {
     this.props.fetchNews(this.state.searchTerms);
   }
 
+  saveSearch = () => {
+    this.props.saveSearch(this.state.searchTerms);
+  }
+
   searchCompleted = () => {
     return (this.state.searchCompleted) ? <SecondarySearchBox backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
   }
@@ -140,4 +144,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, getUser, logout })(HeaderContainer);
+export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout })(HeaderContainer);
