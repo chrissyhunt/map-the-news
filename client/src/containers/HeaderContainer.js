@@ -22,6 +22,12 @@ class HeaderContainer extends Component {
     }
   }
 
+  componentDidMount() {
+    if (!this.props.userInfo.user && !this.props.userInfo.loading) {
+      this.props.getUser()
+    }
+  }
+
   backOneDay = (event) => {
     const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'days').format("YYYY-MM-DD")
     this.setState({

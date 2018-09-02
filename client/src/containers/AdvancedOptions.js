@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import ViewModeSelector from '../components/Header/ViewModeSelector';
 import AdvancedSearchBox from './AdvancedSearchBox';
+import LoadSavedSearches from './LoadSavedSearches';
 import DarkenBackground from '../components/DarkenBackground';
 
 class AdvancedOptions extends Component {
@@ -13,6 +14,7 @@ class AdvancedOptions extends Component {
       <div class="options">
         <ViewModeSelector />
         <AdvancedSearchBox />
+        <LoadSavedSearches />
 
       </div>
       <DarkenBackground />
