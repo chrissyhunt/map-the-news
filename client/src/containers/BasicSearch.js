@@ -28,7 +28,6 @@ class BasicSearch extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.fetchNews(this.state.searchTerms);
-
   }
 
   render() {
