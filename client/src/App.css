@@ -152,7 +152,7 @@ p.more-news {
 .columns-container {
   position: absolute;
   left: 5vw;
-  top: 20vh;
+  top: 6vh;
   z-index: 2;
   display: flex;
   flex-direction: row;
@@ -161,7 +161,7 @@ p.more-news {
 }
 
 .col {
-  min-height: 80vh;
+  min-height: 94vh;
   width: 19vw;
   border-left: 1px solid #f4f4f8;
 }
