@@ -126,7 +126,7 @@ class HeaderContainer extends Component {
     return (
       <div class="row header-row">
         <div class="header">
-          <Logo />
+          <BasicSearch />
           {this.userLoaded()}
         </div>
         <div class="search">

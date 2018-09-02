@@ -5,16 +5,93 @@
 }
 
 body {
-  font-family: 'PT Sans';
+  font-family: 'Open Sans', sans-serif;
   color: #f4f4f8;
-  background-color: #EEE;
+  --main-blue: #0392cf;
+  --light-blue: #47AFDC;
+  --main-red: #ee4035;
+  --main-green: #7bc043;
+  --main-orange: #f37736;
+  --main-yellow: #fdf498;
+  --light-gray: #F4F4F8;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2em;
+  line-height: 0.9em;
+  letter-spacing: 1px;
+  position: relative;
+  top: -3px;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0;
+  position: relative;
+  top: 0;
+}
+
+h4 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  letter-spacing: 0;
+}
+
+.col h3 {
+  position: relative;
+  top: 5px;
+  /* text-shadow: 0px 2px 2px rgba(0,0,0,0.8); */
+  color: #000;
+}
+
+input[type="text"].searchbar {
+  background-color: var(--main-blue);
+  color: var(--light-gray);
+  border: 0;
+  min-width: 50%;
+  line-height: 1.8em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  margin-top: 0;
+  position: relative;
+  top: -3px;
+}
+
+input[type="text"].searchbar:focus {
+  outline: 0;
+}
+
+input[type="text"].searchbar::placeholder {
+  color: var(--light-gray);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+input[type="button"].searchbar {
+  background-color: var(--light-gray);
+  color: var(--main-blue);
+  border: 0;
+  border-radius: 12px;
+  line-height: 1em;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  padding: 5px;
+  letter-spacing: 1px;
+  position: relative;
+  top: -3px;
 }
 
 .news-item {
   z-index: 3;
-  background-color: #f4f4f8;
-  padding: 3px 8px;
-  padding-right: 20px;
+  background-color: var(--light-gray);
+  padding: 5px 10px;
   color: #000;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   border-radius: 12px;
@@ -106,7 +183,7 @@ p.more-news {
   justify-content: center;
   align-content: center;
   width: 100vw;
-  height: 20vh;
+  height: 23.5vh;
 }
 
 h3 {
@@ -118,34 +195,197 @@ h3 {
 }
 
 .row h3 {
+  color: #000;
   width: 2%;
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
 
+.darken-background {
+  z-index: 8;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  width: 100vw;
+  height: 94vh;
+}
+
 .header-row {
-  background-color: #0392cf;
-  border-bottom: 2px solid #f4f4f8;
+  background-color: var(--main-blue);
+  color: var(--light-gray);
+  height: 6vh !important;
+  z-index: 15 !important;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background-color: var(--main-blue);
+  color: #000;
+  position: absolute;
+  top: 6vh;
+  left: 0;
+  width: 100vw;
+  height: 55vh;
+  z-index: 10;
+  box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.close-button {
+  color: var(--light-gray);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  letter-spacing: 0.2em;
+}
+
+.options-section {
+  margin-top: 20px;
+  max-width: 33%;
+  flex-grow: 1;
+  padding: 10px;
+  color: var(--light-gray);
+}
+
+.form-section {
+  margin-bottom: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 48%;
+  float: left;
+}
+
+.left-half {
+  margin-right: 2%;
+}
+
+.right-half {
+  margin-left: 2%;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.options-section fieldset {
+  background-color: var(--main-blue);
+  border: 1px solid var(--light-gray);
+  padding: 25px 15px;
+  margin: 10px 0;
+}
+
+.options-section legend {
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+.options-section input[type="text"],
+.options-section input[type="date"] {
+  background-color: var(--light-blue);
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
+  height: 2.6em;
+  font-size: 0.9em;
+  padding: 5px 8px;
+  /* margin-top: 5px; */
+  margin-bottom: 5px;
+  width: 100%;
+  font-family: 'Open Sans';
+  letter-spacing: 1px;
+}
+
+.options-section input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.options-section input[type="text"]:focus,
+.options-section input[type="date"]:focus {
+  outline: 3px solid var(--light-gray);
+}
+
+.options-section label {
+  font-size: 0.9em;
+  margin-right: 25px;
+  color: var(--light-gray);
+}
+
+.options-section input[type="button"],
+.options-section input[type="submit"] {
+  background-color: #f4f4f8;
+  color: #01374E;
+  border: 0;
+  font-size: 0.7em;
+  height: 2em;
+  padding: 5px 8px;
+  border-radius: 12px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  font-family: 'Ubuntu';
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.options-section input[type="button"]:active,
+.options-section input[type="submit"]:active {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+.options-section input[type="button"]:focus,
+.options-section input[type="submit"]:focus {
+  outline: 0;
+}
+
+p.tips {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+p.list {
+  margin-top: 8px;
+}
+
+p.menu {
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
 
 .green-row {
-  background-color: #7bc043;
-  color: #2E4819;
+  background-color: var(--main-green);
+  color: var(--light-gray);
+  border-top: 5px solid var(--light-gray);
 }
 
 .yellow-row {
-  background-color: #fdf498;
-  color: #5F5B39;
+  background-color: var(--main-yellow);
 }
 
 .orange-row {
-  background-color: #f37736;
-  color: #5B2D14;
+  background-color: var(--main-orange);
 }
 
 .red-row {
-  background-color: #ee4035;
-  color: #591814;
+  background-color: var(--main-red);
 }
 
 .dropdown {
@@ -163,7 +403,7 @@ h3 {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
     text-align: left;
-    z-index: 7;
+    z-index: 15;
 }
 
 .dropdown-content p {
@@ -184,6 +424,7 @@ h3 {
 
 .header {
   height: 40%;
+  padding: 0;
 }
 
 .search {
@@ -192,7 +433,7 @@ h3 {
 
 .header-left {
   width: 50%;
-  padding: 10px 5px 5px 10px;
+  padding-left: 10px;
 }
 
 .header-left h1 {
@@ -202,7 +443,7 @@ h3 {
 
 .header-right {
   width: 50%;
-  padding: 10px 10px 5px 5px;
+  padding-right: 10px;
   text-align: right;
 }
 
@@ -230,7 +471,7 @@ h3 {
   font-size: 1em;
   padding: 3px;
   margin-top: 10px;
-  font-family: 'PT Sans';
+  font-family: 'Open Sans';
 }
 
 .search input:focus {
@@ -271,4 +512,108 @@ h3 {
 
 .secondary-search button:focus, .search .button:focus {
   outline: 0;
+}
+
+.news-detail-modal {
+  background-color: var(--main-blue);
+  color: var(--light-gray);
+  font-family: 'Open Sans', sans-serif;
+  width: 75vw;
+  height: 70vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  z-index: 15;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 50px;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.close-button a {
+  padding: 3px 3px 5px 5px !important;
+}
+
+.close-button a:hover {
+  background-color: var(--light-gray);
+  color: var(--main-blue);
+  text-decoration: none !important;
+}
+
+.news-detail-modal a {
+  color: var(--light-gray);
+  text-decoration: none;
+}
+
+.news-detail-modal a:hover {
+  text-decoration: underline;
+}
+
+.news-detail h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.8em;
+  line-height: 1.2em;
+  letter-spacing: 0;
+  margin-bottom: 30px;
+}
+
+.news-detail {
+  max-width: 60%;
+  flex-grow: 2;
+  padding-right: 50px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  border-right: 1px solid var(--light-gray);
+  overflow: scroll;
+}
+
+.news-detail p {
+  font-size: 1.1em;
+}
+
+.news-detail button {
+  background-color: #f4f4f8;
+  color: #01374E;
+  border: 0;
+  font-size: 0.7em;
+  height: 2em;
+  padding: 5px 8px;
+  border-radius: 12px;
+  margin-right: 5px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  font-family: 'Ubuntu';
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.news-detail button:active {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+.news-menu {
+  max-width: 40%;
+  max-height: 100%;
+  flex-grow: 1;
+  padding-left: 50px;
+  padding-right: 2px;
+  overflow: scroll;
+}
+
+.news-menu p {
+  font-size: 0.8em;
+  margin-bottom: 20px;
 }
