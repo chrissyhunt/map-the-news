@@ -327,7 +327,8 @@ h3 {
 }
 
 .options-section input[type="button"],
-.options-section input[type="submit"] {
+.options-section input[type="submit"],
+.options-section button {
   background-color: #f4f4f8;
   color: #01374E;
   border: 0;

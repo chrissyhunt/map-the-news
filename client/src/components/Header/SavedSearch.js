@@ -2,7 +2,7 @@ import React from 'react';
 
 const SavedSearch = (props) => {
   return (
-    <p className="list"><button>x</button> {props.query}</p>
+    <p className="list"><input type="button" value="x" /> {props.query}</p>
   )
 }
 

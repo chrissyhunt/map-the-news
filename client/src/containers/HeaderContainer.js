@@ -97,7 +97,7 @@ class HeaderContainer extends Component {
               <span className="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {!this.state.advancedOptionsActive && <BasicSearch />}
             </div>
-            <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} />
+            <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} advancedOptionsActive={this.state.advancedOptionsActive}/>
           </div>
         </div>
         {this.state.advancedOptionsActive && <AdvancedOptions />}

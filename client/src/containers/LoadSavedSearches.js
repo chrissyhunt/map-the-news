@@ -31,16 +31,16 @@ class LoadSavedSearches extends Component {
       return <SavedSearch key={search.id} query={search.q} />
     })
 
-    const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>Back</button> : null
+    const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&laquo;</button> : null
 
-    const forwardButton = this.state.end < this.props.userInfo.user.searches.length ? <button onClick={this.pageForward}>Forward</button> : null
+    const forwardButton = this.state.end < this.props.userInfo.user.searches.length ? <button onClick={this.pageForward}>&raquo;</button> : null
 
     return (
       <div className="options-section">
         <fieldset>
           <legend>Load Saved Search</legend>
           {savedSearchList}
-          <p>
+          <p className="list center">
             {backButton}
             {forwardButton}
           </p>
@@ -52,8 +52,6 @@ class LoadSavedSearches extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    newsItems: state.newsItems,
-    newsSourceList: state.newsSourceList,
     userInfo: state.userInfo
   }
 }
