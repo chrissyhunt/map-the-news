@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import AdvancedSearch from './AdvancedSearch.js';
+import AdvancedOptions from './AdvancedOptions.js';
 import Logo from '../components/Header/Logo';
 import BasicSearch from './BasicSearch';
 import UserMenu from '../components/Header/UserMenu';
@@ -16,8 +16,9 @@ class HeaderContainer extends Component {
   constructor() {
     super();
     this.state = {
-      advancedSearchActive: false,
-      searchCompleted: false
+      advancedOptionsActive: false,
+      searchCompleted: false,
+      topStoriesMode: true
     }
   }
 
@@ -74,10 +75,10 @@ class HeaderContainer extends Component {
     this.props.saveSearch(this.state.searchTerms);
   }
 
-  toggleAdvancedSearch = (event) => {
+  toggleAdvancedOptions = (event) => {
     event.preventDefault();
     return this.setState({
-      advancedSearchActive: !this.state.advancedSearchActive
+      advancedOptionsActive: !this.state.advancedOptionsActive
     })
   }
 
@@ -88,12 +89,12 @@ class HeaderContainer extends Component {
           <div className="header">
             <div className="header-left">
               <span className="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {!this.state.advancedSearchActive && <BasicSearch />}
+              {!this.state.advancedOptionsActive && <BasicSearch />}
             </div>
-            <HeaderMenu logout={this.props.logout} toggleAdvancedSearch={this.toggleAdvancedSearch} />
+            <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} />
           </div>
         </div>
-        {this.state.advancedSearchActive && <AdvancedSearch />}
+        {this.state.advancedOptionsActive && <AdvancedOptions />}
       </React.Fragment>
     )
   }

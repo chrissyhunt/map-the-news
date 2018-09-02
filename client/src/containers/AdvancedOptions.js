@@ -1,21 +1,19 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import ViewModeSelector from '../components/Header/ViewModeSelector';
+import AdvancedSearchBox from './AdvancedSearchBox';
 import DarkenBackground from '../components/DarkenBackground';
 
-class AdvancedSearch extends Component {
+class AdvancedOptions extends Component {
 
   render() {
     return (
       <React.Fragment>
       <div class="options">
-        <div class="options-section">
-          <fieldset>
-            <legend>Select view mode</legend>
-            <label><input type="radio" name="view" id="topStories" defaultChecked /> Top Stories</label>
-            <label><input type="radio" name="view" id="search" />Search by Topic</label>
-          </fieldset>
-        </div>
+        <ViewModeSelector />
+        <AdvancedSearchBox />
+
       </div>
       <DarkenBackground />
       </React.Fragment>
@@ -30,4 +28,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AdvancedSearch);
+export default connect(mapStateToProps)(AdvancedOptions);
