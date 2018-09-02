@@ -3,7 +3,9 @@ import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import Logo from '../components/Header/Logo';
+import BasicSearch from '../components/Header/BasicSearch';
 import UserMenu from '../components/Header/UserMenu';
+import HeaderMenu from '../components/Header/HeaderMenu';
 import SearchForm from '../components/Header/SearchForm';
 import SecondarySearchBox from '../components/Header/SecondarySearchBox';
 import { fetchNews, saveSearch } from '../actions/News';
@@ -127,11 +129,7 @@ class HeaderContainer extends Component {
       <div class="row header-row">
         <div class="header">
           <BasicSearch />
-          {this.userLoaded()}
-        </div>
-        <div class="search">
-          <SearchForm searchTerms={this.state.searchTerms} handleSearchQueryChange={this.handleSearchQueryChange} handleStartDateChange={this.handleStartDateChange} handleEndDateChange={this.handleEndDateChange} handleSearchSubmit={this.handleSearchSubmit} />
-          {this.searchCompleted()}
+          <HeaderMenu logout={this.props.logout} />
         </div>
       </div>
     )
