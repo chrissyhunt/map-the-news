@@ -17,52 +17,8 @@ class HeaderContainer extends Component {
     super();
     this.state = {
       advancedSearchActive: false,
-      searchCompleted: false,
-      searchTerms: {
-        q: '',
-        startDate: moment().format("YYYY-MM-DD"),
-        endDate: moment().format("YYYY-MM-DD")
-      }
+      searchCompleted: false
     }
-  }
-
-  componentDidMount() {
-    if (!this.props.userInfo.user && !this.props.userInfo.loading) {
-      this.props.getUser()
-    }
-  }
-
-  handleSearchQueryChange = event => {
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        q: event.target.value
-      }
-    })
-  }
-
-  handleStartDateChange = event => {
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        startDate: event.target.value
-      }
-    })
-  }
-
-  handleEndDateChange = event => {
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: event.target.value
-      }
-    })
-  }
-
-  handleSearchSubmit = event => {
-    event.preventDefault();
-    this.props.fetchNews(this.state.searchTerms)
-    this.setState({searchCompleted: true})
   }
 
   backOneDay = (event) => {
@@ -116,14 +72,6 @@ class HeaderContainer extends Component {
 
   saveSearch = () => {
     this.props.saveSearch(this.state.searchTerms);
-  }
-
-  searchCompleted = () => {
-    return (this.state.searchCompleted) ? <SecondarySearchBox saveSearch={this.saveSearch} backOneDay={this.backOneDay} backOneWeek={this.backOneWeek} forwardOneDay={this.forwardOneDay} forwardOneWeek={this.forwardOneWeek} /> : null;
-  }
-
-  userLoaded = () => {
-    return (this.props.userInfo.user && !this.props.userInfo.loading) ? <UserMenu userInfo={this.props.userInfo} logout={this.props.logout} /> : null;
   }
 
   displayBasicSearch = () => {
