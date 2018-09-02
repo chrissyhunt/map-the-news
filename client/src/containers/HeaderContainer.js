@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import AdvancedSearch from './AdvancedSearch.js';
 import Logo from '../components/Header/Logo';
 import BasicSearch from '../components/Header/BasicSearch';
 import UserMenu from '../components/Header/UserMenu';
@@ -15,6 +16,7 @@ class HeaderContainer extends Component {
   constructor() {
     super();
     this.state = {
+      advancedSearchActive: false,
       searchCompleted: false,
       searchTerms: {
         q: '',
@@ -124,21 +126,36 @@ class HeaderContainer extends Component {
     return (this.props.userInfo.user && !this.props.userInfo.loading) ? <UserMenu userInfo={this.props.userInfo} logout={this.props.logout} /> : null;
   }
 
+  displayBasicSearch = () => {
+    return (this.state.advancedSearchActive) ? null : <BasicSearch />
+  }
+
+  displayAdvancedSearch = () => {
+    return (this.state.advancedSearchActive) ? <AdvancedSearch /> : null
+  }
+
   render() {
     return (
-      <div class="row header-row">
-        <div class="header">
-          <BasicSearch />
-          <HeaderMenu logout={this.props.logout} />
+      <React.Fragment>
+        <div class="row header-row">
+          <div class="header">
+            <div class="header-left">
+              <span class="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {this.displayBasicSearch()}
+            </div>
+            <HeaderMenu logout={this.props.logout} />
+          </div>
         </div>
-      </div>
+        {this.displayAdvancedSearch()}
+      </React.Fragment>
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    searchInfo: state.searchInfo
   }
 }
 
