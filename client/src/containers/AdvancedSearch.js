@@ -12,7 +12,7 @@ class AdvancedSearch extends Component {
         <div class="options-section">
           <fieldset>
             <legend>Select view mode</legend>
-            <label><input type="radio" name="view" id="topStories" checked /> Top Stories</label>
+            <label><input type="radio" name="view" id="topStories" defaultChecked /> Top Stories</label>
             <label><input type="radio" name="view" id="search" />Search by Topic</label>
           </fieldset>
         </div>

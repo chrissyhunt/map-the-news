@@ -74,27 +74,26 @@ class HeaderContainer extends Component {
     this.props.saveSearch(this.state.searchTerms);
   }
 
-  displayBasicSearch = () => {
-    return (this.state.advancedSearchActive) ? null : <BasicSearch />
-  }
-
-  displayAdvancedSearch = () => {
-    return (this.state.advancedSearchActive) ? <AdvancedSearch /> : null
+  toggleAdvancedSearch = (event) => {
+    event.preventDefault();
+    return this.setState({
+      advancedSearchActive: !this.state.advancedSearchActive
+    })
   }
 
   render() {
     return (
       <React.Fragment>
-        <div class="row header-row">
-          <div class="header">
-            <div class="header-left">
-              <span class="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {this.displayBasicSearch()}
+        <div className="row header-row">
+          <div className="header">
+            <div className="header-left">
+              <span className="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {!this.state.advancedSearchActive && <BasicSearch />}
             </div>
-            <HeaderMenu logout={this.props.logout} />
+            <HeaderMenu logout={this.props.logout} toggleAdvancedSearch={this.toggleAdvancedSearch} />
           </div>
         </div>
-        {this.displayAdvancedSearch()}
+        {this.state.advancedSearchActive && <AdvancedSearch />}
       </React.Fragment>
     )
   }

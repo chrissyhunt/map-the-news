@@ -7,12 +7,14 @@ function searchReducer(state = {
   switch (action.type) {
     case "ACTIVATE_SEARCH":
       return {
+        mode: "search",
         searchActive: true,
         currentSearch: action.payload
       };
 
     case "CLEAR_SEARCH":
       return {
+        ...state,
         searchActive: false,
         currentSearch: null
       };
