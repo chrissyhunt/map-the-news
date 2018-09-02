@@ -1,6 +1,6 @@
 export function fetchNews(searchTerms) {
   return (dispatch) => {
-    dispatch({ type: "LOADING_NEWS_ITEMS" });
+    dispatch({ type: "ACTIVATE_SEARCH", payload: searchTerms });
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/news_request', {
         method: "POST",

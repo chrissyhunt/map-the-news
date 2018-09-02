@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import AdvancedSearch from './AdvancedSearch.js';
 import Logo from '../components/Header/Logo';
-import BasicSearch from '../components/Header/BasicSearch';
+import BasicSearch from './BasicSearch';
 import UserMenu from '../components/Header/UserMenu';
 import HeaderMenu from '../components/Header/HeaderMenu';
 import SearchForm from '../components/Header/SearchForm';
