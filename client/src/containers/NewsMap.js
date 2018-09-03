@@ -5,6 +5,7 @@ import HeaderContainer from './HeaderContainer';
 import LoadRows from '../components/NewsMapDisplay/LoadRows';
 import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
+import NewsModal from './NewsModal';
 import { connect } from 'react-redux';
 
 class NewsMap extends Component {
@@ -17,8 +18,8 @@ class NewsMap extends Component {
           <LoadRows />
           <LoadColumns />
           <ManageNewsItems />
+          {this.props.application.activeNewsSource && <NewsModal />}
         </div>
-
       </React.Fragment>
     );
   }
@@ -26,7 +27,7 @@ class NewsMap extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userInfo: state.userInfo
+    application: state.application
   }
 }
 
