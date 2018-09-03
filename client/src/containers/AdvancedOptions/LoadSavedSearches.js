@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import SavedSearch from '../../components/AdvancedOptions/SavedSearch';
-import { deleteSearch } from '../../actions/News';
+import { fetchNews, deleteSearch } from '../../actions/News';
 
 class LoadSavedSearches extends Component {
   constructor() {
@@ -32,9 +32,22 @@ class LoadSavedSearches extends Component {
     this.props.deleteSearch(event.target.name);
   }
 
+  loadSavedSearch = (event) => {
+    event.preventDefault();
+    const targetSearch = this.props.userInfo.user.searches.filter(search => {
+      return search.id == event.target.name
+    })[0]
+    const searchTerms = {
+      q: targetSearch.q,
+      startDate: targetSearch.start_date,
+      endDate: targetSearch.end_date,
+    }
+    this.props.fetchNews(searchTerms);
+  }
+
   render() {
     const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
-      return <SavedSearch key={search.id} id={search.id} query={search.q} deleteSearch={this.deleteSearch} />
+      return <SavedSearch key={search.id} id={search.id} query={search.q} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
     })
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&laquo;</button> : null
@@ -62,4 +75,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { deleteSearch })(LoadSavedSearches);
+export default connect(mapStateToProps, { fetchNews, deleteSearch })(LoadSavedSearches);
