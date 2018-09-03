@@ -49,3 +49,11 @@ export function activateSearchOptionsBox() {
 export function deactivateSearchOptionsBox() {
   return { type: "DEACTIVATE_SEARCH_OPTIONS_BOX" }
 }
+
+export function setTopStoriesMode() {
+  return { type: "SET_TOP_STORIES_MODE" }
+}
+
+export function setSearchNewsMode() {
+  return { type: "SET_SEARCH_NEWS_MODE" }
+}
