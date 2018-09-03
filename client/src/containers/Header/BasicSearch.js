@@ -7,12 +7,21 @@ import { fetchNews } from '../../actions/News';
 class BasicSearch extends Component {
   constructor() {
     super();
+
     this.state = {
       searchTerms : {
         q: '',
         startDate: moment().format("YYYY-MM-DD"),
         endDate: moment().format("YYYY-MM-DD")
       }
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.searchInfo.searchActive) {
+      this.setState({
+        searchTerms: this.props.searchInfo.currentSearch
+      })
     }
   }
 
@@ -40,4 +49,10 @@ class BasicSearch extends Component {
   }
 }
 
-export default connect(null, { fetchNews })(BasicSearch);
+const mapStateToProps = (state) => {
+  return {
+    searchInfo: state.searchInfo
+  }
+}
+
+export default connect(mapStateToProps, { fetchNews })(BasicSearch);
