@@ -4,7 +4,7 @@ import './App.css';
 import './NewsItemPositions.css'
 import Welcome from './containers/Welcome';
 import Signup from './containers/Signup';
-import NewsMap from './containers/NewsMap';
+import NewsMap from './containers/NewsMap/NewsMap';
 import UserSettings from './containers/UserSettings';
 import Auth from './containers/Auth';
 import { connect } from 'react-redux';

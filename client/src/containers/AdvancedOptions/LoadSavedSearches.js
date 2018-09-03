@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import SavedSearch from '../components/Header/SavedSearch';
+import SavedSearch from '../../components/Header/SavedSearch';
 
 class LoadSavedSearches extends Component {
   constructor() {

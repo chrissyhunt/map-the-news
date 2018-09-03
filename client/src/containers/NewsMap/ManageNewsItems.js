@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import NewsCard from '../containers/NewsCard';
+import NewsCard from './NewsCard';
 
 class ManageNewsItems extends Component {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNews } from '../actions/News';
+import { fetchNews } from '../../actions/News';
 
 class AdvancedSearchBox extends Component {
   constructor() {

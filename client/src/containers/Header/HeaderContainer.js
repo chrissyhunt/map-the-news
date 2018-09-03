@@ -2,15 +2,15 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import AdvancedOptions from './AdvancedOptions.js';
-import Logo from '../components/Header/Logo';
+import AdvancedOptions from '../AdvancedOptions/AdvancedOptions.js';
+import Logo from '../../components/Header/Logo';
 import BasicSearch from './BasicSearch';
-import UserMenu from '../components/Header/UserMenu';
-import HeaderMenu from '../components/Header/HeaderMenu';
-import SearchForm from '../components/Header/SearchForm';
-import SecondarySearchBox from '../components/Header/SecondarySearchBox';
-import { fetchNews, saveSearch } from '../actions/News';
-import { getUser, logout } from '../actions/Users';
+import UserMenu from '../../components/Header/UserMenu';
+import HeaderMenu from '../../components/Header/HeaderMenu';
+import SearchForm from '../../components/Header/SearchForm';
+import SecondarySearchBox from '../../components/Header/SecondarySearchBox';
+import { fetchNews, saveSearch } from '../../actions/News';
+import { getUser, logout } from '../../actions/Users';
 
 class HeaderContainer extends Component {
   constructor() {

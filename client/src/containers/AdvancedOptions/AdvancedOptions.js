@@ -1,10 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import ViewModeSelector from '../components/Header/ViewModeSelector';
+import ViewModeSelector from '../../components/AdvancedOptions/ViewModeSelector';
 import AdvancedSearchBox from './AdvancedSearchBox';
 import LoadSavedSearches from './LoadSavedSearches';
-import DarkenBackground from '../components/DarkenBackground';
+import DarkenBackground from '../../components/DarkenBackground';
 
 class AdvancedOptions extends Component {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-import Headline from '../components/NewsItems/Headline';
-import HeadlineList from '../components/NewsItems/HeadlineList';
-import MoreNews from '../components/NewsItems/MoreNews';
+import Headline from '../../components/NewsItems/Headline';
+import HeadlineList from '../../components/NewsItems/HeadlineList';
+import MoreNews from '../../components/NewsItems/MoreNews';
 
 
 class NewsCard extends Component {
@@ -41,7 +41,7 @@ class NewsCard extends Component {
     return (
       <div className={fullClass}>
         <Headline newsInfo={this.props.newsInfo[this.state.indexActive]} handleHeadlineClick={this.handleHeadlineClick} headlineActive={this.state.headlineActive} />
-        
+
       </div>
     )
   }

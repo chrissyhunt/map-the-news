@@ -1,9 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import DarkenBackground from '../components/DarkenBackground';
-import CloseButton from '../components/CloseButton';
-import FeaturedStoryDetails from '../components/NewsModal/FeaturedStoryDetails';
+import DarkenBackground from '../../components/DarkenBackground';
+import CloseButton from '../../components/CloseButton';
+import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
 
 class NewsModal extends Component {
   constructor() {

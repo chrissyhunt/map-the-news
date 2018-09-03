@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../App.css';
-import '../NewsItemPositions.css'
-import HeaderContainer from './HeaderContainer';
-import LoadRows from '../components/NewsMapDisplay/LoadRows';
-import LoadColumns from '../components/NewsMapDisplay/LoadColumns';
+import '../../App.css';
+import '../../NewsItemPositions.css'
+import HeaderContainer from '../Header/HeaderContainer';
+import LoadRows from '../../components/NewsMapDisplay/LoadRows';
+import LoadColumns from '../../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
-import NewsModal from './NewsModal';
+import NewsModal from '../NewsModal/NewsModal';
 import { connect } from 'react-redux';
 
 class NewsMap extends Component {
