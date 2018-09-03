@@ -35,6 +35,22 @@ export function saveSearch(searchTerms) {
   }
 }
 
+export function deleteSearch(id) {
+  console.log("Hit deleteSearch action: ", id)
+  return (dispatch) => {
+    const token = "Bearer " + localStorage.getItem("jwt");
+    return fetch(`http://localhost:3000/api/searches/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    })
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
+  }
+}
+
 export function setActiveNewsSource(source) {
   return { type: "SET_ACTIVE_NEWS_SOURCE", payload: source }
 }
