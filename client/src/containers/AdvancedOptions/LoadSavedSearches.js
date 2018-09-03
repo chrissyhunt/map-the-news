@@ -1,7 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import SavedSearch from '../../components/Header/SavedSearch';
+import SavedSearch from '../../components/AdvancedOptions/SavedSearch';
+import { deleteSearch } from '../../actions/News';
 
 class LoadSavedSearches extends Component {
   constructor() {
@@ -26,9 +27,14 @@ class LoadSavedSearches extends Component {
     })
   }
 
+  deleteSearch = (event) => {
+    event.preventDefault();
+    this.props.deleteSearch(event.target.name);
+  }
+
   render() {
     const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
-      return <SavedSearch key={search.id} query={search.q} />
+      return <SavedSearch key={search.id} id={search.id} query={search.q} deleteSearch={this.deleteSearch} />
     })
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&laquo;</button> : null
@@ -56,4 +62,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(LoadSavedSearches);
+export default connect(mapStateToProps, { deleteSearch })(LoadSavedSearches);

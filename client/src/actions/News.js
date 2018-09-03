@@ -47,6 +47,8 @@ export function deleteSearch(id) {
       }
     })
     .then(response => console.log(response))
+    // .then(response => response.json())
+    // .then(data => ???)
     .catch(err => console.log(err))
   }
 }
