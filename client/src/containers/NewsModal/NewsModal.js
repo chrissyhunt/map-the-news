@@ -5,6 +5,7 @@ import DarkenBackground from '../../components/DarkenBackground';
 import CloseButton from '../../components/CloseButton';
 import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
 import MoreNews from '../../components/NewsModal/MoreNews';
+import { clearActiveNewsSource } from '../../actions/News';
 
 class NewsModal extends Component {
   constructor() {
@@ -20,6 +21,11 @@ class NewsModal extends Component {
     })
   }
 
+  closeModal = (event) => {
+    event.preventDefault();
+    this.props.clearActiveNewsSource();
+  }
+
   render() {
     const activeNewsSource = this.props.application.activeNewsSource
     const newsItems = this.props.newsItems.allNews[activeNewsSource]
@@ -31,7 +37,7 @@ class NewsModal extends Component {
         <DarkenBackground />
 
         <div class="news-detail-modal">
-          <CloseButton />
+          <CloseButton closeModal={this.closeModal} />
           <FeaturedStoryDetails headline={newsItems[this.state.activeIndex]['title']} description={newsItems[this.state.activeIndex]['description']} url={newsItems[this.state.activeIndex]['url']}/>
           <MoreNews sourceName={sourceName} newsItems={newsItems} />
         </div>
@@ -48,4 +54,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(NewsModal);
+export default connect(mapStateToProps, { clearActiveNewsSource })(NewsModal);

@@ -2,7 +2,7 @@ import React from 'react';
 
 const CloseButton = (props) => {
   return (
-    <div class="close-button"><a role="button">[X]</a></div>
+    <div class="close-button"><a role="button" onClick={props.closeModal}>[X]</a></div>
   )
 }
 
