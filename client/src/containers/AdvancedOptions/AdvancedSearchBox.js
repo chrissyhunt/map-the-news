@@ -16,6 +16,14 @@ class AdvancedSearchBox extends Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.searchInfo.searchActive) {
+      this.setState({
+        searchTerms: this.props.searchInfo.currentSearch
+      })
+    }
+  }
+
   handleOnChange = event => {
     this.setState({
       searchTerms: {
@@ -71,6 +79,7 @@ const mapStateToProps = (state) => {
   return {
     newsItems: state.newsItems,
     newsSourceList: state.newsSourceList,
+    searchInfo: state.searchInfo
   }
 }
 
