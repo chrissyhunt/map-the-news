@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNews } from '../../actions/News';
+import { fetchNews, saveSearch } from '../../actions/News';
 
 class AdvancedSearchBox extends Component {
   constructor() {
@@ -38,6 +38,10 @@ class AdvancedSearchBox extends Component {
     this.props.fetchNews(this.state.searchTerms);
   }
 
+  saveSearch = () => {
+    this.props.saveSearch(this.state.searchTerms);
+  }
+
   render() {
     return (
       <div className="options-section">
@@ -65,7 +69,7 @@ class AdvancedSearchBox extends Component {
             </div>
 
             <div className="form-section half-width right-half right">
-              <input type="button" value="Save" />
+              <input type="button" value="Save" onClick={this.saveSearch} />
               <input type="button" value="Clear" />
             </div>
           </fieldset>
@@ -83,4 +87,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews })(AdvancedSearchBox);
+export default connect(mapStateToProps, { fetchNews, saveSearch })(AdvancedSearchBox);

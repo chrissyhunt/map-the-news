@@ -28,58 +28,54 @@ class HeaderContainer extends Component {
     }
   }
 
-  backOneDay = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'days').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    console.log('updated state: ', this.state)
-    this.props.fetchNews(this.state.searchTerms);
-  }
-
-  backOneWeek = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
-  }
-
-  forwardOneDay = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).add(1, 'days').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
-  }
-
-  forwardOneWeek = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).add(1, 'weeks').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
-  }
-
-  saveSearch = () => {
-    this.props.saveSearch(this.state.searchTerms);
-  }
+  // backOneDay = (event) => {
+  //   const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'days').format("YYYY-MM-DD")
+  //   this.setState({
+  //     searchTerms: {
+  //       ...this.state.searchTerms,
+  //       endDate: newDate,
+  //       startDate: newDate
+  //     }
+  //   })
+  //   console.log('updated state: ', this.state)
+  //   this.props.fetchNews(this.state.searchTerms);
+  // }
+  //
+  // backOneWeek = (event) => {
+  //   const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
+  //   this.setState({
+  //     searchTerms: {
+  //       ...this.state.searchTerms,
+  //       endDate: newDate,
+  //       startDate: newDate
+  //     }
+  //   })
+  //   this.props.fetchNews(this.state.searchTerms);
+  // }
+  //
+  // forwardOneDay = (event) => {
+  //   const newDate = moment(this.state.searchTerms.endDate).add(1, 'days').format("YYYY-MM-DD")
+  //   this.setState({
+  //     searchTerms: {
+  //       ...this.state.searchTerms,
+  //       endDate: newDate,
+  //       startDate: newDate
+  //     }
+  //   })
+  //   this.props.fetchNews(this.state.searchTerms);
+  // }
+  //
+  // forwardOneWeek = (event) => {
+  //   const newDate = moment(this.state.searchTerms.endDate).add(1, 'weeks').format("YYYY-MM-DD")
+  //   this.setState({
+  //     searchTerms: {
+  //       ...this.state.searchTerms,
+  //       endDate: newDate,
+  //       startDate: newDate
+  //     }
+  //   })
+  //   this.props.fetchNews(this.state.searchTerms);
+  // }
 
   toggleAdvancedOptions = (event) => {
     event.preventDefault();
