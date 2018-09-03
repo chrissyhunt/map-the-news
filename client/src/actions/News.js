@@ -33,3 +33,11 @@ export function saveSearch(searchTerms) {
     .catch(err => console.log(err))
   }
 }
+
+export function setActiveNewsSource(source) {
+  return { type: "SET_ACTIVE_NEWS_SOURCE", payload: source }
+}
+
+export function clearActiveNewsSource() {
+  return { type: "CLEAR_ACTIVE_NEWS_SOURCE" }
+}

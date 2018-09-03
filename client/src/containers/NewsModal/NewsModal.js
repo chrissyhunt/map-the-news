@@ -6,26 +6,20 @@ import CloseButton from '../../components/CloseButton';
 import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
 
 class NewsModal extends Component {
-  constructor() {
-    super();
-    this.state = {
-      headline: '',
-      description: '',
-      url: ''
-    }
-  }
+
 
   render() {
     const activeNewsSource = this.props.application.activeNewsSource
-    const newsItems = this.props.newsItems.news.filter(item => item.source === activeNewsSource)
-
+    const newsItems = this.props.newsItems.allNews[activeNewsSource]
+    console.log("active news source: ", activeNewsSource)
+    console.log(newsItems)
     return (
       <React.Fragment>
         <DarkenBackground />
 
         <div class="news-detail-modal">
           <CloseButton />
-          <FeaturedStoryDetails headline={'Test Headline'} description={'Test Description'} url={'#'}/>
+          <FeaturedStoryDetails headline={newsItems[0]['title']} description={newsItems[0]['description']} url={newsItems[0]['url']}/>
 
           <div class="news-menu">
             <p class="menu">More from Source:</p>

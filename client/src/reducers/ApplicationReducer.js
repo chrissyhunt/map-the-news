@@ -9,6 +9,11 @@ function applicationReducer(state = {
         activeNewsSource: action.payload
       };
 
+    case "CLEAR_ACTIVE_NEWS_SOURCE":
+      return {
+        activeNewsSource: null
+      }
+
     default:
       return state;
   }

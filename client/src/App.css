@@ -598,9 +598,10 @@ p.menu {
 
 .news-detail p {
   font-size: 1.1em;
+  margin-bottom: 30px;
 }
 
-.news-detail button {
+.news-detail a.button {
   background-color: #f4f4f8;
   color: #01374E;
   border: 0;
@@ -617,7 +618,11 @@ p.menu {
   cursor: pointer;
 }
 
-.news-detail button:active {
+.news-detail a.button:hover {
+  text-decoration: none;
+}
+
+.news-detail a.button:active {
   position: relative;
   top: 2px;
   right: 2px;
