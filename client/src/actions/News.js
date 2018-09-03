@@ -36,8 +36,8 @@ export function saveSearch(searchTerms) {
 }
 
 export function deleteSearch(id) {
-  console.log("Hit deleteSearch action: ", id)
   return (dispatch) => {
+    dispatch({ type: "DELETE_SAVED_SEARCH", payload: id });
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch(`http://localhost:3000/api/searches/${id}`, {
       method: "DELETE",
@@ -47,8 +47,6 @@ export function deleteSearch(id) {
       }
     })
     .then(response => console.log(response))
-    // .then(response => response.json())
-    // .then(data => ???)
     .catch(err => console.log(err))
   }
 }

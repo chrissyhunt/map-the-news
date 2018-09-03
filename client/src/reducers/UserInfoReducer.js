@@ -25,6 +25,18 @@ function userInfoReducer(state = {
         }
       }
 
+    case "DELETE_SAVED_SEARCH":
+      const remainingSearches = state.user.searches.filter(search => {
+        return search.id != action.payload
+      })
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          searches: remainingSearches
+        }
+      }
+
     case "LOGOUT_USER":
       return {
         user: null,

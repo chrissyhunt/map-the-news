@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     @search = Search.new(q: set_q, start_date: set_start_date, end_date: set_end_date)
     @search.user = current_user
     if @search && @search.save
-      render json: @search
+      render json: @search.to_json
     end
   end
 
