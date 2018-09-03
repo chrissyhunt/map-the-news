@@ -9,7 +9,7 @@ const MoreNews = (props) => {
 
   return (
     <div className="news-menu">
-      <p className="menu">More from {props.sourceName}:</p>
+      <p className="modal-menu">More from {props.sourceName}:</p>
       {newsItems}
     </div>
   )
