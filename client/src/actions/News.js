@@ -41,3 +41,11 @@ export function setActiveNewsSource(source) {
 export function clearActiveNewsSource() {
   return { type: "CLEAR_ACTIVE_NEWS_SOURCE" }
 }
+
+export function activateSearchOptionsBox() {
+  return { type: "ACTIVATE_SEARCH_OPTIONS_BOX" }
+}
+
+export function deactivateSearchOptionsBox() {
+  return { type: "DEACTIVATE_SEARCH_OPTIONS_BOX" }
+}

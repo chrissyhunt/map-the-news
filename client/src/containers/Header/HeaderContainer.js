@@ -9,14 +9,13 @@ import UserMenu from '../../components/Header/UserMenu';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
 import SecondarySearchBox from '../../components/Header/SecondarySearchBox';
-import { fetchNews, saveSearch } from '../../actions/News';
+import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox } from '../../actions/News';
 import { getUser, logout } from '../../actions/Users';
 
 class HeaderContainer extends Component {
   constructor() {
     super();
     this.state = {
-      advancedOptionsActive: false,
       searchCompleted: false,
       topStoriesMode: true
     }
@@ -79,24 +78,30 @@ class HeaderContainer extends Component {
 
   toggleAdvancedOptions = (event) => {
     event.preventDefault();
-    return this.setState({
-      advancedOptionsActive: !this.state.advancedOptionsActive
-    })
+    if (this.props.application.searchOptionsBoxOpen) {
+      this.props.deactivateSearchOptionsBox();
+    } else {
+      this.props.activateSearchOptionsBox();
+    }
+    // return this.setState({
+    //   advancedOptionsActive: !this.state.advancedOptionsActive
+    // })
   }
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <div className="row header-row">
           <div className="header">
             <div className="header-left">
               <span className="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              {!this.state.advancedOptionsActive && <BasicSearch />}
+              {!this.props.application.searchOptionsBoxOpen && <BasicSearch />}
             </div>
             <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} advancedOptionsActive={this.state.advancedOptionsActive}/>
           </div>
         </div>
-        {this.state.advancedOptionsActive && <AdvancedOptions />}
+        {this.props.application.searchOptionsBoxOpen && <AdvancedOptions />}
       </React.Fragment>
     )
   }
@@ -105,8 +110,9 @@ class HeaderContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     userInfo: state.userInfo,
-    searchInfo: state.searchInfo
+    searchInfo: state.searchInfo,
+    application: state.application
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout })(HeaderContainer);
+export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout, activateSearchOptionsBox, deactivateSearchOptionsBox })(HeaderContainer);
