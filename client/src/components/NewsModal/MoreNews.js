@@ -3,8 +3,8 @@ import ListHeadlineLink from './ListHeadlineLink';
 
 const MoreNews = (props) => {
 
-  const newsItems = props.newsItems.map(item => {
-    return <ListHeadlineLink title={item.title} />
+  const newsItems = props.newsItems.map((item, index) => {
+    return <ListHeadlineLink title={item.title} id={index} updateIndex={props.updateIndex} />
   })
 
   return (

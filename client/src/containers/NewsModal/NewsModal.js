@@ -15,9 +15,10 @@ class NewsModal extends Component {
     }
   }
 
-  updateIndex = (newIndex) => {
+  updateIndex = (event) => {
+    event.preventDefault();
     this.setState({
-      activeIndex: newIndex
+      activeIndex: event.target.name
     })
   }
 
@@ -30,16 +31,15 @@ class NewsModal extends Component {
     const activeNewsSource = this.props.application.activeNewsSource
     const newsItems = this.props.newsItems.allNews[activeNewsSource]
     const sourceName = this.props.newsItems.allNews[activeNewsSource][0].source.name
-    console.log("active news source: ", activeNewsSource)
-    console.log(newsItems)
+    console.log(this.state)
     return (
       <React.Fragment>
         <DarkenBackground />
 
         <div class="news-detail-modal">
           <CloseButton closeModal={this.closeModal} />
-          <FeaturedStoryDetails headline={newsItems[this.state.activeIndex]['title']} description={newsItems[this.state.activeIndex]['description']} url={newsItems[this.state.activeIndex]['url']}/>
-          <MoreNews sourceName={sourceName} newsItems={newsItems} />
+          <FeaturedStoryDetails headline={newsItems[this.state.activeIndex].title} description={newsItems[this.state.activeIndex].description} url={newsItems[this.state.activeIndex].url}/>
+          <MoreNews sourceName={sourceName} newsItems={newsItems} updateIndex={this.updateIndex} />
         </div>
       </React.Fragment>
     )
