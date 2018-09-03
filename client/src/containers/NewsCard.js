@@ -37,11 +37,11 @@ class NewsCard extends Component {
     console.log("inside NewsCard, props: ", this.props)
     console.log("inside NewsCard, state: ", this.state)
     const fullClass = `news-item ${this.props.source}`
-    const more = this.props.newsInfo.length > 1 ? <MoreNews handleNextClick={this.handleNextClick} itemActive={this.state.indexActive+1} totalItems={this.props.newsInfo.length} /> : null;
+    // const more = this.props.newsInfo.length > 1 ? <MoreNews handleNextClick={this.handleNextClick} itemActive={this.state.indexActive+1} totalItems={this.props.newsInfo.length} /> : null;
     return (
       <div className={fullClass}>
         <Headline newsInfo={this.props.newsInfo[this.state.indexActive]} handleHeadlineClick={this.handleHeadlineClick} headlineActive={this.state.headlineActive} />
-        {more}
+        
       </div>
     )
   }
