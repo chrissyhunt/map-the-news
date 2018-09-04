@@ -51,6 +51,10 @@ export function deleteSearch(id) {
   }
 }
 
+export function clearSearch() {
+  return { type: "CLEAR_SEARCH" }
+}
+
 export function setActiveNewsSource(source) {
   return { type: "SET_ACTIVE_NEWS_SOURCE", payload: source }
 }

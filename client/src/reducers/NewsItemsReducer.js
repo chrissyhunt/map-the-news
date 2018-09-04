@@ -32,6 +32,12 @@ function newsItemsReducer(state = {
       }
       return {allNews, loading: false}
 
+    case "CLEAR_SEARCH":
+      return {
+        allNews: {},
+        loading: false
+      }
+
     default:
       return state;
   }

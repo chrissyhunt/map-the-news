@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNews, saveSearch } from '../../actions/News';
+import { fetchNews, saveSearch, clearSearch } from '../../actions/News';
 
 class AdvancedSearchBox extends Component {
   constructor() {
@@ -42,6 +42,17 @@ class AdvancedSearchBox extends Component {
     this.props.saveSearch(this.state.searchTerms);
   }
 
+  clearSearch = () => {
+    this.props.clearSearch();
+    this.setState({
+      searchTerms: {
+        q: '',
+        startDate: moment().format("YYYY-MM-DD"),
+        endDate: moment().format("YYYY-MM-DD")
+      }
+    })
+  }
+
   render() {
     return (
       <div className="options-section">
@@ -70,7 +81,7 @@ class AdvancedSearchBox extends Component {
 
             <div className="form-section half-width right-half right">
               <input type="button" value="Save" onClick={this.saveSearch} />
-              <input type="button" value="Clear" />
+              <input type="button" value="Clear" onClick={this.clearSearch} />
             </div>
           </fieldset>
         </form>
@@ -87,4 +98,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, saveSearch })(AdvancedSearchBox);
+export default connect(mapStateToProps, { fetchNews, saveSearch, clearSearch })(AdvancedSearchBox);
