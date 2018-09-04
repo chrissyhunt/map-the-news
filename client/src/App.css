@@ -514,3 +514,11 @@ p.modal-menu {
   font-size: 0.8em;
   margin-bottom: 20px;
 }
+
+.date-range {
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 8px;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}

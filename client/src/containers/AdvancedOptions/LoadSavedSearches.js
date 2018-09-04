@@ -47,7 +47,7 @@ class LoadSavedSearches extends Component {
 
   render() {
     const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
-      return <SavedSearch key={search.id} id={search.id} query={search.q} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
+      return <SavedSearch key={search.id} id={search.id} query={search.q} startDate={search.start_date} endDate={search.end_date} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
     })
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&laquo;</button> : null
