@@ -17,6 +17,22 @@ export function fetchNews(searchTerms) {
   }
 }
 
+export function getTopHeadlines() {
+  return (dispatch) => {
+    const token = "Bearer " + localStorage.getItem("jwt");
+    return fetch('http://localhost:3000/api/top_headlines', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    })
+    .then(response => response.json())
+    .then(news => dispatch({type: "IMPORT_NEWS_ITEMS", payload: news}))
+    .catch(err => console.log(err))
+  }
+}
+
 export function saveSearch(searchTerms) {
   console.log("Hit saveSearch action: ", searchTerms)
   return (dispatch) => {

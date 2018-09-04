@@ -1,6 +1,6 @@
 class NewsRequestController < ApplicationController
 
-  def create
+  def news_request
     @news_results = Faraday.get 'https://newsapi.org/v2/everything?' do |req|
       req.params['apiKey'] = my_key
       req.params['q'] = news_request_params[:q]
@@ -8,6 +8,16 @@ class NewsRequestController < ApplicationController
       req.params['from'] = set_start_date
       req.params['to'] = set_end_date
       req.params['sortBy'] = 'relevancy'
+      req.params['pageSize'] = '100'
+    end
+
+    render json: @news_results.body, status: 200
+  end
+
+  def top_headlines
+    @news_results = Faraday.get 'https://newsapi.org/v2/top-headlines?' do |req|
+      req.params['apiKey'] = my_key
+      req.params['sources'] = set_sources
       req.params['pageSize'] = '100'
     end
 
