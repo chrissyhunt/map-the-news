@@ -10,8 +10,7 @@ function applicationReducer(state = {
     case "SET_ACTIVE_NEWS_SOURCE":
       return {
         ...state,
-        activeNewsSource: action.payload,
-        topStoriesMode: false
+        activeNewsSource: action.payload
       };
 
     case "CLEAR_ACTIVE_NEWS_SOURCE":
