@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 function applicationReducer(state = {
   activeNewsSource: null,
   searchOptionsBoxOpen: null,
-  topStoriesMode: true
+  topStoriesMode: true,
+  loading: null
 }, action) {
   switch (action.type) {
     case "SET_ACTIVE_NEWS_SOURCE":
@@ -41,6 +42,12 @@ function applicationReducer(state = {
       return {
         ...state,
         topStoriesMode: false
+      }
+
+    case "LOADING":
+      return {
+        ...state,
+        loading: action.payload
       }
 
     default:

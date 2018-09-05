@@ -19,6 +19,7 @@ export function fetchNews(searchTerms) {
 
 export function getTopHeadlines() {
   return (dispatch) => {
+    dispatch({ type: "LOADING", payload: "Loading Top Headlines" })
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/top_headlines', {
       method: "POST",
