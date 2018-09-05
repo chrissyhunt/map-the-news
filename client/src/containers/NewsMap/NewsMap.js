@@ -8,8 +8,15 @@ import ManageNewsItems from './ManageNewsItems';
 import NewsModal from '../NewsModal/NewsModal';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { connect } from 'react-redux';
+import { getTopHeadlines } from '../../actions/News';
 
 class NewsMap extends Component {
+
+  componentDidMount() {
+    if (this.props.application.topStoriesMode && !this.props.application.loading && !this.props.searchInfo.searchActive) {
+      this.props.getTopHeadlines();
+    }
+  }
 
   render() {
     return (
@@ -29,8 +36,9 @@ class NewsMap extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    application: state.application
+    application: state.application,
+    searchInfo: state.searchInfo
   }
 }
 
-export default connect(mapStateToProps)(NewsMap);
+export default connect(mapStateToProps, { getTopHeadlines })(NewsMap);
