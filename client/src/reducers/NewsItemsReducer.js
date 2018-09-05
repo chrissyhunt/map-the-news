@@ -2,13 +2,15 @@ import { combineReducers } from 'redux';
 
 function newsItemsReducer(state = {
   allNews: {},
-  loading: false
+  loading: false,
+  totalResults: null
 }, action) {
   switch (action.type) {
     case "LOADING_NEWS_ITEMS":
       return {...state, loading: true}
 
     case "IMPORT_NEWS_ITEMS":
+      console.log("IMPORT_NEWS_ITEMS payload: ", action.payload)
       const allNews = {
         "axios": action.payload.articles.filter(item => item.source.id === "axios"),
         "bloomberg": action.payload.articles.filter(item => item.source.id === "bloomberg"),
@@ -30,12 +32,17 @@ function newsItemsReducer(state = {
         "the-economist": action.payload.articles.filter(item => item.source.id === "the-economist"),
         "the-washington-times": action.payload.articles.filter(item => item.source.id === "the-washington-times")
       }
-      return {allNews, loading: false}
+      return {
+        allNews,
+        loading: false,
+        totalResults: action.payload.totalResults
+      }
 
     case "CLEAR_SEARCH":
       return {
         allNews: {},
-        loading: false
+        loading: false,
+        totalResults: null
       }
 
     default:

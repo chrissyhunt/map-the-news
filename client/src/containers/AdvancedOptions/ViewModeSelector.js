@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { setTopStoriesMode, setSearchNewsMode } from '../../actions/News';
+import { setTopStoriesMode, setSearchNewsMode, getTopHeadlines } from '../../actions/News';
 
 class ViewModeSelector extends Component {
   constructor() {
@@ -23,6 +23,7 @@ class ViewModeSelector extends Component {
 
   setTopStoriesMode = () => {
     this.props.setTopStoriesMode();
+    this.props.getTopHeadlines();
     this.setState({
       topStoriesMode: true,
       searchMode: false
@@ -56,4 +57,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setTopStoriesMode, setSearchNewsMode })(ViewModeSelector);
+export default connect(mapStateToProps, { setTopStoriesMode, setSearchNewsMode, getTopHeadlines })(ViewModeSelector);
