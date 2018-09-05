@@ -1,13 +1,13 @@
 .axios {
   position: absolute;
-  top: 22%;
+  top: 23%;
   left: 32%;
 }
 
 .bloomberg {
   position: absolute;
   top: 14%;
-  left: 53%;
+  left: 51%;
 }
 
 .breitbart-news {
@@ -18,20 +18,20 @@
 
 .buzzfeed {
   position: absolute;
-  top: 60%;
+  top: 38%;
   left: 15%;
 }
 
 .cnn {
   position: absolute;
   top: 45%;
-  left: 42%;
+  left: 27%;
 }
 
 .fox-news {
   position: absolute;
-  top: 68%;
-  left: 83%;
+  top: 66%;
+  left: 76%;
 }
 
 .msnbc {
@@ -43,24 +43,24 @@
 .national-review {
   position: absolute;
   top: 36%;
-  left: 72%;
+  left: 71%;
 }
 
 .reuters {
   position: absolute;
   top: 11%;
-  left: 53%;
+  left: 46%;
 }
 
 .the-american-conservative {
   position: absolute;
-  top: 45%;
+  top: 47%;
   left: 75%;
 }
 
 .the-huffington-post {
   position: absolute;
-  top: 54%;
+  top: 52%;
   left: 20%;
 }
 
@@ -72,26 +72,26 @@
 
 .the-wall-street-journal {
   position: absolute;
-  top: 26%;
+  top: 24%;
   left: 56%;
 }
 
 .the-washington-post {
   position: absolute;
   top: 23%;
-  left: 45%;
+  left: 42%;
 }
 
 .usa-today {
   position: absolute;
   top: 18%;
-  left: 48%;
+  left: 46%;
 }
 
 .the-hill {
   position: absolute;
   top: 23%;
-  left: 62%;
+  left: 46%;
 }
 
 .politico {
@@ -103,7 +103,7 @@
 .the-economist {
   position: absolute;
   top: 32%;
-  left: 56%;
+  left: 40%;
 }
 
 .the-washington-times {

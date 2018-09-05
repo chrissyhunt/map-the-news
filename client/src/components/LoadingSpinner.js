@@ -5,7 +5,7 @@ const LoadingSpinner = (props) => {
   return (
     <div className="loading-container">
       <div className="loading-message">
-        <Loader size='massive'>{props.message}</Loader>
+        <Loader size='massive' active>{props.message}</Loader>
       </div>
     </div>
   )
