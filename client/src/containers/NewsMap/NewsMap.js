@@ -6,6 +6,7 @@ import LoadRows from '../../components/NewsMapDisplay/LoadRows';
 import LoadColumns from '../../components/NewsMapDisplay/LoadColumns';
 import ManageNewsItems from './ManageNewsItems';
 import NewsModal from '../NewsModal/NewsModal';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import { connect } from 'react-redux';
 
 class NewsMap extends Component {
@@ -19,6 +20,7 @@ class NewsMap extends Component {
           <LoadColumns />
           <ManageNewsItems />
           {this.props.application.activeNewsSource && <NewsModal />}
+          {this.props.application.loading && <LoadingSpinner message={this.props.application.loading} />}
         </div>
       </React.Fragment>
     );

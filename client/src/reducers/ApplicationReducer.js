@@ -50,6 +50,12 @@ function applicationReducer(state = {
         loading: action.payload
       }
 
+    case "CLEAR_LOADING_MESSAGE":
+      return {
+        ...state,
+        loading: null
+      }
+
     default:
       return state;
   }

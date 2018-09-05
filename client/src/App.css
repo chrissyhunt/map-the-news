@@ -531,3 +531,12 @@ p.modal-menu {
   font-style: italic;
   opacity: 0.8;
 }
+
+.loading-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

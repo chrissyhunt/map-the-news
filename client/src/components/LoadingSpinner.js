@@ -3,13 +3,8 @@ import { Loader } from 'semantic-ui-react';
 
 const LoadingSpinner = (props) => {
   return (
-    <div style={{
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)'
-    }}>
-      <Loader size='massive'>Loading</Loader>
+    <div className="loading-container">
+      <Loader size='massive'>{props.message}</Loader>
     </div>
   )
 }
