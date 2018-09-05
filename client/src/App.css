@@ -533,8 +533,19 @@ p.modal-menu {
 }
 
 .loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10;
+}
+
+.loading-message {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2em;
+  color: var(--light-gray);
   position: fixed;
   top: 50%;
   left: 50%;

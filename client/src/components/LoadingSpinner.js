@@ -4,7 +4,9 @@ import { Loader } from 'semantic-ui-react';
 const LoadingSpinner = (props) => {
   return (
     <div className="loading-container">
-      <Loader size='massive'>{props.message}</Loader>
+      <div className="loading-message">
+        <Loader size='massive'>{props.message}</Loader>
+      </div>
     </div>
   )
 }
