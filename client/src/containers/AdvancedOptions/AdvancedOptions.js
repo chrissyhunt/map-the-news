@@ -13,9 +13,8 @@ class AdvancedOptions extends Component {
       <React.Fragment>
       <div class="options">
         <ViewModeSelector topStoriesMode={this.props.application.topStoriesMode} />
-        <AdvancedSearchBox />
-        <LoadSavedSearches />
-
+        {!this.props.application.topStoriesMode && <AdvancedSearchBox />}
+        {!this.props.application.topStoriesMode && <LoadSavedSearches />}
       </div>
       <DarkenBackground />
       </React.Fragment>
