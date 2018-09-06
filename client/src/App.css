@@ -534,6 +534,8 @@ p.modal-menu {
   opacity: 0.8;
 }
 
+/* LOADING */
+
 .loading-container {
   position: absolute;
   top: 0;
@@ -594,4 +596,193 @@ p.modal-menu {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+/* WELCOME PAGE */
+
+.welcome-shadow {
+  box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.welcome-header {
+  position: relative;
+  margin-top: 3%;
+  color: var(--light-gray);
+  margin-bottom: 15%;
+  padding: 10px;
+  text-align: center;
+  opacity: 1;
+  z-index: 5 !important;
+}
+
+.welcome-header h1 {
+  opacity: 1;
+  letter-spacing: 2px;
+  font-size: 2em;
+  text-transform: uppercase;
+  text-shadow: 8px 8px 16px rgba(0,0,0,0.2);
+  z-index: 5 !important;
+}
+
+.image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: var(--main-blue);
+  opacity: 0.6;
+}
+
+.welcome-container h2,
+.welcome-container h3,
+.welcome-container h4,
+.welcome-container h5,
+.welcome-container h6 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.welcome-container h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.welcome-container {
+  font-size: 0.8em;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+}
+
+.welcome-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab {
+  width: 50%;
+  text-align: center;
+  padding: 20px;
+  /* border: 1px solid var(--light-gray); */
+  background-color: var(--light-gray);
+  color: var(--main-blue);
+}
+
+.tab:hover {
+  background-color: var(--light-blue);
+  color: var(--light-gray);
+}
+
+.tab-active {
+  background-color: var(--main-blue) !important;
+  color: var(--light-gray) !important;
+  border-bottom: 0 !important;
+}
+
+.tab-active:hover {
+  background-color: var(--main-blue) !important;
+  color: var(--light-gray) !important;
+}
+
+.welcome-main {
+  background-color: var(--main-blue);
+  color: var(--light-gray);
+  padding: 20px 0;
+  /* border: 1px solid var(--light-gray);
+  border-top: 0; */
+}
+
+.welcome-container form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.welcome-main input[type="text"],
+.welcome-main input[type="password"] {
+  background-color: var(--light-blue);
+  border: 1px solid var(--light-gray);
+  color: var(--light-gray);
+  width: 100%;
+  line-height: 1.8em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  letter-spacing: 1px;
+  padding: 5px 8px;
+}
+
+.welcome-main input[type="submit"] {
+  background-color: var(--light-gray);
+  color: #01374E;
+  border: 0;
+  font-size: 0.7em;
+  height: 2em;
+  padding: 5px 8px;
+  border-radius: 12px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.1);
+  font-family: 'Ubuntu';
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.welcome-main input[type="submit"]:active {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+.welcome-main input[type="text"]:focus,
+.welcome-main input[type="password"]:focus {
+  outline: 0;
+  border: 2px solid var(--light-gray);
+}
+
+.welcome-main label {
+  font-size: 0.9em;
+  line-height: 2em;
+  font-weight: bold;
+}
+
+.full-width {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.half-width {
+  width: 50%;
+  margin: 20px 0;
+  float: left;
+}
+
+.tab-left {
+  padding-right: 8px;
+}
+
+.tab-right {
+  padding-left: 8px;
+}
+
+.welcome-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.welcome-footer a {
+  color: var(--light-gray);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.welcome-footer a:hover {
+  text-decoration: underline;
 }
