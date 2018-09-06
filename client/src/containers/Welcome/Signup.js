@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import '../Welcome.css';
-import { createUser } from '../actions/Users';
+import { createUser } from '../../actions/Users';
 
 class Signup extends Component {
   constructor() {
@@ -42,25 +41,31 @@ class Signup extends Component {
 
   render() {
     return (
-      <React.Fragment>
-      <h1>Welcome to Map the News!</h1>
-      <h2>Create Account</h2>
-
       <form onSubmit={e => this.handleSubmit(e)}>
-        <label>First Name:</label>
-        <input type="text" value={this.state.userInfo.first_name} name="first_name" onChange={e => this.handleChange(e)}/><br />
-        <label>Last Name:</label>
-        <input type="text" value={this.state.userInfo.last_name} name="last_name" onChange={e => this.handleChange(e)}/><br />
-        <label>Email:</label>
-        <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
-        <label>Password:</label>
-        <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
-        <input type="submit" value="Log In"/>
+        <div className="half-width tab-left">
+          <label>First Name:</label>
+          <input type="text" value={this.state.userInfo.first_name} name="first_name" onChange={e => this.handleChange(e)}/><br />
+        </div>
+
+        <div className="half-width tab-right">
+          <label>Last Name:</label>
+          <input type="text" value={this.state.userInfo.last_name} name="last_name" onChange={e => this.handleChange(e)}/><br />
+        </div>
+
+        <div className="full-width">
+          <label>Email:</label>
+          <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
+        </div>
+
+        <div classname="full-width">
+          <label>Password:</label>
+          <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
+        </div>
+
+        <div className="full-width">
+          <input type="submit" value="Create Account"/>
+        </div>
       </form>
-
-      <p><Link to={'/'}>Or Log In with Existing Account</Link></p>
-
-      </React.Fragment>
     );
   }
 }

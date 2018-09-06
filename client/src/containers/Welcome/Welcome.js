@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import '../../Welcome.css';
+import Signup from './Signup';
+import Login from './Login';
 import { getToken } from '../../actions/Users';
 
 class Welcome extends Component {
@@ -9,34 +11,20 @@ class Welcome extends Component {
     super();
 
     this.state = {
-      userInfo: {
-        email: '',
-        password: ''
-      }
+      displayLogin: false
     }
   }
 
-  handleChange = (event) => {
-    this.setState({
-      userInfo: {
-        ...this.state.userInfo,
-        [event.target.name]: event.target.value
-      }
-    })
-  }
-
-  handleLogin = (event) => {
+  displayCreateAccount = (event) => {
     event.preventDefault();
-    this.props.getToken(this.state.userInfo, this.props.history);
     this.setState({
-      userInfo: {
-        email: '',
-        password: ''
-      }
+      displayLogin: false
     })
   }
 
   render() {
+    const form = this.state.displayLogin ? <Login history={this.props.history}/> : <Signup history={this.props.history}/>
+
     return (
       <React.Fragment>
         <div className="welcome-header">
@@ -56,21 +44,7 @@ class Welcome extends Component {
             </div>
 
             <div class="welcome-main">
-              <form onSubmit={e => this.handleLogin(e)}>
-                <div className="full-width">
-                  <label>Email:</label>
-                  <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
-                </div>
-
-                <div classname="full-width">
-                  <label>Password:</label>
-                  <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
-                </div>
-
-                <div className="full-width">
-                  <input type="submit" value="Log In"/>
-                </div>
-              </form>
+              {form}
             </div>
           </div>
 
