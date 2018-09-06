@@ -52,6 +52,7 @@ export function createUser(userInfo, history) {
 export function logout() {
   console.log("LOGOUT CALLED!!!!!")
   return (dispatch) => {
+    dispatch({ type: "SET_TOP_STORIES_MODE" });
     dispatch({ type: "CLEAR_SEARCH" });
     dispatch({ type: "LOGOUT_USER", payload: null });
     localStorage.removeItem("jwt");
