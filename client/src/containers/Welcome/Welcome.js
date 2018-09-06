@@ -11,8 +11,15 @@ class Welcome extends Component {
     super();
 
     this.state = {
-      displayLogin: false
+      displayLogin: true
     }
+  }
+
+  toggleDisplay = (event) => {
+    event.preventDefault();
+    this.setState({
+      displayLogin: !this.state.displayLogin
+    })
   }
 
   displayCreateAccount = (event) => {
@@ -22,8 +29,12 @@ class Welcome extends Component {
     })
   }
 
+
+
   render() {
     const form = this.state.displayLogin ? <Login history={this.props.history}/> : <Signup history={this.props.history}/>
+    const loginClasses = `tab tab-left${this.state.displayLogin ? ' tab-active' : ''}`
+    const signupClasses = `tab tab-right${!this.state.displayLogin ? ' tab-active' : ''}`
 
     return (
       <React.Fragment>
@@ -35,11 +46,11 @@ class Welcome extends Component {
         <div className="welcome-container">
           <div className="welcome-shadow">
             <div className="welcome-menu">
-              <div className="tab tab-left">
-                <h2>Log In</h2>
+              <div className={loginClasses}>
+                <h2><a role="button" onClick={this.toggleDisplay}>Log In</a></h2>
               </div>
-              <div className="tab tab-right">
-                <h2>Create Account</h2>
+              <div className={signupClasses}>
+                <h2><a role="button" onClick={this.toggleDisplay}>Create Account</a></h2>
               </div>
             </div>
 

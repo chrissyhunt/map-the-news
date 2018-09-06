@@ -42,27 +42,27 @@ class Signup extends Component {
   render() {
     return (
       <form onSubmit={e => this.handleSubmit(e)}>
-        <div className="half-width tab-left">
+        <div className="welcome-half-width tab-left">
           <label>First Name:</label>
           <input type="text" value={this.state.userInfo.first_name} name="first_name" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div className="half-width tab-right">
+        <div className="welcome-half-width tab-right">
           <label>Last Name:</label>
           <input type="text" value={this.state.userInfo.last_name} name="last_name" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div className="full-width">
+        <div className="welcome-full-width">
           <label>Email:</label>
           <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div classname="full-width">
+        <div classname="welcome-full-width">
           <label>Password:</label>
           <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div className="full-width">
+        <div className="welcome-full-width">
           <input type="submit" value="Create Account"/>
         </div>
       </form>

@@ -38,17 +38,17 @@ class Login extends Component {
   render() {
     return (
       <form onSubmit={e => this.handleLogin(e)}>
-        <div className="full-width">
+        <div className="welcome-full-width">
           <label>Email:</label>
           <input type="text" value={this.state.userInfo.email} name="email" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div classname="full-width">
+        <div classname="welcome-full-width">
           <label>Password:</label>
           <input type="password" value={this.state.userInfo.password} name="password" onChange={e => this.handleChange(e)}/><br />
         </div>
 
-        <div className="full-width">
+        <div className="welcome-full-width">
           <input type="submit" value="Log In"/>
         </div>
       </form>
