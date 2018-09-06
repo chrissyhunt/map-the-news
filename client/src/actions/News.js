@@ -23,6 +23,7 @@ export function fetchNews(searchTerms) {
 
 export function getTopHeadlines() {
   return (dispatch) => {
+    dispatch({ type: "CLEAR_SEARCH"});
     dispatch({ type: "DEACTIVATE_SEARCH_OPTIONS_BOX" });
     dispatch({ type: "LOADING", payload: "Loading Top Headlines" });
     const token = "Bearer " + localStorage.getItem("jwt");
