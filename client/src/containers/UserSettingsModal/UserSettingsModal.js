@@ -8,10 +8,42 @@ import MoreNews from '../../components/NewsModal/MoreNews';
 import { deactivateUserSettingsBox } from '../../actions/News';
 
 class UserSettingsModal extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+      }
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.userInfo.user) {
+      this.setState({
+        user: this.props.userInfo.user
+      })
+    }
+  }
 
   closeModal = (event) => {
     event.preventDefault();
     this.props.deactivateUserSettingsBox();
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        [event.target.name]: event.target.value
+      }
+    })
+  }
+
+  handleSubmit = (event) => {
+    // update user settings
   }
 
   render() {
@@ -19,9 +51,36 @@ class UserSettingsModal extends Component {
       <React.Fragment>
         <DarkenBackground />
 
-        <div class="news-detail-modal">
+        <div class="user-settings-modal">
           <CloseButton closeModal={this.closeModal} />
-          <h1>User Settings</h1>
+          <div className="user-settings-detail">
+            <h1>Update Your Account Settings</h1>
+            <form onSubmit={e => this.handleSubmit(e)}>
+              <div className="half-width left-half">
+                <label>First Name:</label><br />
+                <input type="text" value={this.state.user.firstName} name="firstName" onChange={e => this.handleChange(e)}/><br />
+              </div>
+
+              <div className="half-width right-half">
+                <label>Last Name:</label><br />
+                <input type="text" value={this.state.user.lastName} name="lastName" onChange={e => this.handleChange(e)}/><br />
+              </div>
+
+              <div className="full-width">
+                <label>Email:</label><br />
+                <input type="text" value={this.state.user.email} name="email" onChange={e => this.handleChange(e)}/><br />
+              </div>
+
+              <div classname="full-width">
+                <label>New Password:</label><br />
+                <input type="password" value={this.state.user.password} name="password" onChange={e => this.handleChange(e)}/><br />
+              </div>
+
+              <div className="full-width">
+                <input type="submit" value="Update Account"/>
+              </div>
+            </form>
+          </div>
         </div>
       </React.Fragment>
     )
@@ -30,7 +89,8 @@ class UserSettingsModal extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    application: state.application
+    application: state.application,
+    userInfo: state.userInfo
   }
 }
 

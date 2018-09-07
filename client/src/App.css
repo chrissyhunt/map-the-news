@@ -265,7 +265,9 @@ input[type="button"].searchbar {
 }
 
 .options-section input[type="text"],
-.options-section input[type="date"] {
+.options-section input[type="date"],
+.user-settings-modal input[type="text"],
+.user-settings-modal input[type="password"] {
   background-color: var(--light-blue);
   border: 1px solid var(--light-gray);
   color: var(--light-gray);
@@ -285,11 +287,14 @@ input[type="button"].searchbar {
 }
 
 .options-section input[type="text"]:focus,
-.options-section input[type="date"]:focus {
+.options-section input[type="date"]:focus,
+.user-settings-modal input[type="text"]:focus,
+.user-settings-modal input[type="password"]:focus {
   outline: 3px solid var(--light-gray);
 }
 
-.options-section label {
+.options-section label,
+.user-settings-modal label {
   font-size: 0.9em;
   margin-right: 25px;
   color: var(--light-gray);
@@ -297,7 +302,10 @@ input[type="button"].searchbar {
 
 .options-section input[type="button"],
 .options-section input[type="submit"],
-.options-section button {
+.options-section button,
+.user-settings-modal input[type="button"],
+.user-settings-modal input[type="submit"],
+.user-settings-modal button {
   background-color: #f4f4f8;
   color: #01374E;
   border: 0;
@@ -314,14 +322,20 @@ input[type="button"].searchbar {
 }
 
 .options-section input[type="button"]:active,
-.options-section input[type="submit"]:active {
+.options-section input[type="submit"]:active,
+.user-settings-modal input[type="button"]:active,
+.user-settings-modal input[type="submit"]:active,
+.user-settings-modal button:active {
   position: relative;
   top: 2px;
   right: 2px;
 }
 
 .options-section input[type="button"]:focus,
-.options-section input[type="submit"]:focus {
+.options-section input[type="submit"]:focus,
+.user-settings-modal input[type="button"]:focus,
+.user-settings-modal input[type="submit"]:focus,
+.user-settings-modal button:focus {
   outline: 0;
 }
 
@@ -413,7 +427,7 @@ p.modal-menu {
   text-align: right;
 }
 
-.news-detail-modal {
+.news-detail-modal, .user-settings-modal {
   background-color: var(--main-blue);
   color: var(--light-gray);
   font-family: 'Open Sans', sans-serif;
@@ -451,16 +465,21 @@ p.modal-menu {
   text-decoration: none !important;
 }
 
-.news-detail-modal a, .menu a {
+.news-detail-modal a,
+.menu a,
+.user-settings-modal a {
   color: var(--light-gray);
   text-decoration: none;
 }
 
-.news-detail-modal a:hover, .menu a:hover {
+.news-detail-modal a:hover,
+.menu a:hover,
+.user-settings-modal a:hover {
   text-decoration: underline;
 }
 
-.news-detail h1 {
+.news-detail h1,
+.user-settings-detail h1 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.8em;
   line-height: 1.2em;
@@ -468,7 +487,8 @@ p.modal-menu {
   margin-bottom: 30px;
 }
 
-.news-detail {
+.news-detail,
+.user-settings-detail {
   max-width: 60%;
   flex-grow: 2;
   padding-right: 50px;
@@ -478,12 +498,14 @@ p.modal-menu {
   overflow: scroll;
 }
 
-.news-detail p {
+.news-detail p,
+.user-settings-detail p {
   font-size: 1.1em;
   margin-bottom: 30px;
 }
 
-.news-detail a.button {
+.news-detail a.button,
+.user-settings-detail a.button {
   background-color: #f4f4f8;
   color: #01374E;
   border: 0;
@@ -500,11 +522,13 @@ p.modal-menu {
   cursor: pointer;
 }
 
-.news-detail a.button:hover {
+.news-detail a.button:hover,
+.user-settings-detail a.button:hover {
   text-decoration: none;
 }
 
-.news-detail a.button:active {
+.news-detail a.button:active,
+.user-settings-detail a.button:active {
   position: relative;
   top: 2px;
   right: 2px;
@@ -536,6 +560,19 @@ p.modal-menu {
   font-size: 0.9em;
   font-style: italic;
   opacity: 0.8;
+}
+
+/* USER SETTINGS MODAL */
+
+.user-settings-detail {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 50px !important;
+  border-right: 0 !important;
+}
+
+.user-settings-detail input[type="submit"] {
+  margin-top: 20px;
 }
 
 /* LOADING */
