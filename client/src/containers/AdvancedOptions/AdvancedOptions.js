@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ViewModeSelector from './ViewModeSelector';
 import AdvancedSearchBox from './AdvancedSearchBox';
 import LoadSavedSearches from './LoadSavedSearches';
+import SearchNavBox from './SearchNavBox';
 import DarkenBackground from '../../components/DarkenBackground';
 
 class AdvancedOptions extends Component {
@@ -12,7 +13,10 @@ class AdvancedOptions extends Component {
     return (
       <React.Fragment>
       <div class="options">
-        <ViewModeSelector topStoriesMode={this.props.application.topStoriesMode} />
+        <div class="options-section">
+          <ViewModeSelector topStoriesMode={this.props.application.topStoriesMode} />
+          {this.props.searchInfo.searchActive && <SearchNavBox />}
+        </div>
         {!this.props.application.topStoriesMode && <AdvancedSearchBox />}
         {!this.props.application.topStoriesMode && <LoadSavedSearches />}
       </div>
@@ -26,6 +30,7 @@ const mapStateToProps = (state) => {
   return {
     newsItems: state.newsItems,
     newsSourceList: state.newsSourceList,
+    searchInfo: state.searchInfo,
     application: state.application
   }
 }

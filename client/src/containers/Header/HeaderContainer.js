@@ -8,7 +8,6 @@ import BasicSearch from './BasicSearch';
 import UserMenu from '../../components/Header/UserMenu';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
-import SecondarySearchBox from '../../components/Header/SecondarySearchBox';
 import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox } from '../../actions/News';
 import { getUser, logout } from '../../actions/Users';
 

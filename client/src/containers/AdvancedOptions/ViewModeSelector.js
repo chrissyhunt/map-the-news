@@ -40,13 +40,11 @@ class ViewModeSelector extends Component {
 
   render() {
     return (
-      <div class="options-section">
-        <fieldset>
-          <legend>Select view mode</legend>
-          <label><input type="radio" name="view" id="topStoriesMode" checked={this.state.topStoriesMode} onClick={this.setTopStoriesMode} /> Top Headlines</label>
-          <label><input type="radio" name="view" id="searchMode" checked={this.state.searchMode} onClick={this.setSearchMode} /> Search by Topic</label>
-        </fieldset>
-      </div>
+      <fieldset>
+        <legend>Select view mode</legend>
+        <label><input type="radio" name="view" id="topStoriesMode" checked={this.state.topStoriesMode} onClick={this.setTopStoriesMode} /> Top Headlines</label>
+        <label><input type="radio" name="view" id="searchMode" checked={this.state.searchMode} onClick={this.setSearchMode} /> Search by Topic</label>
+      </fieldset>
     )
   }
 }
