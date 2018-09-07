@@ -332,7 +332,11 @@ p.tips {
 }
 
 p.list {
-  margin-top: 8px;
+  margin-top: 6px;
+}
+
+p.nav {
+  margin-top: 18px;
 }
 
 p.menu {

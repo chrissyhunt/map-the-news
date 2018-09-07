@@ -9,21 +9,21 @@ class LoadSavedSearches extends Component {
     super();
     this.state = {
       start: 0,
-      end: 7
+      end: 6
     }
   }
 
   pageForward = () => {
     this.setState({
-      start: this.state.start+7,
-      end: this.state.end+7
+      start: this.state.start+6,
+      end: this.state.end+6
     })
   }
 
   pageBackward = () => {
     this.setState({
-      start: this.state.start-7,
-      end: this.state.end-7
+      start: this.state.start-6,
+      end: this.state.end-6
     })
   }
 
@@ -50,16 +50,16 @@ class LoadSavedSearches extends Component {
       return <SavedSearch key={search.id} id={search.id} query={search.q} startDate={search.start_date} endDate={search.end_date} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
     })
 
-    const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&laquo;</button> : null
+    const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&larr; back</button> : null
 
-    const forwardButton = this.state.end < this.props.userInfo.user.searches.length ? <button onClick={this.pageForward}>&raquo;</button> : null
+    const forwardButton = this.state.end < this.props.userInfo.user.searches.length ? <button onClick={this.pageForward}>next &rarr;</button> : null
 
     return (
       <div className="options-section">
         <fieldset>
           <legend>Load Saved Search</legend>
           {savedSearchList}
-          <p className="list center">
+          <p className="nav">
             {backButton}
             {forwardButton}
           </p>
