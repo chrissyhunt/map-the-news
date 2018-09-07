@@ -7,81 +7,55 @@ import { fetchNews } from '../../actions/News';
 // reminder: only renders if search is active
 
 class SearchNavBox extends Component {
-  constructor() {
-    super();
-    this.state = {
-      searchTerms : {
-        q: '',
-        startDate: moment().format("YYYY-MM-DD"),
-        endDate: moment().format("YYYY-MM-DD")
-      }
-    }
-  }
-
-  componentDidMount() {
-    if (this.props.searchInfo.searchActive) {
-      this.setState({
-        searchTerms: this.props.searchInfo.currentSearch
-      })
-    }
-  }
 
   backOneWeek = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
+    const newDate = moment(this.props.searchInfo.currentSearch.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
+    const newSearchTerms = {
+      q: this.props.searchInfo.currentSearch.q,
+      startDate: newDate,
+      endDate: newDate
+    }
+    this.props.fetchNews(newSearchTerms);
   }
 
   backOneDay = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).subtract(1, 'days').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
+    const newDate = moment(this.props.searchInfo.currentSearch.endDate).subtract(1, 'days').format("YYYY-MM-DD")
+    const newSearchTerms = {
+      q: this.props.searchInfo.currentSearch.q,
+      startDate: newDate,
+      endDate: newDate
+    }
+    this.props.fetchNews(newSearchTerms);
   }
 
   forwardOneDay = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).add(1, 'days').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
+    const newDate = moment(this.props.searchInfo.currentSearch.endDate).add(1, 'days').format("YYYY-MM-DD")
+    const newSearchTerms = {
+      q: this.props.searchInfo.currentSearch.q,
+      startDate: newDate,
+      endDate: newDate
+    }
+    this.props.fetchNews(newSearchTerms);
   }
 
   forwardOneWeek = (event) => {
-    const newDate = moment(this.state.searchTerms.endDate).add(1, 'weeks').format("YYYY-MM-DD")
-    this.setState({
-      searchTerms: {
-        ...this.state.searchTerms,
-        endDate: newDate,
-        startDate: newDate
-      }
-    })
-    this.props.fetchNews(this.state.searchTerms);
+    const newDate = moment(this.props.searchInfo.currentSearch.endDate).add(1, 'weeks').format("YYYY-MM-DD")
+    const newSearchTerms = {
+      q: this.props.searchInfo.currentSearch.q,
+      startDate: newDate,
+      endDate: newDate
+    }
+    this.props.fetchNews(newSearchTerms);
   }
 
   render() {
     return (
       <fieldset>
         <legend>Browse Results Over Time</legend>
-        <button onClick={this.backOneWeek}>&rarr; 1 Week</button>
-        <button onClick={this.backOneDay}>&rarr; 1 Day</button>
-        <button onClick={this.forwardOneDay}>1 Day &larr;</button>
-        <button onClick={this.forwardOneWeek}>1 Week &larr;</button>
+        <button onClick={this.backOneWeek}>&larr; 1 Week</button>
+        <button onClick={this.backOneDay}>&larr; 1 Day</button>
+        <button onClick={this.forwardOneDay}>1 Day &rarr;</button>
+        <button onClick={this.forwardOneWeek}>1 Week &rarr;</button>
       </fieldset>
     )
   }
