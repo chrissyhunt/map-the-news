@@ -16,10 +16,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
-    @user.update(user_params)
+    @user = current_user
+    @user.update(auth_params)
     if @user.save
-      render json: @user
+      render json: @user.to_json(only: [:id, :first_name, :last_name, :email],
+                                  include: [:searches])
     end
   end
 
@@ -32,6 +33,22 @@ class UsersController < ApplicationController
   private
 
   def auth_params
-    params.require(:auth).permit(:first_name, :last_name, :email, :password)
+    params.permit(:id, :first_name, :last_name, :email, :password)
   end
+
+  # def set_first_name
+  #   params[:auth][:firstName]
+  # end
+  #
+  # def set_last_name
+  #   params[:auth][:lastName]
+  # end
+  #
+  # def set_email
+  #   params[:auth][:email]
+  # end
+  #
+  # def set_password
+  #   params[:auth][:password]
+  # end
 end

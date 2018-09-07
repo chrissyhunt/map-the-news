@@ -6,6 +6,7 @@ import CloseButton from '../../components/CloseButton';
 import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
 import MoreNews from '../../components/NewsModal/MoreNews';
 import { deactivateUserSettingsBox } from '../../actions/News';
+import { updateUser } from '../../actions/Users';
 
 class UserSettingsModal extends Component {
   constructor() {
@@ -43,7 +44,8 @@ class UserSettingsModal extends Component {
   }
 
   handleSubmit = (event) => {
-    // update user settings
+    event.preventDefault();
+    this.props.updateUser(this.state.user);
   }
 
   render() {
@@ -55,7 +57,7 @@ class UserSettingsModal extends Component {
           <CloseButton closeModal={this.closeModal} />
           <div className="user-settings-detail">
             <h1>Update Your Account Settings</h1>
-            <form onSubmit={e => this.handleSubmit(e)}>
+            <form onSubmit={this.handleSubmit}>
               <div className="half-width left-half">
                 <label>First Name:</label><br />
                 <input type="text" value={this.state.user.firstName} name="firstName" onChange={e => this.handleChange(e)}/><br />
@@ -94,4 +96,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { deactivateUserSettingsBox })(UserSettingsModal);
+export default connect(mapStateToProps, { deactivateUserSettingsBox, updateUser })(UserSettingsModal);

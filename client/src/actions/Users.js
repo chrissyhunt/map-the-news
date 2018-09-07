@@ -49,6 +49,33 @@ export function createUser(userInfo, history) {
   }
 }
 
+export function updateUser(userInfo) {
+  return (dispatch) => {
+    dispatch({ type: "LOADING_USER", payload: null });
+    const userId = userInfo.id
+    const user = {
+      first_name: userInfo.firstName,
+      last_name: userInfo.lastName,
+      email: userInfo.email,
+      password: userInfo.password
+    }
+    const token = "Bearer " + localStorage.getItem("jwt");
+    return fetch(`http://localhost:3000/api/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response => response.json())
+    .then(result => {
+      console.log("updateUser result: ", result)
+      dispatch({ type: "SET_USER", payload: result})
+    })
+  }
+}
+
 export function logout() {
   console.log("LOGOUT CALLED!!!!!")
   return (dispatch) => {
