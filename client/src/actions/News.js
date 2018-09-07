@@ -104,3 +104,11 @@ export function setTopStoriesMode() {
 export function setSearchNewsMode() {
   return { type: "SET_SEARCH_NEWS_MODE" }
 }
+
+export function activateUserSettingsBox() {
+  return { type: "ACTIVATE_USER_SETTINGS_BOX" }
+}
+
+export function deactivateUserSettingsBox() {
+  return { type: "DEACTIVATE_USER_SETTINGS_BOX" }
+}

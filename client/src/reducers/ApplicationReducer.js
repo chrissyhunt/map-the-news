@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 function applicationReducer(state = {
   activeNewsSource: null,
   searchOptionsBoxOpen: null,
+  userSettingsBoxOpen: null,
   topStoriesMode: true,
   loading: null
 }, action) {
@@ -41,6 +42,18 @@ function applicationReducer(state = {
       return {
         ...state,
         topStoriesMode: false
+      }
+
+    case "ACTIVATE_USER_SETTINGS_BOX":
+      return {
+        ...state,
+        userSettingsBoxOpen: true
+      }
+
+    case "DEACTIVATE_USER_SETTINGS_BOX":
+      return {
+        ...state,
+        userSettingsBoxOpen: false
       }
 
     case "LOADING":

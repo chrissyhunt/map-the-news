@@ -7,9 +7,9 @@ const HeaderMenu = (props) => {
     <div class="header-right">
       <p class="menu">
 
-        <a href="#" onClick={props.toggleAdvancedOptions}>{advancedSearchTitle}</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Settings
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" onClick={props.logout}>Logout</a>
+        <a role="button" onClick={props.toggleAdvancedOptions}>{advancedSearchTitle}</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.activateUserSettingsBox}>Settings</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.logout}>Logout</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; About
       </p>
     </div>

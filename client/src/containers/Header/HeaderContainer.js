@@ -8,7 +8,7 @@ import BasicSearch from './BasicSearch';
 import UserMenu from '../../components/Header/UserMenu';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
-import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox } from '../../actions/News';
+import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox } from '../../actions/News';
 import { getUser, logout } from '../../actions/Users';
 
 class HeaderContainer extends Component {
@@ -35,6 +35,10 @@ class HeaderContainer extends Component {
     }
   }
 
+  activateUserSettingsBox = () => {
+    this.props.activateUserSettingsBox();
+  }
+
   render() {
     console.log(this.props)
     return (
@@ -45,7 +49,7 @@ class HeaderContainer extends Component {
               <span className="title">MAP THE NEWS</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {!this.props.application.searchOptionsBoxOpen && <BasicSearch />}
             </div>
-            <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} advancedOptionsActive={this.props.application.searchOptionsBoxOpen}/>
+            <HeaderMenu logout={this.props.logout} toggleAdvancedOptions={this.toggleAdvancedOptions} advancedOptionsActive={this.props.application.searchOptionsBoxOpen} activateUserSettingsBox={this.activateUserSettingsBox}/>
           </div>
         </div>
         {this.props.application.searchOptionsBoxOpen && <AdvancedOptions />}
@@ -62,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout, activateSearchOptionsBox, deactivateSearchOptionsBox })(HeaderContainer);
+export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox })(HeaderContainer);
