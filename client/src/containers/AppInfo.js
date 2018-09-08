@@ -26,7 +26,7 @@ class AppInfo extends Component {
         <p>With your eye on the big picture, you can watch in real time as stories are framed and challenged across the media landscape. You can see how different news organizations interact with and respond to each other, and how alternative perspectives on issues are pushed to the forefront for different audiences. You can witness a broader dialogue about events as they unfold.</p>
 
         <h2>Goals & Limitations of the Project</h2>
-        <p>When you search for a topic or phrase in the news, or choose to view all "Top Headlines," Map the News pulls headlines from twenty prominent (and mostly U.S.-oriented) news sources across the political spectrum through the News API and displays them on a two-dimensional bias chart. (This chart is loosely based on the overall political bias and quality ratings of news sources published by the Media Bias Chart and AllSides. Please note that Map the News is not affiliated with or endorsed by either project.)</p>
+        <p>When you search for a topic or phrase in the news, or choose to view all "Top Headlines," Map the News pulls headlines from twenty prominent (and mostly U.S.-oriented) news sources across the political spectrum through the News API and displays them on a two-dimensional bias chart. (This chart is loosely based on the overall political bias and quality ratings of news sources published by the <a href="https://www.adfontesmedia.com/">Media Bias Chart</a> and <a href="https://www.allsides.com/unbiased-balanced-news">AllSides</a>. Please note that Map the News is not affiliated with or endorsed by either project.)</p>
         <p>Map the News is not intended to provide a definitive or complete view of "the news", nor is it intended to be the final word on political bias and quality across the media. This is a complex topic, and assessments of political bias in particular always involve a degree of subjectivity. I firmly believe that there is no technology or tool that can ever replace the need for human critical thinking when consuming news and information.</p>
         <p>However, I also know from personal experience that it's easy to become comfortable within our information bubbles and blind to the world beyond, and that the rise of algorithmic news aggregation has only increased our isolation within these echo chambers. Map the News aims to provide an easy first step back to a broader dialogue.</p>
 
@@ -154,11 +154,11 @@ class AppInfo extends Component {
         </table>
 
         <h2>Technology</h2>
-        <p>Map the News was built by me, Chrissy Hunt, as my final project for the Flatiron School's Online Full Stack Web Development program. The application is built in React with a Rails API backend, and pulls information from the News API.</p>
-        <p>You can learn more about the technical details of the project on GitHub.</p>
+        <p>Map the News was built by me, <a href="http://chrissyhunt.com">Chrissy Hunt</a>, as my final project for the <a href="https://flatironschool.com/">Flatiron School's Online Full Stack Web Development</a> program. The application is built in React with a Rails API backend, and pulls information from the <a href="http://newsapi.org">News API</a>.</p>
+        <p>You can learn more about the technical details of the project on <a href="https://github.com/chrissyhunt87/map-the-news">GitHub</a>.</p>
 
         <h2>Get Started</h2>
-        <p>Ready to get started? Head on over to the news map!</p>
+        <p>Ready to get started? <Link to="/news">Head on over to the news map!</Link></p>
 
       </div>
       </div>
