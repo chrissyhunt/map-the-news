@@ -5,9 +5,6 @@
 }
 
 body {
-  /* background-image: url('./reading-newspaper.jpg') !important; */
-  background-size: cover;
-  background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   --main-blue: #0392cf;
   --light-blue: #47AFDC;
