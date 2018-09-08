@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import '../../NewsItemPositions.css'
 import HeaderContainer from '../Header/HeaderContainer';
 import LoadRows from '../../components/NewsMapDisplay/LoadRows';
 import LoadColumns from '../../components/NewsMapDisplay/LoadColumns';

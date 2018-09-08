@@ -13,6 +13,7 @@ body {
   --main-orange: #f37736;
   --main-yellow: #fdf498;
   --light-gray: #F4F4F8;
+  background-color: var(--main-blue);
   color: var(--light-gray);
 }
 
@@ -826,4 +827,47 @@ p.modal-menu {
 
 .welcome-footer a:hover {
   text-decoration: underline;
+}
+
+/* ABOUT PAGE */
+
+.content {
+  width: 60vw;
+  margin: 15vh auto;
+}
+
+.content h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.2em;
+  line-height: 1.2em;
+  margin-bottom: 25px;
+}
+
+.content h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.6em;
+  line-height: 1.2em;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+
+.content p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  margin-bottom: 25px;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.content th,
+.content td,
+.content table {
+  border: 1px solid var(--light-gray);
+  padding: 5px;
+  text-align: left;
 }
