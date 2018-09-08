@@ -9,8 +9,8 @@ const HeaderMenu = (props) => {
 
         <a role="button" onClick={props.toggleAdvancedOptions}>{advancedSearchTitle}</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.activateUserSettingsBox}>Settings</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.logout}>Logout</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Link to="/about">About</Link>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.logout}>Logout</a>
       </p>
     </div>
   )

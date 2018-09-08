@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class AppInfo extends Component {
@@ -14,9 +13,7 @@ class AppInfo extends Component {
             </div>
             <div className="header-right">
               <p class="menu">
-                <a role="button">Settings</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button">Logout</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Link to="/news">Back to News Map</Link>
+                <Link to="/news">Back to News Map</Link>
               </p>
             </div>
           </div>
