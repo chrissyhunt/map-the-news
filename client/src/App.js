@@ -4,7 +4,7 @@ import './App.css';
 import './NewsItemPositions.css'
 import Welcome from './containers/Welcome/Welcome';
 import NewsMap from './containers/NewsMap/NewsMap';
-import UserSettings from './containers/UserSettings';
+import AppInfo from './containers/AppInfo';
 import Auth from './containers/Auth';
 import { connect } from 'react-redux';
 
@@ -14,7 +14,7 @@ class App extends Component {
       <React.Fragment>
         <Route exact path="/" component={Auth(Welcome)} />
         <Route exact path="/news" component={Auth(NewsMap)} />
-        <Route exact path="/settings" render={Auth(UserSettings)} />
+        <Route exact path="/about" component={AppInfo} />
       </React.Fragment>
     );
   }

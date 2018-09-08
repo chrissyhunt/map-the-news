@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import AdvancedOptions from '../AdvancedOptions/AdvancedOptions.js';
 import Logo from '../../components/Header/Logo';
 import BasicSearch from './BasicSearch';
-import UserMenu from '../../components/Header/UserMenu';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
 import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox } from '../../actions/News';
