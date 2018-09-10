@@ -1,3 +1,5 @@
+import { handleErrors } from './News';
+
 export function getToken(userInfo, history) {
   return (dispatch) => {
     return fetch('http://localhost:3000/api/user_token', {
@@ -7,6 +9,7 @@ export function getToken(userInfo, history) {
       },
       body: JSON.stringify({auth: userInfo})
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(result => {
       localStorage.setItem("jwt", result.jwt);
@@ -26,6 +29,7 @@ export function getUser() {
         "Authorization": token
       }
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(json => dispatch({ type: "SET_USER", payload: json }))
   }
@@ -41,6 +45,7 @@ export function createUser(userInfo, history) {
       },
       body: JSON.stringify({auth: userInfo})
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(result => {
       getToken(userInfo, history)()
@@ -68,6 +73,7 @@ export function updateUser(userInfo) {
       },
       body: JSON.stringify(user)
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(result => {
       console.log("updateUser result: ", result)

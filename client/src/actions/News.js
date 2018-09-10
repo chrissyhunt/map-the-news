@@ -1,3 +1,11 @@
+export function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(`Request rejected with status ${response.status}`);
+  } else {
+    return response
+  }
+}
+
 export function fetchNews(searchTerms) {
   return (dispatch) => {
     dispatch({ type: "ACTIVATE_SEARCH", payload: searchTerms });
@@ -12,6 +20,7 @@ export function fetchNews(searchTerms) {
         },
         body: JSON.stringify(searchTerms)
       })
+      .then(handleErrors)
       .then(response => response.json())
       .then(news => {
         dispatch({type: "IMPORT_NEWS_ITEMS", payload: news});
@@ -34,6 +43,7 @@ export function getTopHeadlines() {
         "Authorization": token
       }
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(news => {
       dispatch({type: "IMPORT_NEWS_ITEMS", payload: news});
@@ -55,6 +65,7 @@ export function saveSearch(searchTerms) {
       },
       body: JSON.stringify(searchTerms)
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(data => dispatch({type: "SAVE_SEARCH", payload: data}))
     .catch(err => console.log(err))
@@ -72,6 +83,7 @@ export function deleteSearch(id) {
         "Authorization": token
       }
     })
+    .then(handleErrors)
     .then(response => console.log(response))
     .catch(err => console.log(err))
   }
