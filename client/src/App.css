@@ -9,10 +9,12 @@ body {
   --main-blue: #0392cf;
   --light-blue: #47AFDC;
   --main-red: #ee4035;
+  --light-red: #FACAC7;
   --main-green: #7bc043;
   --main-orange: #f37736;
   --main-yellow: #fdf498;
   --light-gray: #F4F4F8;
+  --dark-gray: #01374E;
   background-color: var(--main-blue);
   color: var(--light-gray);
 }
@@ -751,7 +753,8 @@ p.modal-menu {
 }
 
 .welcome-main input[type="text"],
-.welcome-main input[type="password"] {
+.welcome-main input[type="password"],
+.welcome-main input[type="email"] {
   background-color: var(--light-blue);
   border: 1px solid var(--light-gray);
   color: var(--light-gray);
@@ -765,7 +768,7 @@ p.modal-menu {
 
 .welcome-main input[type="submit"] {
   background-color: var(--light-gray);
-  color: #01374E;
+  color: var(--dark-gray);
   border: 0;
   font-size: 0.7em;
   height: 2em;
@@ -786,7 +789,8 @@ p.modal-menu {
 }
 
 .welcome-main input[type="text"]:focus,
-.welcome-main input[type="password"]:focus {
+.welcome-main input[type="password"]:focus,
+.welcome-main input[type="email"]:focus {
   outline: 0;
   border: 2px solid var(--light-gray);
 }
@@ -882,4 +886,14 @@ p.modal-menu {
   border: 1px solid var(--light-gray);
   padding: 5px;
   text-align: left;
+}
+
+/* FORM VALIDATION */
+
+.error {
+  background-color: var(--light-red) !important;
+}
+
+input[type="submit"]:disabled {
+  opacity: 0.8;
 }
