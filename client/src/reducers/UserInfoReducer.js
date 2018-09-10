@@ -19,11 +19,17 @@ function userInfoReducer(state = {
       return {user, loading: false};
 
     case "SAVE_SEARCH":
-      return {...state, user: {
-        ...state.user,
-        searches: [...state.user.searches, action.payload]
-        }
+      console.log(action.payload.id)
+      let newState;
+      if (state.user.searches.includes(search => search.id === action.payload.id)) {
+        newState = state;
+      } else {
+        newState = {...state, user: {
+          ...state.user,
+          searches: [...state.user.searches, action.payload]
+        }}
       }
+
 
     case "DELETE_SAVED_SEARCH":
       const remainingSearches = state.user.searches.filter(search => {
