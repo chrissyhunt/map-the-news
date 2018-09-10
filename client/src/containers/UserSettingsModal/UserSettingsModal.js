@@ -17,6 +17,18 @@ class UserSettingsModal extends Component {
         lastName: '',
         email: '',
         password: '',
+      },
+      errors: {
+        firstName: true,
+        password: false,
+        firstName: true,
+        lastName: false
+      },
+      touched: {
+        email: false,
+        password: false,
+        firstName: false,
+        lastName: false
       }
     }
   }
@@ -24,7 +36,12 @@ class UserSettingsModal extends Component {
   componentDidMount() {
     if (this.props.userInfo.user) {
       this.setState({
-        user: this.props.userInfo.user
+        user: {
+          ...this.state.user,
+          firstName: this.props.userInfo.user.firstName,
+          lastName: this.props.userInfo.user.lastName,
+          email: this.props.userInfo.user.email
+        }
       })
     }
   }
@@ -48,7 +65,32 @@ class UserSettingsModal extends Component {
     this.props.updateUser(this.state.user);
   }
 
+  handleBlur = (event) => {
+    this.setState({
+      touched: {
+        ...this.state.touched,
+        [event.target.name]: true
+      }
+    })
+  }
+
+  validate = (email, firstName) => {
+    return {
+      email: !email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g),
+      firstName: firstName.length === 0
+    }
+  }
+
   render() {
+    console.log("user settings state: ", this.state)
+    const errors = this.validate(this.state.user.email, this.state.user.firstName);
+    const isEnabled = !Object.keys(errors).some(x => errors[x])
+    const shouldMarkError = (field) => {
+      const hasError = errors[field];
+      const shouldShow = this.state.touched[field];
+      return hasError && shouldShow;
+    }
+
     return (
       <React.Fragment>
         <DarkenBackground />
@@ -60,26 +102,54 @@ class UserSettingsModal extends Component {
             <form onSubmit={this.handleSubmit}>
               <div className="half-width left-half">
                 <label>First Name:</label><br />
-                <input type="text" value={this.state.user.firstName} name="firstName" onChange={e => this.handleChange(e)}/><br />
+                <input
+                  className={shouldMarkError('firstName') ? "error" : ""}
+                  type="text"
+                  value={this.state.user.firstName}
+                  name="firstName"
+                  onChange={e => this.handleChange(e)}
+                  onBlur={e => this.handleBlur(e)}
+                /><br />
               </div>
 
               <div className="half-width right-half">
                 <label>Last Name:</label><br />
-                <input type="text" value={this.state.user.lastName} name="lastName" onChange={e => this.handleChange(e)}/><br />
+                <input
+                  className={shouldMarkError('lastName') ? "error" : ""}
+                  type="text"
+                  value={this.state.user.lastName}
+                  name="lastName"
+                  onChange={e => this.handleChange(e)}
+                  onBlur={e => this.handleBlur(e)}
+                /><br />
               </div>
 
               <div className="full-width">
                 <label>Email:</label><br />
-                <input type="text" value={this.state.user.email} name="email" onChange={e => this.handleChange(e)}/><br />
+                <input
+                  className={shouldMarkError('email') ? "error" : ""}
+                  type="email"
+                  value={this.state.user.email}
+                  name="email"
+                  onChange={e => this.handleChange(e)}
+                  onBlur={e => this.handleBlur(e)}
+                /><br />
               </div>
 
               <div classname="full-width">
                 <label>New Password:</label><br />
-                <input type="password" value={this.state.user.password} name="password" onChange={e => this.handleChange(e)}/><br />
+                <input
+                  className={shouldMarkError('password') ? "error" : ""}
+                  type="password"
+                  value={this.state.user.password}
+                  name="password"
+                  onChange={e => this.handleChange(e)}
+                  onBlur={e => this.handleBlur(e)}
+                /><br />
               </div>
 
               <div className="full-width">
-                <input type="submit" value="Update Account"/>
+                <input type="submit" value="Update Account" disabled={!isEnabled}/>
               </div>
             </form>
           </div>

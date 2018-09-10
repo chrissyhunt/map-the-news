@@ -270,7 +270,8 @@ input[type="button"].searchbar {
 .options-section input[type="text"],
 .options-section input[type="date"],
 .user-settings-modal input[type="text"],
-.user-settings-modal input[type="password"] {
+.user-settings-modal input[type="password"],
+.user-settings-modal input[type="email"] {
   background-color: var(--light-blue);
   border: 1px solid var(--light-gray);
   color: var(--light-gray);
@@ -292,7 +293,8 @@ input[type="button"].searchbar {
 .options-section input[type="text"]:focus,
 .options-section input[type="date"]:focus,
 .user-settings-modal input[type="text"]:focus,
-.user-settings-modal input[type="password"]:focus {
+.user-settings-modal input[type="password"]:focus,
+.user-settings-modal input[type="email"]:focus {
   outline: 3px solid var(--light-gray);
 }
 
