@@ -7,7 +7,7 @@ import Logo from '../../components/Header/Logo';
 import BasicSearch from './BasicSearch';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
-import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox } from '../../actions/News';
+import { fetchNews, saveSearch, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox, clearActiveNewsSource } from '../../actions/News';
 import { getUser, logout } from '../../actions/Users';
 
 class HeaderContainer extends Component {
@@ -30,12 +30,14 @@ class HeaderContainer extends Component {
     if (this.props.application.searchOptionsBoxOpen) {
       this.props.deactivateSearchOptionsBox();
     } else {
+      this.props.clearActiveNewsSource();
       this.props.deactivateUserSettingsBox();
       this.props.activateSearchOptionsBox();
     }
   }
 
   activateUserSettingsBox = () => {
+    this.props.clearActiveNewsSource();
     this.props.deactivateSearchOptionsBox();
     this.props.activateUserSettingsBox();
   }
@@ -67,4 +69,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox })(HeaderContainer);
+export default connect(mapStateToProps, { fetchNews, saveSearch, getUser, logout, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox, clearActiveNewsSource })(HeaderContainer);
