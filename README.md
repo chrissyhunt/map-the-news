@@ -1,24 +1,41 @@
-# README
+# Welcome to Map the News
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Have you ever wondered how your perspective on current events is being shaped by the news you consume?
 
-Things you may want to cover:
+Map the News is a dynamic news application built in React/Redux with a Rails API backend, using bcrypt for secure password storage, knock for JWT authentication, and redux-thunk for async requests.
 
-* Ruby version
+The app fetches headlines from the News API (http://newsapi.com) and displays them on a grid, positioned based on each news source's political bias and overall quality ratings. Users can also save search terms to track the coverage of a topic overtime.
 
-* System dependencies
+## Installation & Local Run Guide
 
-* Configuration
+1. Clone the repo
+2. `bundle install` in the root directory
+3. `rake db:migrate` to set up the database
+3.  In the `/client` subdirectory, `npm install` all dependencies
+4.  Start the Rails and React servers and navigate to `http://localhost:3000`
 
-* Database creation
+## File Structure
 
-* Database initialization
+`/app` - Contains backend MVC architecture
 
-* How to run the test suite
+`/client/src` - Contains frontend React/Redux code
 
-* Services (job queues, cache servers, search engines, etc.)
+`/config` - Contains backend routes and config files
 
-* Deployment instructions
+`/db` - Contains database and migrations
 
-* ...
+## Routes and Features
+
+`/` - Landing page, will direct you to log in or sign up
+
+`/news` - Main application page, displaying news headlines
+
+`/about` - An explanation of the project
+
+## Contributors Guide
+
+This code is maintained at https://github.com/chrissyhunt87/goalzzz. For any contributions, please open a pull request.
+
+## Licensing Statement
+
+This project has been licensed under the MIT open source license. For more info, see: https://opensource.org/licenses/MIT
