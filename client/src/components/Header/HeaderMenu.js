@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const HeaderMenu = (props) => {
   const advancedSearchTitle = props.advancedOptionsActive ? 'Close Options' : 'Advanced Options'
   return (
-    <div class="header-right">
-      <p class="menu">
+    <div className="header-right">
+      <p className="menu">
 
         <a role="button" onClick={props.toggleAdvancedOptions}>{advancedSearchTitle}</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a role="button" onClick={props.activateUserSettingsBox}>Settings</a>
