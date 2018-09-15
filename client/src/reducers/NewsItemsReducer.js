@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 function newsItemsReducer(state = {
   allNews: {},
   loading: false,

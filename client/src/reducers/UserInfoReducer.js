@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 function userInfoReducer(state = {
   user: null,
   loading: false

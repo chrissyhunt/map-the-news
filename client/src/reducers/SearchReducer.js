@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 function searchReducer(state = {
   searchActive: false,
   currentSearch: null
