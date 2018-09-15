@@ -5,7 +5,7 @@ import DarkenBackground from '../../components/DarkenBackground';
 import CloseButton from '../../components/CloseButton';
 import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
 import MoreNews from '../../components/NewsModal/MoreNews';
-import { clearActiveNewsSource } from '../../actions/News';
+import { clearActiveNewsSource } from '../../actions/Application';
 
 class NewsModal extends Component {
   constructor() {

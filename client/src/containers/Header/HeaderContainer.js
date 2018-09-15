@@ -8,7 +8,8 @@ import BasicSearch from './BasicSearch';
 import HeaderMenu from '../../components/Header/HeaderMenu';
 import SearchForm from '../../components/Header/SearchForm';
 import { saveSearch } from '../../actions/SaveSearch';
-import { fetchNews, activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox, clearActiveNewsSource } from '../../actions/News';
+import { activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox, clearActiveNewsSource } from '../../actions/Application';
+import { fetchNews } from '../../actions/News';
 import { getUser, logout } from '../../actions/Users';
 
 class HeaderContainer extends Component {

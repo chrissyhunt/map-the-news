@@ -46,35 +46,3 @@ export function getTopHeadlines() {
     .catch(err => console.log(err))
   }
 }
-
-export function setActiveNewsSource(source) {
-  return { type: "SET_ACTIVE_NEWS_SOURCE", payload: source }
-}
-
-export function clearActiveNewsSource() {
-  return { type: "CLEAR_ACTIVE_NEWS_SOURCE" }
-}
-
-export function activateSearchOptionsBox() {
-  return { type: "ACTIVATE_SEARCH_OPTIONS_BOX" }
-}
-
-export function deactivateSearchOptionsBox() {
-  return { type: "DEACTIVATE_SEARCH_OPTIONS_BOX" }
-}
-
-export function setTopStoriesMode() {
-  return { type: "SET_TOP_STORIES_MODE" }
-}
-
-export function setSearchNewsMode() {
-  return { type: "SET_SEARCH_NEWS_MODE" }
-}
-
-export function activateUserSettingsBox() {
-  return { type: "ACTIVATE_USER_SETTINGS_BOX" }
-}
-
-export function deactivateUserSettingsBox() {
-  return { type: "DEACTIVATE_USER_SETTINGS_BOX" }
-}

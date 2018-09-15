@@ -2,7 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNews, setSearchNewsMode } from '../../actions/News';
+import { setSearchNewsMode } from '../../actions/Application';
+import { fetchNews } from '../../actions/News';
 
 class BasicSearch extends Component {
   constructor() {

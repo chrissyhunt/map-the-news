@@ -1,7 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { setTopStoriesMode, setSearchNewsMode, getTopHeadlines } from '../../actions/News';
+import { setTopStoriesMode, setSearchNewsMode } from '../../actions/Application';
+import { getTopHeadlines } from '../../actions/News';
 
 class ViewModeSelector extends Component {
   constructor() {
