@@ -1,4 +1,4 @@
-import { handleErrors } from './News';
+import { handleErrors } from './Application';
 
 export function getToken(userInfo, history) {
   return (dispatch) => {

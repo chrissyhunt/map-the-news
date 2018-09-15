@@ -2,7 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import SavedSearch from '../../components/AdvancedOptions/SavedSearch';
-import { fetchNews, deleteSearch } from '../../actions/News';
+import { deleteSearch } from '../../actions/SaveSearch';
+import { fetchNews } from '../../actions/News';
 
 class LoadSavedSearches extends Component {
   constructor() {
