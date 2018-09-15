@@ -12,8 +12,8 @@ class AdvancedOptions extends Component {
   render() {
     return (
       <React.Fragment>
-      <div class="options">
-        <div class="options-section">
+      <div className="options">
+        <div className="options-section">
           <ViewModeSelector topStoriesMode={this.props.application.topStoriesMode} />
           {this.props.searchInfo.searchActive && <SearchNavBox />}
         </div>

@@ -93,7 +93,7 @@ class UserSettingsModal extends Component {
       <React.Fragment>
         <DarkenBackground />
 
-        <div class="user-settings-modal">
+        <div className="user-settings-modal">
           <CloseButton closeModal={this.closeModal} />
           <div className="user-settings-detail">
             <h1>Update Your Account Settings</h1>

@@ -53,15 +53,15 @@ class Welcome extends Component {
               </div>
             </div>
 
-            <div class="welcome-main">
+            <div className="welcome-main">
               {form}
             </div>
           </div>
 
-          <p class="welcome-footer">Built in React by <a href="http://chrissyhunt.com/">Chrissy Hunt</a> and powered by the <a href="https://newsapi.org/">News API</a>.</p>
+          <p className="welcome-footer">Built in React by <a href="http://chrissyhunt.com/">Chrissy Hunt</a> and powered by the <a href="https://newsapi.org/">News API</a>.</p>
         </div>
 
-        <div class="image-layer">
+        <div className="image-layer">
           &nbsp;
         </div>
       </React.Fragment>

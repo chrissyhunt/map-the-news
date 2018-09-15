@@ -19,7 +19,7 @@ class AppInfo extends Component {
           </div>
         </div>
 
-        <div class="content">
+        <div className="content">
         <h1>About Map the News</h1>
         <p>Have you ever wondered how your perspective on current events is being shaped by the news you consume?</p>
         <p>Map the News is a dynamic news application designed to help you break out of the echo chamber by exposing you to headlines across the media landscape, and placing your favorite go-to sources into a wider context.</p>
