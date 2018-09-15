@@ -3,8 +3,6 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import DarkenBackground from '../../components/DarkenBackground';
 import CloseButton from '../../components/CloseButton';
-import FeaturedStoryDetails from '../../components/NewsModal/FeaturedStoryDetails';
-import MoreNews from '../../components/NewsModal/MoreNews';
 import { deactivateUserSettingsBox } from '../../actions/Application';
 import { updateUser } from '../../actions/Users';
 

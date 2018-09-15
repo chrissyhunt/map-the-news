@@ -1,12 +1,9 @@
 import React from 'react';
-import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import AdvancedOptions from '../AdvancedOptions/AdvancedOptions.js';
-import Logo from '../../components/Header/Logo';
 import BasicSearch from './BasicSearch';
 import HeaderMenu from '../../components/Header/HeaderMenu';
-import SearchForm from '../../components/Header/SearchForm';
 import { saveSearch } from '../../actions/SaveSearch';
 import { activateSearchOptionsBox, deactivateSearchOptionsBox, activateUserSettingsBox, deactivateUserSettingsBox, clearActiveNewsSource } from '../../actions/Application';
 import { fetchNews } from '../../actions/News';

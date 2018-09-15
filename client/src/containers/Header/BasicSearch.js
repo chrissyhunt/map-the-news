@@ -44,7 +44,7 @@ class BasicSearch extends Component {
   render() {
     return (
       <form onSubmit={e => this.handleOnSubmit(e)}>
-        <input type="text" placeholder="Enter a topic or keyword..." name="q" class="searchbar" value={this.state.searchTerms.q} onChange={e => this.handleOnChange(e)}/>
+        <input type="text" placeholder="Enter a topic or keyword..." name="q" className="searchbar" value={this.state.searchTerms.q} onChange={e => this.handleOnChange(e)}/>
         <input type="submit" value="Go" />
       </form>
     )

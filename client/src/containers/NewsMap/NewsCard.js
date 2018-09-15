@@ -1,7 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
 import Headline from '../../components/NewsItems/Headline';
-import HeadlineList from '../../components/NewsItems/HeadlineList';
 import { connect } from 'react-redux';
 import { setActiveNewsSource } from '../../actions/Application';
 
