@@ -9,13 +9,19 @@ class LoadSavedSearches extends Component {
   constructor() {
     super();
     this.state = {
+      savedSearches: [],
       start: 0,
       end: 6
     }
   }
 
+  componentDidMount() {
+    this.getSavedSearchList();
+  }
+
   pageForward = () => {
     this.setState({
+      ...this.state,
       start: this.state.start+6,
       end: this.state.end+6
     })
@@ -23,6 +29,7 @@ class LoadSavedSearches extends Component {
 
   pageBackward = () => {
     this.setState({
+      ...this.state,
       start: this.state.start-6,
       end: this.state.end-6
     })
@@ -46,11 +53,38 @@ class LoadSavedSearches extends Component {
     this.props.fetchNews(searchTerms);
   }
 
+  // connects directly to backend to fetch updated list of searches
+  // per code review challenge requirement (to bypass Redux store)
+  getSavedSearchList = () => {
+    const token = "bearer " + localStorage.getItem("jwt");
+    fetch(`http://localhost:3000/api/searches`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        ...this.state,
+        savedSearches: data
+      })
+    })
+  }
+
   render() {
-    // const allSearches = this.props.userInfo.user.searches
-    // const sortedSearches = allSearches.sort((a, b) => )
-    const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
-      return <SavedSearch key={search.id} id={search.id} query={search.q} startDate={search.start_date} endDate={search.end_date} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
+    console.log(this.state.savedSearches)
+    const savedSearchList = this.state.savedSearches.sort((a, b) => b.votes - a.votes).slice(this.state.start, this.state.end).map(search => {
+      return <SavedSearch
+                key={search.id}
+                id={search.id}
+                query={search.q}
+                startDate={search.start_date}
+                endDate={search.end_date}
+                votes={search.votes}
+                deleteSearch={this.deleteSearch}
+                loadSavedSearch={this.loadSavedSearch} />
     })
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&larr; back</button> : null

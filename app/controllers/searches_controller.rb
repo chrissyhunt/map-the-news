@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
   end
 
   def update
-    @search = Search.find_by(id: current_user.id)
+    @search = Search.find_by(id: search_params[:id])
     @search.update(search_params)
     render json: @search
   end

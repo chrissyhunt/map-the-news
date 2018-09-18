@@ -10,25 +10,32 @@ class SavedSearch extends Component {
     }
   }
 
-  upVote = (event) => {
+  componentDidMount() {
     this.setState({
-      voteCount: this.state.voteCount+1
+      voteCount: this.props.votes
     })
-    this.updateSearch(event.target.name, this.state.voteCount)
+  }
+
+  upVote = (event) => {
+    let id = event.target.name
+    let oldVoteCount = this.state.voteCount
+    this.setState({
+      voteCount: oldVoteCount+1
+    }, () => this.updateSearch(id, this.state.voteCount))
   }
 
   updateSearch = (id, voteCount) => {
-    const token = "Bearer " + localStorage.getItem("jwt");
-    return fetch(`http://localhost:3000/api/searches/${id}`, {
+    const token = "bearer " + localStorage.getItem("jwt");
+    fetch(`http://localhost:3000/api/searches/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "Authorization": token
       },
-      body: JSON.stringify(votes: voteCount)
+      body: JSON.stringify({'votes': voteCount})
     })
     .then(response => response.json())
-
+    .then(data => console.log(data))
   }
 
   render() {
