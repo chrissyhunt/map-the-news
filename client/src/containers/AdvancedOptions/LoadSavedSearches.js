@@ -73,6 +73,10 @@ class LoadSavedSearches extends Component {
     })
   }
 
+  triggerUpdate = () => {
+    this.getSavedSearchList();
+  }
+
   render() {
     console.log(this.state.savedSearches)
     const savedSearchList = this.state.savedSearches.sort((a, b) => b.votes - a.votes).slice(this.state.start, this.state.end).map(search => {
@@ -84,7 +88,8 @@ class LoadSavedSearches extends Component {
                 endDate={search.end_date}
                 votes={search.votes}
                 deleteSearch={this.deleteSearch}
-                loadSavedSearch={this.loadSavedSearch} />
+                loadSavedSearch={this.loadSavedSearch}
+                triggerUpdate={this.triggerUpdate} />
     })
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&larr; back</button> : null

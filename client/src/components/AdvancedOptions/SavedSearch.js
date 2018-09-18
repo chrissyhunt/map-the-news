@@ -35,7 +35,10 @@ class SavedSearch extends Component {
       body: JSON.stringify({'votes': voteCount})
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+      this.props.triggerUpdate();
+    })
   }
 
   render() {
@@ -45,7 +48,7 @@ class SavedSearch extends Component {
 
     return (
       <p className="list">
-      <button onClick={this.upVote} name={this.props.id}>{this.state.voteCount}</button>
+      <button onClick={this.upVote} name={this.props.id}>&uarr; {this.props.votes}</button>
       <input type="button" value="x" onClick={this.props.deleteSearch} name={this.props.id} />
       <a role="button" name={this.props.id} onClick={this.props.loadSavedSearch}>{this.props.query}</a>
       <span className="date-range">{dateRange}</span></p>
