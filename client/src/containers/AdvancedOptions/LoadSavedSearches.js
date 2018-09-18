@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import SavedSearch from '../../components/AdvancedOptions/SavedSearch';
+import SavedSearch from './SavedSearch';
 import { deleteSearch } from '../../actions/SaveSearch';
 import { fetchNews } from '../../actions/News';
 
