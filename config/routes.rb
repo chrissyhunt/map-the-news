@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope '/api' do
     resources :users, only: [:create, :edit, :update, :destroy]
-    resources :searches, only: [:create, :destroy]
+    resources :searches, only: [:index, :create, :update, :destroy]
     get 'user' => 'users#show'
     post 'news_request' => 'news_request#news_request'
     post 'top_headlines' => 'news_request#top_headlines'
