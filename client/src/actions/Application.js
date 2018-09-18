@@ -2,11 +2,7 @@ export function handleErrors(response) {
   if (!response.ok) {
     if (response.status === 401) {
       localStorage.removeItem("jwt");
-      window.location.reload(true);
-
-      // alt:
-      // alert('Session expired!')
-      // window.location.href = '/';
+      window.location.href = '/';
     }
     throw Error(`Request rejected with status ${response.status}`);
   } else {

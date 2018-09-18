@@ -56,7 +56,7 @@ export function createUser(userInfo, history) {
 
 export function updateUser(userInfo) {
   return (dispatch) => {
-    dispatch({ type: "LOADING_USER", payload: null });
+    dispatch({ type: "LOADING_USER" });
     const userId = userInfo.id
     const user = {
       first_name: userInfo.firstName,
@@ -87,7 +87,7 @@ export function logout() {
   return (dispatch) => {
     dispatch({ type: "SET_TOP_STORIES_MODE" });
     dispatch({ type: "CLEAR_SEARCH" });
-    dispatch({ type: "LOGOUT_USER", payload: null });
+    dispatch({ type: "LOGOUT_USER" });
     localStorage.removeItem("jwt");
     window.location.href = '/';
   }

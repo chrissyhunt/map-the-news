@@ -34,12 +34,6 @@ class Login extends Component {
   handleLogin = (event) => {
     event.preventDefault();
     this.props.getToken(this.state.userInfo, this.props.history);
-    this.setState({
-      userInfo: {
-        email: '',
-        password: ''
-      }
-    })
   }
 
   handleBlur = (event) => {

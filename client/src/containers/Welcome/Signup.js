@@ -40,14 +40,6 @@ class Signup extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createUser(this.state.userInfo, this.props.history)
-    this.setState({
-      userInfo: {
-        email: '',
-        password: '',
-        first_name: '',
-        last_name: ''
-      }
-    })
   }
 
   handleBlur = (event) => {
