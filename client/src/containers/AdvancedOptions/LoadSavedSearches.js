@@ -47,6 +47,8 @@ class LoadSavedSearches extends Component {
   }
 
   render() {
+    // const allSearches = this.props.userInfo.user.searches
+    // const sortedSearches = allSearches.sort((a, b) => )
     const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
       return <SavedSearch key={search.id} id={search.id} query={search.q} startDate={search.start_date} endDate={search.end_date} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
     })
