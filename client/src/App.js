@@ -6,7 +6,6 @@ import Welcome from './containers/Welcome/Welcome';
 import NewsMap from './containers/NewsMap/NewsMap';
 import AppInfo from './containers/AppInfo';
 import Auth from './containers/Auth';
-import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -20,10 +19,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userInfo: state.userInfo
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(App);

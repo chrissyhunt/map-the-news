@@ -7,6 +7,7 @@ class SearchesController < ApplicationController
     end
   end
 
+  # is this actually used? If not, remove!
   def show
     @search = Search.find_by(id: params[:id])
     render json: @search, status: 200

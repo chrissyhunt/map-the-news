@@ -40,115 +40,115 @@ class AppInfo extends Component {
 
           <tr>
             <td>Axios</td>
-            <td>Skews Liberal</td>
-            <td>Fact-Based Reporting</td>
+            <td>Leans Liberal</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>Bloomberg</td>
             <td>Neutral or Minimal Bias</td>
-            <td>Fact-Based Reporting</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>Breitbart News</td>
-            <td>Hyper-Partisan Conservative</td>
-            <td>Misinformation/Poor Quality</td>
+            <td>Very Conservative</td>
+            <td>Frequent Propaganda & Misinformation</td>
           </tr>
 
           <tr>
             <td>Buzzfeed</td>
-            <td>Hyper-Partisan Liberal</td>
-            <td>Often Incomplete Story</td>
+            <td>Very Liberal</td>
+            <td>Incomplete Story</td>
           </tr>
 
           <tr>
             <td>CNN</td>
-            <td>Skews Liberal</td>
+            <td>Leans Liberal</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
 
           <tr>
             <td>Fox News</td>
-            <td>Hyper-Partisan Conservative</td>
-            <td>Often Incomplete Story</td>
+            <td>Very Conservative</td>
+            <td>Incomplete Story</td>
           </tr>
 
           <tr>
             <td>MSNBC</td>
-            <td>Hyper-Partisan Liberal</td>
+            <td>Very Liberal</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
 
           <tr>
             <td>National Review</td>
-            <td>Skews Conservative</td>
+            <td>Leans Conservative</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
 
           <tr>
             <td>Reuters</td>
             <td>Neutral or Minimal Bias</td>
-            <td>Fact-Based Reporting</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>The American Conservatives</td>
-            <td>Skews Conservative</td>
+            <td>Leans Conservative</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
 
           <tr>
             <td>The Huffington Post</td>
-            <td>Hyper-Partisan Liberal</td>
-            <td>Often Incomplete Story</td>
+            <td>Very Liberal</td>
+            <td>Incomplete Story</td>
           </tr>
 
           <tr>
             <td>The New York Times</td>
-            <td>Skews Liberal</td>
-            <td>Fact-Based Reporting</td>
+            <td>Leans Liberal</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>The Wall Street Journal</td>
-            <td>Skews Conservative</td>
-            <td>Fact-Based Reporting</td>
+            <td>Leans Conservative</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>The Washington Post</td>
-            <td>Skews Liberal</td>
-            <td>Fact-Based Reporting</td>
+            <td>Leans Liberal</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>USA Today</td>
             <td>Neutral or Minimal Bias</td>
-            <td>Fact-Based Reporting</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>The Hill</td>
             <td>Neutral or Minimal Bias</td>
-            <td>Fact-Based Reporting</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>Politico</td>
-            <td>Skews Liberal</td>
-            <td>Fact-Based Reporting</td>
+            <td>Leans Liberal</td>
+            <td>Fact Reporting</td>
           </tr>
 
           <tr>
             <td>The Economist</td>
-            <td>Skews Liberal</td>
+            <td>Leans Liberal</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
 
           <tr>
             <td>The Washington Times</td>
-            <td>Skews Conservative</td>
+            <td>Leans Conservative</td>
             <td>Complex Analysis & Opinion</td>
           </tr>
         </table>

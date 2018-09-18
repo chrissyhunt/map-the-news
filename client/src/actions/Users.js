@@ -89,5 +89,6 @@ export function logout() {
     dispatch({ type: "CLEAR_SEARCH" });
     dispatch({ type: "LOGOUT_USER", payload: null });
     localStorage.removeItem("jwt");
+    window.location.href = '/';
   }
 }
