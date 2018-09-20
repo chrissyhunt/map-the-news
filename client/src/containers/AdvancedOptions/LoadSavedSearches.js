@@ -66,9 +66,10 @@ class LoadSavedSearches extends Component {
     })
     .then(response => response.json())
     .then(data => {
+      const searchList = data.sort((a, b) => b.votes - a.votes)
       this.setState({
         ...this.state,
-        savedSearches: data
+        savedSearches: searchList
       })
     })
   }
@@ -78,8 +79,9 @@ class LoadSavedSearches extends Component {
   }
 
   render() {
-    console.log(this.state.savedSearches)
-    const savedSearchList = this.state.savedSearches.sort((a, b) => b.votes - a.votes).slice(this.state.start, this.state.end).map(search => {
+    console.log("this.state.savedSearches: ", this.state.savedSearches)
+    console.log("After slice:", this.state.savedSearches.slice(this.state.start, this.state.end))
+    const savedSearchList = this.state.savedSearches.slice(this.state.start, this.state.end).map(search => {
       return <SavedSearch
                 key={search.id}
                 id={search.id}
@@ -91,6 +93,7 @@ class LoadSavedSearches extends Component {
                 loadSavedSearch={this.loadSavedSearch}
                 triggerUpdate={this.triggerUpdate} />
     })
+    console.log("const savedSearchList: ", savedSearchList)
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&larr; back</button> : null
 
