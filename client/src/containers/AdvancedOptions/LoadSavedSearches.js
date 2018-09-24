@@ -9,6 +9,7 @@ class LoadSavedSearches extends Component {
   constructor() {
     super();
     this.state = {
+      filterSearches: false,
       savedSearches: [],
       start: 0,
       end: 6
@@ -78,9 +79,15 @@ class LoadSavedSearches extends Component {
     this.getSavedSearchList();
   }
 
+  filterSearches = () => {
+    this.setState({
+      filterSearches: true
+    })
+  }
+
   render() {
-    console.log("this.state.savedSearches: ", this.state.savedSearches)
-    console.log("After slice:", this.state.savedSearches.slice(this.state.start, this.state.end))
+    // console.log("this.state.savedSearches: ", this.state.savedSearches)
+    // console.log("After slice:", this.state.savedSearches.slice(this.state.start, this.state.end))
     const savedSearchList = this.state.savedSearches.slice(this.state.start, this.state.end).map(search => {
       return <SavedSearch
                 key={search.id}
@@ -93,20 +100,36 @@ class LoadSavedSearches extends Component {
                 loadSavedSearch={this.loadSavedSearch}
                 triggerUpdate={this.triggerUpdate} />
     })
-    console.log("const savedSearchList: ", savedSearchList)
+    // console.log("const savedSearchList: ", savedSearchList)
 
     const backButton = this.state.start > 0 ? <button onClick={this.pageBackward}>&larr; back</button> : null
 
     const forwardButton = this.state.end < this.props.userInfo.user.searches.length ? <button onClick={this.pageForward}>next &rarr;</button> : null
 
+    const filterButton = <button onClick={this.filterSearches}>Filter 20+</button>
+
+    const filteredSearchList = this.state.savedSearches.filter(search => search.votes > 20).map(search => {
+      return <SavedSearch
+                key={search.id}
+                id={search.id}
+                query={search.q}
+                startDate={search.start_date}
+                endDate={search.end_date}
+                votes={search.votes}
+                deleteSearch={this.deleteSearch}
+                loadSavedSearch={this.loadSavedSearch}
+                triggerUpdate={this.triggerUpdate} />
+    })
+
     return (
       <div className="options-section">
         <fieldset>
           <legend>Load Saved Search</legend>
-          {savedSearchList}
+          {this.state.filterSearches ? filteredSearchList : savedSearchList}
           <p className="nav">
             {backButton}
             {forwardButton}
+            {filterButton}
           </p>
         </fieldset>
       </div>

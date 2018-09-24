@@ -18,9 +18,11 @@ class SavedSearch extends Component {
 
   upVote = (event) => {
     let id = event.target.name
-    let oldVoteCount = this.state.voteCount
-    this.setState({
-      voteCount: oldVoteCount+1
+    //let oldVoteCount = this.state.voteCount
+    this.setState(prevState => {
+      return {
+        voteCount: prevState.voteCount + 1
+      }
     }, () => this.updateSearch(id, this.state.voteCount))
   }
 
