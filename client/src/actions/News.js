@@ -5,7 +5,7 @@ export function fetchNews(searchTerms) {
     dispatch({ type: "ACTIVATE_SEARCH", payload: searchTerms });
     dispatch({ type: "DEACTIVATE_SEARCH_OPTIONS_BOX" });
     dispatch({ type: "LOADING", payload: "Loading Search Results" });
-    const token = "Bearer " + localStorage.getItem("jwt");
+    const token = "bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/news_request', {
         method: "POST",
         headers: {
@@ -29,7 +29,7 @@ export function getTopHeadlines() {
     dispatch({ type: "CLEAR_SEARCH"});
     dispatch({ type: "DEACTIVATE_SEARCH_OPTIONS_BOX" });
     dispatch({ type: "LOADING", payload: "Loading Top Headlines" });
-    const token = "Bearer " + localStorage.getItem("jwt");
+    const token = "bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/top_headlines', {
       method: "POST",
       headers: {
