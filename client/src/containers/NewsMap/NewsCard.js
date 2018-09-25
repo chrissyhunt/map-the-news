@@ -12,8 +12,8 @@ class NewsCard extends Component {
   }
 
   render () {
-    console.log("inside NewsCard, props: ", this.props)
-    console.log("inside NewsCard, state: ", this.state)
+    // console.log("inside NewsCard, props: ", this.props)
+    // console.log("inside NewsCard, state: ", this.state)
     const fullClass = `news-item ${this.props.source}`
     return (
       <div className={fullClass}>

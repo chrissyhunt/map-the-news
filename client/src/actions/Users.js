@@ -48,8 +48,13 @@ export function createUser(userInfo, history) {
     .then(handleErrors)
     .then(response => response.json())
     .then(result => {
-      getToken(userInfo, history)()
-      dispatch({ type: "SET_USER", payload: result})
+      // BAD REQUEST returns email error object
+      if (result.email) {
+        dispatch({ type: "ADD_ERRORS", payload: result.email})
+      } else {
+        getToken(userInfo, history)()
+        dispatch({ type: "SET_USER", payload: result})
+      }
     })
   }
 }
@@ -76,8 +81,14 @@ export function updateUser(userInfo) {
     .then(handleErrors)
     .then(response => response.json())
     .then(result => {
-      console.log("updateUser result: ", result)
-      dispatch({ type: "SET_USER", payload: result})
+      // BAD REQUEST returns email error object
+      if (result.email) {
+        dispatch({ type: "ADD_ERRORS", payload: result.email})
+      } else {
+        console.log("updateUser result: ", result)
+        dispatch({ type: "CLEAR_ERRORS" })
+        dispatch({ type: "SET_USER", payload: result})
+      }
     })
   }
 }

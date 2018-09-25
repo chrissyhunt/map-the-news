@@ -5,8 +5,10 @@ export function handleErrors(response) {
       localStorage.removeItem("jwt");
       window.location.href = '/';
     }
-    // todo: what if email is not unique?
-    // or generally if input is invalid?
+    // If bad request, returns with message
+    if (response.status === 400) {
+      return response
+    }
     throw Error(`Request rejected with status ${response.status}`);
   } else {
     return response
@@ -43,4 +45,12 @@ export function activateUserSettingsBox() {
 
 export function deactivateUserSettingsBox() {
   return { type: "DEACTIVATE_USER_SETTINGS_BOX" }
+}
+
+export function setErrors(errors) {
+  return { type: "ADD_ERRORS", payload: errors }
+}
+
+export function clearErrors() {
+  return { type: "CLEAR_ERRORS" }
 }
