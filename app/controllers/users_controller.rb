@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @user = User.new(auth_params)
     if @user && @user.save
       render json: @user
+    else
+      render json: @user.errors, status: :bad_request
     end
   end
 
@@ -17,6 +19,8 @@ class UsersController < ApplicationController
     @user.update(auth_params)
     if @user.save
       render json: @user
+    else
+      render json: @user.errors, status: :bad_request
     end
   end
 
