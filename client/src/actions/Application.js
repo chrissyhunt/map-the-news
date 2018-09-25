@@ -1,9 +1,12 @@
 export function handleErrors(response) {
   if (!response.ok) {
+    // If token expired
     if (response.status === 401) {
       localStorage.removeItem("jwt");
       window.location.href = '/';
     }
+    // todo: what if email is not unique?
+    // or generally if input is invalid?
     throw Error(`Request rejected with status ${response.status}`);
   } else {
     return response
