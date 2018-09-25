@@ -896,6 +896,11 @@ p.modal-menu {
   background-color: var(--light-red) !important;
 }
 
+.errors {
+  padding-top: 20px;
+  color: var(--main-red);
+}
+
 input[type="submit"]:disabled {
   opacity: 0.8;
 }

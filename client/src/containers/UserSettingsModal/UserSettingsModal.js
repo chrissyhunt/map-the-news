@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import DarkenBackground from '../../components/DarkenBackground';
 import CloseButton from '../../components/CloseButton';
-import { deactivateUserSettingsBox } from '../../actions/Application';
+import { deactivateUserSettingsBox, clearErrors } from '../../actions/Application';
 import { updateUser } from '../../actions/Users';
 
 class UserSettingsModal extends Component {
@@ -47,6 +47,7 @@ class UserSettingsModal extends Component {
   closeModal = (event) => {
     event.preventDefault();
     this.props.deactivateUserSettingsBox();
+    this.props.clearErrors();
   }
 
   handleChange = (event) => {
@@ -80,7 +81,8 @@ class UserSettingsModal extends Component {
   }
 
   render() {
-    console.log("user settings state: ", this.state)
+    // console.log("user settings state: ", this.state)
+
     const errors = this.validate(this.state.user.email, this.state.user.firstName);
     const isEnabled = !Object.keys(errors).some(x => errors[x])
     const shouldMarkError = (field) => {
@@ -149,6 +151,11 @@ class UserSettingsModal extends Component {
               <div className="full-width">
                 <input type="submit" value="Update Account" disabled={!isEnabled}/>
               </div>
+
+              <div className="full-width errors">
+                {this.props.application.errors && this.props.application.errors[0]}
+              </div>
+
             </form>
           </div>
         </div>
@@ -164,4 +171,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { deactivateUserSettingsBox, updateUser })(UserSettingsModal);
+export default connect(mapStateToProps, { deactivateUserSettingsBox, updateUser, clearErrors })(UserSettingsModal);
