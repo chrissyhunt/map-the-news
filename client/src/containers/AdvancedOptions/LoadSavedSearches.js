@@ -47,7 +47,8 @@ class LoadSavedSearches extends Component {
   }
 
   render() {
-    const savedSearchList = this.props.userInfo.user.searches.slice(this.state.start, this.state.end).map(search => {
+    const savedSearchCopy = this.props.userInfo.user.searches
+    const savedSearchList = savedSearchCopy.reverse().slice(this.state.start, this.state.end).map(search => {
       return <SavedSearch key={search.id} id={search.id} query={search.q} startDate={search.start_date} endDate={search.end_date} deleteSearch={this.deleteSearch} loadSavedSearch={this.loadSavedSearch} />
     })
 
