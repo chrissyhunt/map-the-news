@@ -35,7 +35,6 @@ class NewsModal extends Component {
     return (
       <React.Fragment>
         <DarkenBackground closeModal={this.closeModal} />
-
         <div className="news-detail-modal">
           <CloseButton closeModal={this.closeModal} />
           <FeaturedStoryDetails headline={newsItems[this.state.activeIndex].title} description={newsItems[this.state.activeIndex].description} url={newsItems[this.state.activeIndex].url}/>
