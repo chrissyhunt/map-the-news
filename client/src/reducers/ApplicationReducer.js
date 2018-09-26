@@ -4,7 +4,7 @@ function applicationReducer(state = {
   userSettingsBoxOpen: null,
   topStoriesMode: true,
   loading: null,
-  errors: []
+  errors: false
 }, action) {
   switch (action.type) {
     case "SET_ACTIVE_NEWS_SOURCE":
@@ -76,7 +76,7 @@ function applicationReducer(state = {
     case "CLEAR_ERRORS":
       return {
         ...state,
-        errors: []
+        errors: false
       }
 
     default:

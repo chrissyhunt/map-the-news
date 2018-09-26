@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser } from '../../actions/Users';
+import ErrorMessage from '../../components/ErrorMessage';
 
 class Signup extends Component {
   constructor() {
@@ -121,9 +122,21 @@ class Signup extends Component {
         <div className="welcome-full-width">
           <input type="submit" value="Create Account" disabled={!isEnabled}/>
         </div>
+
+        <div className="welcome-full-width errors">
+          {this.props.application.errors && this.props.application.errors.map(error => {
+            return <ErrorMessage message={error} />
+          })}
+        </div>
       </form>
     );
   }
 }
 
-export default connect(null, { createUser })(Signup);
+const mapStateToProps = (state) => {
+  return {
+    application: state.application
+  }
+}
+
+export default connect(mapStateToProps, { createUser })(Signup);

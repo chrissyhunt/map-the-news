@@ -4,6 +4,7 @@ import '../../Welcome.css';
 import Signup from './Signup';
 import Login from './Login';
 import { getToken } from '../../actions/Users';
+import { clearErrors } from '../../actions/Application';
 
 class Welcome extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class Welcome extends Component {
     this.setState({
       displayLogin: !this.state.displayLogin
     })
+    this.props.clearErrors();
   }
 
   displayCreateAccount = (event) => {
@@ -69,4 +71,10 @@ class Welcome extends Component {
   }
 }
 
-export default connect(null, { getToken })(Welcome);
+const mapStateToProps = (state) => {
+  return {
+    application: state.application
+  }
+}
+
+export default connect(mapStateToProps, { getToken, clearErrors })(Welcome);

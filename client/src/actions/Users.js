@@ -20,7 +20,8 @@ export function getToken(userInfo, history) {
 
 export function getUser() {
   return (dispatch) => {
-    dispatch({ type: "LOADING_USER", payload: null });
+    dispatch({ type: "CLEAR_ERRORS" });
+    dispatch({ type: "LOADING_USER" });
     const token = "Bearer " + localStorage.getItem("jwt");
     return fetch('http://localhost:3000/api/user', {
       method: "GET",
@@ -37,7 +38,8 @@ export function getUser() {
 
 export function createUser(userInfo, history) {
   return (dispatch) => {
-    dispatch({ type: "LOADING_USER", payload: null });
+    dispatch({ type: "CLEAR_ERRORS" });
+    dispatch({ type: "LOADING_USER" });
     return fetch('http://localhost:3000/api/users', {
       method: "POST",
       headers: {
@@ -48,9 +50,9 @@ export function createUser(userInfo, history) {
     .then(handleErrors)
     .then(response => response.json())
     .then(result => {
-      // BAD REQUEST returns email error object
-      if (result.email) {
-        dispatch({ type: "ADD_ERRORS", payload: result.email})
+      // BAD REQUEST returns error message array instead of user object
+      if (Array.isArray(result)) {
+        dispatch({ type: "ADD_ERRORS", payload: result})
       } else {
         getToken(userInfo, history)()
         dispatch({ type: "SET_USER", payload: result})
@@ -61,6 +63,7 @@ export function createUser(userInfo, history) {
 
 export function updateUser(userInfo) {
   return (dispatch) => {
+    dispatch({ type: "CLEAR_ERRORS "});
     dispatch({ type: "LOADING_USER" });
     const userId = userInfo.id
     const user = {
@@ -76,16 +79,16 @@ export function updateUser(userInfo) {
         "Content-Type": "application/json",
         "Authorization": token
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify({auth: user})
     })
     .then(handleErrors)
     .then(response => response.json())
     .then(result => {
-      // BAD REQUEST returns email error object
-      if (result.email) {
-        dispatch({ type: "ADD_ERRORS", payload: result.email})
+      // BAD REQUEST returns error message array instead of user object
+      console.log("inside updateUser: ", result)
+      if (Array.isArray(result)) {
+        dispatch({ type: "ADD_ERRORS", payload: result })
       } else {
-        console.log("updateUser result: ", result)
         dispatch({ type: "CLEAR_ERRORS" })
         dispatch({ type: "SET_USER", payload: result})
       }

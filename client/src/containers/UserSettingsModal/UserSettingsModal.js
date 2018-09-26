@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import DarkenBackground from '../../components/DarkenBackground';
 import CloseButton from '../../components/CloseButton';
+import ErrorMessage from '../../components/ErrorMessage';
 import { deactivateUserSettingsBox, clearErrors } from '../../actions/Application';
 import { updateUser } from '../../actions/Users';
 
@@ -136,7 +137,7 @@ class UserSettingsModal extends Component {
                 /><br />
               </div>
 
-              <div classname="full-width">
+              <div className="full-width">
                 <label>New Password:</label><br />
                 <input
                   className={shouldMarkError('password') ? "error" : ""}
@@ -153,7 +154,9 @@ class UserSettingsModal extends Component {
               </div>
 
               <div className="full-width errors">
-                {this.props.application.errors && this.props.application.errors[0]}
+                {this.props.application.errors && this.props.application.errors.map(error => {
+                  return <ErrorMessage message={error} />
+                })}
               </div>
 
             </form>

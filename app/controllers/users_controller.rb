@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if @user && @user.save
       render json: @user
     else
-      render json: @user.errors, status: :bad_request
+      render json: @user.errors.full_messages.to_json, status: :bad_request
     end
   end
 
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user
     else
-      render json: @user.errors, status: :bad_request
+      render json: @user.errors.full_messages.to_json, status: :bad_request
     end
   end
 
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def auth_params
-    params.permit(:first_name, :last_name, :email, :password)
+    params.require(:auth).permit(:first_name, :last_name, :email, :password)
   end
 end
