@@ -9,41 +9,45 @@ import { fetchNews } from '../../actions/News';
 class SearchNavBox extends Component {
 
   backOneWeek = (event) => {
-    const newDate = moment(this.props.searchInfo.currentSearch.endDate).subtract(1, 'weeks').format("YYYY-MM-DD")
+    const newStart = moment(this.props.searchInfo.currentSearch.startDate).subtract(1, 'weeks').format("YYYY-MM-DD")
+    const newEnd = moment(newStart).add(1, 'days').format("YYYY-MM-DD")
     const newSearchTerms = {
       q: this.props.searchInfo.currentSearch.q,
-      startDate: newDate,
-      endDate: newDate
+      startDate: newStart,
+      endDate: newEnd
     }
     this.props.fetchNews(newSearchTerms);
   }
 
   backOneDay = (event) => {
-    const newDate = moment(this.props.searchInfo.currentSearch.endDate).subtract(1, 'days').format("YYYY-MM-DD")
+    const newStart = moment(this.props.searchInfo.currentSearch.startDate).subtract(1, 'days').format("YYYY-MM-DD")
+    const newEnd = moment(newStart).add(1, 'days').format("YYYY-MM-DD")
     const newSearchTerms = {
       q: this.props.searchInfo.currentSearch.q,
-      startDate: newDate,
-      endDate: newDate
+      startDate: newStart,
+      endDate: newEnd
     }
     this.props.fetchNews(newSearchTerms);
   }
 
   forwardOneDay = (event) => {
-    const newDate = moment(this.props.searchInfo.currentSearch.endDate).add(1, 'days').format("YYYY-MM-DD")
+    const newStart = moment(this.props.searchInfo.currentSearch.startDate).add(1, 'days').format("YYYY-MM-DD")
+    const newEnd = moment(newStart).add(1, 'days').format("YYYY-MM-DD")
     const newSearchTerms = {
       q: this.props.searchInfo.currentSearch.q,
-      startDate: newDate,
-      endDate: newDate
+      startDate: newStart,
+      endDate: newEnd
     }
     this.props.fetchNews(newSearchTerms);
   }
 
   forwardOneWeek = (event) => {
-    const newDate = moment(this.props.searchInfo.currentSearch.endDate).add(1, 'weeks').format("YYYY-MM-DD")
+    const newStart = moment(this.props.searchInfo.currentSearch.startDate).add(1, 'weeks').format("YYYY-MM-DD")
+    const newEnd = moment(newStart).add(1, 'days').format("YYYY-MM-DD")
     const newSearchTerms = {
       q: this.props.searchInfo.currentSearch.q,
-      startDate: newDate,
-      endDate: newDate
+      startDate: newStart,
+      endDate: newEnd
     }
     this.props.fetchNews(newSearchTerms);
   }
