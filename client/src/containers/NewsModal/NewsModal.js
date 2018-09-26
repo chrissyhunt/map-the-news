@@ -34,7 +34,7 @@ class NewsModal extends Component {
     // console.log(this.state)
     return (
       <React.Fragment>
-        <DarkenBackground />
+        <DarkenBackground closeModal={this.closeModal} />
 
         <div className="news-detail-modal">
           <CloseButton closeModal={this.closeModal} />

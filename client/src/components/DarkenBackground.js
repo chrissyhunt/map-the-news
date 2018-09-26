@@ -2,7 +2,7 @@ import React from 'react';
 
 const DarkenBackground = (props) => {
   return (
-    <div class="darken-background">&nbsp;</div>
+    <div className="darken-background" onClick={props.closeModal}>&nbsp;</div>
   )
 }
 

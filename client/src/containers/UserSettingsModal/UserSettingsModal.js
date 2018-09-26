@@ -94,7 +94,7 @@ class UserSettingsModal extends Component {
 
     return (
       <React.Fragment>
-        <DarkenBackground />
+        <DarkenBackground closeModal={this.closeModal} />
 
         <div className="user-settings-modal">
           <CloseButton closeModal={this.closeModal} />

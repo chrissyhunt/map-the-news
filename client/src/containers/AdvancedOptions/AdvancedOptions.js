@@ -6,8 +6,14 @@ import AdvancedSearchBox from './AdvancedSearchBox';
 import LoadSavedSearches from './LoadSavedSearches';
 import SearchNavBox from './SearchNavBox';
 import DarkenBackground from '../../components/DarkenBackground';
+import { deactivateSearchOptionsBox } from '../../actions/Application';
 
 class AdvancedOptions extends Component {
+
+  closeAdvancedOptions = (event) => {
+    event.preventDefault();
+    this.props.deactivateSearchOptionsBox();
+  }
 
   render() {
     return (
@@ -20,7 +26,7 @@ class AdvancedOptions extends Component {
         {!this.props.application.topStoriesMode && <AdvancedSearchBox />}
         {!this.props.application.topStoriesMode && <LoadSavedSearches />}
       </div>
-      <DarkenBackground />
+      <DarkenBackground closeModal={this.closeAdvancedOptions} />
       </React.Fragment>
     )
   }
@@ -35,4 +41,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AdvancedOptions);
+export default connect(mapStateToProps, { deactivateSearchOptionsBox })(AdvancedOptions);
