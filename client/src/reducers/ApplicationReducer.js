@@ -3,7 +3,7 @@ function applicationReducer(state = {
   searchOptionsBoxOpen: null,
   userSettingsBoxOpen: null,
   topStoriesMode: true,
-  loading: null,
+  loading: false,
   errors: false
 }, action) {
   switch (action.type) {
@@ -55,7 +55,7 @@ function applicationReducer(state = {
         userSettingsBoxOpen: false
       }
 
-    case "LOADING":
+    case "LOADING_DISPLAY":
       return {
         ...state,
         loading: action.payload
@@ -64,7 +64,7 @@ function applicationReducer(state = {
     case "CLEAR_LOADING_MESSAGE":
       return {
         ...state,
-        loading: null
+        loading: false
       }
 
     case "ADD_ERRORS":
