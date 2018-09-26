@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../../Welcome.css';
 import Signup from './Signup';
 import Login from './Login';
 import { getToken } from '../../actions/Users';
