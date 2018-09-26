@@ -15,16 +15,20 @@ class LoadSavedSearches extends Component {
   }
 
   pageForward = () => {
-    this.setState({
-      start: this.state.start+6,
-      end: this.state.end+6
+    this.setState((prevState) => {
+      return {
+        start: prevState.start+6,
+        end: prevState.end+6
+      }
     })
   }
 
   pageBackward = () => {
-    this.setState({
-      start: this.state.start-6,
-      end: this.state.end-6
+    this.setState((prevState) => {
+      return {
+        start: prevState.start-6,
+        end: prevState.end-6
+      }
     })
   }
 

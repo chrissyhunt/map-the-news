@@ -49,7 +49,7 @@ class AdvancedSearchBox extends Component {
       searchTerms: {
         q: '',
         startDate: moment().format("YYYY-MM-DD"),
-        endDate: moment().format("YYYY-MM-DD")
+        endDate: moment().add(1, 'days').format("YYYY-MM-DD")
       }
     })
   }
