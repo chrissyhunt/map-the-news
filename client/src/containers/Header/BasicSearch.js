@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { setSearchNewsMode } from '../../actions/Application';
+import { setSearchNewsMode, clearActiveNewsSource } from '../../actions/Application';
 import { fetchNews } from '../../actions/News';
 
 class BasicSearch extends Component {
@@ -38,6 +38,7 @@ class BasicSearch extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.setSearchNewsMode();
+    this.props.clearActiveNewsSource();
     this.props.fetchNews(this.state.searchTerms);
   }
 
@@ -57,4 +58,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNews, setSearchNewsMode })(BasicSearch);
+export default connect(mapStateToProps, { fetchNews, setSearchNewsMode, clearActiveNewsSource })(BasicSearch);
