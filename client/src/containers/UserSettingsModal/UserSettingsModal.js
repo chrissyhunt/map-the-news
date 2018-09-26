@@ -82,8 +82,6 @@ class UserSettingsModal extends Component {
   }
 
   render() {
-    // console.log("user settings state: ", this.state)
-
     const errors = this.validate(this.state.user.email, this.state.user.firstName);
     const isEnabled = !Object.keys(errors).some(x => errors[x])
     const shouldMarkError = (field) => {

@@ -42,7 +42,6 @@ class HeaderContainer extends Component {
   }
 
   render() {
-    // console.log(this.props)
     return (
       <React.Fragment>
         <div className="row header-row">

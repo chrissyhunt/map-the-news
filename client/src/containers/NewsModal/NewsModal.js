@@ -31,7 +31,6 @@ class NewsModal extends Component {
     const activeNewsSource = this.props.application.activeNewsSource
     const newsItems = this.props.newsItems.allNews[activeNewsSource]
     const sourceName = this.props.newsItems.allNews[activeNewsSource][0].source.name
-    // console.log(this.state)
     return (
       <React.Fragment>
         <DarkenBackground closeModal={this.closeModal} />
