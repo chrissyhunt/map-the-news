@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: mapthenews_production
-  username: myapp
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  username: admin
+  password: <%= ENV['MAPTHENEWS_DATABASE_PASSWORD'] %>
