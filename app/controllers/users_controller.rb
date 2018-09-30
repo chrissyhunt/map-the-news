@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, only: [:create]
+  skip_before_action :authenticate_user, only: [:create, :test]
+
+  def test
+    render json: {'test': 'successful'}
+  end
 
   def create
     @user = User.new(auth_params)

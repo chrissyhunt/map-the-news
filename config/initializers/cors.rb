@@ -6,11 +6,16 @@
 # Read more: https://github.com/cyu/rack-cors
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do
-    origins 'localhost:3001'
+  # allow do
+  #   origins 'mapthenews.surge.sh'
+  #
+  #   resource '*',
+  #     headers: :any,
+  #     methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  # end
 
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  allow do
+    origins '*'
+    resource '/test', :headers => :any, :methods => [:get]
   end
 end

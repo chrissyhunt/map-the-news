@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post 'news_request' => 'news_request#news_request'
     post 'top_headlines' => 'news_request#top_headlines'
     post 'user_token' => 'user_token#create'
+    get 'test' => 'users#test'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
