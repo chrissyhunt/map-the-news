@@ -6,7 +6,7 @@ Map the News is a dynamic news application built in React/Redux with a Rails API
 
 The app fetches headlines from the News API (http://newsapi.com) and displays them on a grid, positioned based on each news source's political bias and overall quality ratings. Users can also save search terms to track the coverage of a topic overtime.
 
-***NEW: You can view this project live at https://http://mapthenews.surge.sh/***
+***NEW: You can view this project live at http://mapthenews.surge.sh/***
 
 Note: Code in 'master' runs frontend and backend apps locally using a sqlite3 database. Code in 'deploy-heroku' runs the Rails API backend, configured with Postgres for Heroku. Frontend code has been configured for Surge.sh deployment, and is now at https://github.com/chrissyhunt87/map-the-news-frontend.
 
